@@ -24,7 +24,7 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/admin/catalog/{{$item->id}}">{{$item->name}}</a></td>
                                 @endif
                                 <td>{{$item->CN}}</td>
-                                <td></td>
+                                <td><button class="btn btn-success">Редактировать</button></td>
                             </tr>
                         @endforeach
                         </tbody>
