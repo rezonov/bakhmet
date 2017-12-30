@@ -115,7 +115,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Каталоги12',
+            'text'        => 'Каталоги34',
             'url'         => 'admin/catalogs',
             'icon'        => 'file',
 
