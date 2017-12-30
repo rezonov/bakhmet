@@ -49,9 +49,10 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th>Rendering engine</th>
-
-                        </tr>
+                            @foreach($header[0] as $item_sub)
+                                <th>{{$item_sub}}</th>
+                            @endforeach
+                        </tr>a
                     </table>
                 </div>
             </div>
