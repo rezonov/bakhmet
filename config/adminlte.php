@@ -115,12 +115,12 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Каталоги',
+            'text'        => 'Каталоги12',
             'url'         => 'admin/catalogs',
             'icon'        => 'file',
 
         ],
-        
+
     ],
 
     /*
