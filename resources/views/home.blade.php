@@ -7,7 +7,5 @@
 @stop
 
 @section('content')
-    @foreach ($names as $item)
-        <p>{{$item->name}} {{$item->Gname}}  {{$item->value}}</p>
-    @endforeach
+   <h3>GO!</h3>
 @stop
