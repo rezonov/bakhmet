@@ -29,6 +29,8 @@ class GoodsController extends Controller
     function AllCatalogs()
     {
 
+            // Пользователь вошёл в систему...
+
         /*select CG.name, CG.id, (
             SELECT COUNT(*) from catalog
                  join goods_catalogs on goods_catalogs.id_catalog = catalog.id
