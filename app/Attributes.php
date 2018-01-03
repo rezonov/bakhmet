@@ -9,7 +9,12 @@ class Attributes extends Model
     //
     protected $table = 'attributes';
 
-    public function goods() {
-        return $this->belongsToMany('App\Goods', 'goods_attributes')->withPivot('id');
+    public function Goods() {
+        return $this->belongsToMany(
+            'App\Goods',
+            'goods_attributes',
+            'id_good',
+            'id_good'
+            )->withPivot('id');
     }
 }

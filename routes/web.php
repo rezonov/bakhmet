@@ -11,20 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+
+
+Auth::routes();
+Route::get('/catalog/{id}/{start}', 'GoodsController@ShowPublicCatalog');
+Route::post('/actions/json', 'GoodsController@JsonCatalog');
+/*
+ * Административная часть
+ */
+Route::get('/admin', function () {
+    return view('admin/dashboard');
 })->middleware('auth');
 
 Route::get('/categories', function (){
-    return view ('categories');
+    return view ('admin/categories');
 })->middleware('auth');
 
-Auth::routes();
+
 
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/catalogs', 'GoodsController@AllCatalogs')->middleware('auth');
 Route::get('/admin/catalog/{id}', 'GoodsController@ShowCatalog')->middleware('auth');;
+Route::get('/admin/catalog/edit/{id}', 'GoodsController@EditCatalogs')->middleware('auth');;
 
 
 Route::get('/admin/goods/{id}', 'GoodsController@OneGood')->middleware('auth');;

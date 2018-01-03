@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\catalogs;
+use App\Goods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class GoodsController extends Controller
 {
@@ -23,13 +26,13 @@ class GoodsController extends Controller
         }
         // die();
         // dump($finalAr);
-        return view('home', ['names' => $finalAr]);
+        return view('admin/home', ['names' => $finalAr]);
     }
 
     function AllCatalogs()
     {
 
-            // Пользователь вошёл в систему...
+        // Пользователь вошёл в систему...
 
         /*select CG.name, CG.id, (
             SELECT COUNT(*) from catalog
@@ -47,7 +50,99 @@ class GoodsController extends Controller
         foreach ($Allc as $Cat) {
             $finalCat[] = $Cat;
         }
-        return view('catalogs', ['fnames' => $finalCat]);
+        return view('admin/catalogs', ['fnames' => $finalCat]);
+
+    }
+
+    function EditCatalogs($id)
+    {
+
+        $Attrs = DB::table('attributes')
+            ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
+            ->select('attributes.name as name', 'attributes.type as type', 'attributes.id as id')
+            ->where('catalogs__attributes.id_catalog', '=', $id)
+            ->get();
+
+        foreach ($Attrs as $item) {
+            $finalAr[] = $item;
+
+
+        }
+        return view('admin/editcatalogs', ['fnames' => $finalAr]);
+
+    }
+
+    public function JsonCatalog(Request $request) {
+
+        dump($request->min);
+
+    }
+    public function ShowPublicCatalog($id, $start=0)
+    {
+
+        /*
+         *select goods.id, goods_catalogs.id_catalog, goods.name from `goods`, `goods_catalogs`
+        where `goods`.id = `goods_catalogs`.`id_good` and
+        `goods_catalogs`.`id_catalog` = 1
+        GROUP by id_good
+         */
+
+        $Catalog = DB::table('catalog')
+                ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
+                ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
+                ->groupBy('goods.id')
+                ->where('catalog.id', '=', $id)
+                ->select('goods.name as name', 'goods.id as id')
+                ->skip($start)
+                ->take(1000)
+                ->get();
+
+
+
+        foreach ($Catalog as $Cat) {
+            $finalAr[$Cat->id][] = $Cat->id;
+            $finalAr[$Cat->id][] = $Cat->name;
+            // dump($finalAr);
+            $HeaderAr[0]['name'] = "Модель";
+            $HeaderAr[0]['type'] = 'text';
+            $HeaderAr[0]['id'] = 0;
+            $HeaderAr[0]['min'] = 0;
+            $HeaderAr[0]['max'] = 0;
+            $Attrs = DB::table('attributes')
+                ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
+                ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
+                ->select('attributes.name as name', 'attributes.id as id', 'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type')
+                ->where('goods.id', '=', $Cat->id)
+                ->get();
+            $c = 1;
+
+            foreach ($Attrs as $item) {
+
+                $HeaderAr[$c]['name'] = $item->Gname;
+                $HeaderAr[$c]['type'] = $item->type;
+                $HeaderAr[$c]['id'] = $item->id;
+                $ValueArr[$c][]=$item->value;
+                    $finalAr[$Cat->id][] = $item->value;
+                $c++;
+            }
+
+        }
+
+        for($i=1;$i<=count($ValueArr);$i++) {
+            if(!empty(min($ValueArr[$i]))) {
+            $HeaderAr[$i]['min'] = min($ValueArr[$i]);
+            }
+            else {
+                $HeaderAr[$i]['min'] = 0;
+            }
+            $HeaderAr[$i]['max'] = max($ValueArr[$i]);
+        }
+        dump($HeaderAr);
+        return view('header', [
+            'header' => $HeaderAr,
+            'data' => $finalAr,
+
+        ]);
 
     }
 
@@ -86,7 +181,7 @@ class GoodsController extends Controller
             $c = 1;
         }
 
-        return view('catalog', [
+        return view('admin/catalog', [
             'name' => $Name,
             'fnames' => $finalAr,
             'header' => $HeaderAr
@@ -94,8 +189,7 @@ class GoodsController extends Controller
 
     }
 
-    public
-    function SaveAttr(Request $request)
+    public function SaveAttr(Request $request)
     {
         $Post = $request->request;
         //  dump($request->id);
@@ -146,6 +240,6 @@ class GoodsController extends Controller
         }
         // die();
         // dump($finalAr);
-        return view('good', ['attrs' => $finalAr, 'Gname' => $Gname, 'AllCatalog' => $AllCatalog, 'id' => $id]);
+        return view('admin/good', ['attrs' => $finalAr, 'Gname' => $Gname, 'AllCatalog' => $AllCatalog, 'id' => $id]);
     }
 }
