@@ -137,7 +137,7 @@ class GoodsController extends Controller
             }
             $HeaderAr[$i]['max'] = max($ValueArr[$i]);
         }
-        dump($HeaderAr);
+
         return view('header', [
             'header' => $HeaderAr,
             'data' => $finalAr,

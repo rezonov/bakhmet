@@ -1,8 +1,8 @@
-
+    {{$c=0}}
     @foreach($attr as $tr)
-
+                {{ $c++ }}
                <p>
-                   <label for="amount-{{$tr['id']}}">{{$tr['name']}}</label>
+                   <label for="amount">{{$tr['name']}}</label>
                    <input type="text" id="amount-{{$tr['id']}}" style="border:0; color:#f6931f; font-weight:bold;" />
                </p>
                <div id="slider-range-{{$tr['id']}}"></div>
@@ -20,23 +20,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $.ajax({
-                type: "POST",
-                url: "/actions/json",
-                data: {
-                    "min": ui.values[ 0 ],
-                    "max":  ui.values[ 1 ]
-                },
-                datatype: "json"
-            }).done(function( msg ) {
-                if(msg.error == 0){
-                    //$('.sucess-status-update').html(msg.message);
-
-                }else{
-
-                    //$('.error-favourite-message').html(msg.message);
-                }
-            });
+            filterTable('#allcatalog', '{{$c}}', ui.values[ 0 ] , ui.values[ 1 ]  );
         }
     });
     $( "#amount-{{$tr['id']}}" ).val(  $( "#slider-range-{{$tr['id']}}" ).slider( "values", 0 ) +

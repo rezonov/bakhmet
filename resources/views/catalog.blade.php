@@ -1,4 +1,4 @@
-<table id="allcatalog">
+<table id="allcatalog" class="table">
     @foreach($table as $tr)
         <tr>
 
