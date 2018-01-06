@@ -1,0 +1,18 @@
+#allcatalog th {
+
+    padding:0px;
+    padding-top:5px;
+    font-size:14px;
+    text-align: center;
+}
+
+#allcatalog td {
+    padding:2px;
+    white-space:nowrap;
+    font-size:14px;
+    text-align: center;
+}
+
+.filters label, .filters input[type=text]{
+    font-size:14px;
+}

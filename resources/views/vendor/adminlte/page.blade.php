@@ -18,6 +18,7 @@
 ][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
 
 @section('body')
+
     <div class="wrapper">
 
         <!-- Main Header -->

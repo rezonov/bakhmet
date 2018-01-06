@@ -1,6 +1,9 @@
-    {{$c=0}}
+    <?php $c=0;?>
+    <div class="filters">
+
     @foreach($attr as $tr)
-                {{ $c++ }}
+                <?php  $c = $c + 1;?>
+
                <p>
                    <label for="amount">{{$tr['name']}}</label>
                    <input type="text" id="amount-{{$tr['id']}}" style="border:0; color:#f6931f; font-weight:bold;" />
@@ -27,3 +30,4 @@
         " - " + $( "#slider-range-{{$tr['id']}}" ).slider( "values", 1 ) );
 </script>
     @endforeach
+                </div>

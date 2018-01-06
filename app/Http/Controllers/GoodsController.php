@@ -62,7 +62,7 @@ class GoodsController extends Controller
             ->select('attributes.name as name', 'attributes.type as type', 'attributes.id as id')
             ->where('catalogs__attributes.id_catalog', '=', $id)
             ->get();
-
+        dump($Attrs);
         foreach ($Attrs as $item) {
             $finalAr[] = $item;
 
@@ -72,11 +72,7 @@ class GoodsController extends Controller
 
     }
 
-    public function JsonCatalog(Request $request) {
 
-        dump($request->min);
-
-    }
     public function ShowPublicCatalog($id, $start=0)
     {
 
@@ -166,7 +162,7 @@ class GoodsController extends Controller
             $Name = $Cat->name;
             $HeaderAr[0][0] = 'Модель';
             $Attrs = DB::table('attributes')
-                ->join('goods_attributes', 'goods_attributes.id_attribute', '=', 'attributes.id')
+                ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
                 ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname')
                 ->where('goods.id', '=', $Cat->id)
@@ -226,8 +222,9 @@ class GoodsController extends Controller
 
 
         $Attrs = DB::table('attributes')
-            ->join('goods_attributes', 'goods_attributes.id_attribute', '=', 'attributes.id')
+            ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
             ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
+
             ->select('attributes.name as name', 'goods.name as Gname', 'goods_attributes.value', 'attributes.id as id')
             ->where('goods.id', '=', $id)
             ->get();
@@ -238,8 +235,19 @@ class GoodsController extends Controller
             //  dump($Gname);
 
         }
+        $Descriptions = DB::table('goods')
+            ->join('descriptions', 'descriptions.id', '=', 'goods.id')
+            ->where('goods.id', '=', $id)
+            ->get();
+
         // die();
         // dump($finalAr);
-        return view('admin/good', ['attrs' => $finalAr, 'Gname' => $Gname, 'AllCatalog' => $AllCatalog, 'id' => $id]);
+        return view('admin/good',
+            ['attrs' => $finalAr,
+                'Gname' => $Gname,
+                'AllCatalog' => $AllCatalog,
+                'Descriptions' => $Descriptions,
+                'id' => $id
+            ]);
     }
 }
