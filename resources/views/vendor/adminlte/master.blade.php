@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="_token" content="{{ csrf_token() }}" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'AdminLTE 2'))
@@ -30,7 +32,7 @@
     @endif
 
     @yield('adminlte_css')
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -40,12 +42,53 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+
+
 </head>
 <body class="hold-transition @yield('body_class')">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-@yield('body')
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/jquery.ui.widget.js"></script>
+<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.upload.js"></script>
+
+@yield('body')
+<script>
+    $("#uploaddiamond").on("submit", function(e) {
+        e.preventDefault();
+        var extension = $('#result_file').val().split('.').pop().toLowerCase();
+        if ($.inArray(extension, ['csv', 'xls', 'xlsx']) == -1) {
+            $('#errormessage').html('Please Select Valid File... ');
+        } else {
+
+            var file_data = $('#result_file').prop('files')[0];
+            var supplier_name = $('#supplier_name').val();
+
+
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            form_data.append('supplier_name', supplier_name);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name=_token]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "{{url('postDiamond')}}", // point to server-side PHP script
+                data: form_data,
+                type: 'POST',
+                contentType: false, // The content type used when sending data to the server.
+                cache: false, // To unable request pages to be cached
+                processData: false,
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        }
+    });
+</script>
 <script src="/js/jquery-ui/jquery-ui.js"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/ckeditor.js"></script>

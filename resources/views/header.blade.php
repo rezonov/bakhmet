@@ -1,6 +1,5 @@
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -10,6 +9,7 @@
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://laravel.devel/builder/BootstrapPageGenerator/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="container" id="LG">

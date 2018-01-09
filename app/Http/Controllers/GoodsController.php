@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\catalogs;
-use App\Goods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Cache;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GoodsController extends Controller
 {
@@ -29,17 +27,59 @@ class GoodsController extends Controller
         return view('admin/home', ['names' => $finalAr]);
     }
 
+    public function PostCatalog (Request $request) {
+        $product = Product::create($request->all());
+        ProductPhoto::whereIn('id', explode(",", $request->file_ids))
+            ->update(['product_id' => $product->id]);
+        return 'Product saved successfully';
+    }
+    public function UploadCatalog(Request $request) {
+        $photos = [];
+
+        foreach ($request->photos as $photo) {
+            $filename = $photo->store('photos');
+
+            $photo_object = new \stdClass();
+            $photo_object->name = $filename;
+
+            $photos[] = $photo_object;
+        }
+
+        return response()->json(array('files' => $photos), 200);
+    }
+    public function ShowExcel() {
+
+
+        $filename = '/public/uploads/Filename(73).xls';
+        Excel::load($filename, function($reader) {
+
+            // Getting all results
+            $results = $reader->first();
+
+            $results = $reader->all();
+            dump($results[0]);
+            // ->all() is a wrapper for ->get() and will work the same
+    //        return json(array($results));
+
+        });
+
+    }
+    public function postDiamond(Request $request) {
+        $supplier_name = $request->supplier_name;
+        $extension = $request->file('file');
+        $extension = $request->file('file')->getClientOriginalExtension(); // getting excel extension
+        $dir = 'uploads/';
+        $filename = uniqid().'_'.time().'_'.date('Ymd').'.'.$extension;
+        $request->file('file')->move($dir, $filename);
+
+    }
+    public function ImportCatalog() {
+        return view('admin/importexcel');
+    }
     function AllCatalogs()
     {
 
-        // Пользователь вошёл в систему...
 
-        /*select CG.name, CG.id, (
-            SELECT COUNT(*) from catalog
-                 join goods_catalogs on goods_catalogs.id_catalog = catalog.id
-            where catalog.id = CG.id
-            ) as CN from catalog as CG
-        */
         $Allc = DB::table('catalog as CG')->
         select(DB::RAW('CG.name, CG.id, CG.parent, (
             SELECT COUNT(*) from catalog 
@@ -73,7 +113,7 @@ class GoodsController extends Controller
     }
 
 
-    public function ShowPublicCatalog($id, $start=0)
+    public function ShowPublicCatalog($id, $start = 0)
     {
 
         /*
@@ -84,15 +124,14 @@ class GoodsController extends Controller
          */
 
         $Catalog = DB::table('catalog')
-                ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
-                ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
-                ->groupBy('goods.id')
-                ->where('catalog.id', '=', $id)
-                ->select('goods.name as name', 'goods.id as id')
-                ->skip($start)
-                ->take(1000)
-                ->get();
-
+            ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
+            ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
+            ->groupBy('goods.id')
+            ->where('catalog.id', '=', $id)
+            ->select('goods.name as name', 'goods.id as id')
+            ->skip($start)
+            ->take(1000)
+            ->get();
 
 
         foreach ($Catalog as $Cat) {
@@ -117,18 +156,17 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['name'] = $item->Gname;
                 $HeaderAr[$c]['type'] = $item->type;
                 $HeaderAr[$c]['id'] = $item->id;
-                $ValueArr[$c][]=$item->value;
-                    $finalAr[$Cat->id][] = $item->value;
+                $ValueArr[$c][] = $item->value;
+                $finalAr[$Cat->id][] = $item->value;
                 $c++;
             }
 
         }
 
-        for($i=1;$i<=count($ValueArr);$i++) {
-            if(!empty(min($ValueArr[$i]))) {
-            $HeaderAr[$i]['min'] = min($ValueArr[$i]);
-            }
-            else {
+        for ($i = 1; $i <= count($ValueArr); $i++) {
+            if (!empty(min($ValueArr[$i]))) {
+                $HeaderAr[$i]['min'] = min($ValueArr[$i]);
+            } else {
                 $HeaderAr[$i]['min'] = 0;
             }
             $HeaderAr[$i]['max'] = max($ValueArr[$i]);
@@ -140,6 +178,74 @@ class GoodsController extends Controller
 
         ]);
 
+    }
+
+    public function SaveExcel($id)
+    {
+        $finalAr = array();
+
+        $Catalog = DB::table('catalog')
+            ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
+            ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
+            ->where('catalog.id', '=', $id)
+            ->groupBy('goods.id')
+            ->select('goods.name as name', 'goods.id as id')
+            ->get();
+
+        //  dump($Catalog);
+        foreach ($Catalog as $Cat) {
+
+            $finalAr[$Cat->id][] = $Cat->name;
+
+            $Name = $Cat->name;
+           // $HeaderAr[0][0] = 'Модель';
+            $Attrs = DB::table('attributes')
+                ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
+                ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
+                ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname')
+                ->where('goods.id', '=', $Cat->id)
+                ->get();
+            $c = 1;
+            $HeaderAr2 = array('Модель');
+            foreach ($Attrs as $item) {
+                    $HeaderAr2[] = $item->Gname;
+                    $finalAr[$Cat->id][] = $item->value;
+            }
+        }
+
+
+        foreach ($HeaderAr2 as $key=>$value) {
+            $HeaderAr3[] = $value;
+        }
+        $HeaderAr = $HeaderAr3;
+       // dump($HeaderAr);
+        foreach ($finalAr as $item) {
+
+                foreach ($item as $key => $value) {
+                    $FArray[] = $value;
+                }
+                $FinalArray[] = $FArray;
+                $FArray = array();
+        }
+
+
+        Excel::create('Filename', function ($excel) use ($FinalArray, $HeaderAr) {
+
+            $excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
+                $sheet->appendRow($HeaderAr);
+                $sheet->row(1, function($row) {
+
+                    // call cell manipulation methods
+                    $row->setBackground('#367fa9');
+                    $row->setFontColor('#ffffff');
+
+                });
+                foreach ($FinalArray as $item) {
+                    $sheet->appendRow($item);
+                }
+            });
+
+        })->export('xls');
     }
 
     function ShowCatalog($id)
@@ -180,28 +286,23 @@ class GoodsController extends Controller
         return view('admin/catalog', [
             'name' => $Name,
             'fnames' => $finalAr,
-            'header' => $HeaderAr
+            'header' => $HeaderAr,
+            'id' => $id
         ]);
 
     }
 
-    public function SaveAttr(Request $request)
+    public function SaveImage(Request $request)
     {
         $Post = $request->request;
-        //  dump($request->id);
-        foreach ($request->Val as $key => $item) {
-            DB::table('goods_attributes')
-                ->where(['id_good' => $request->id, 'id_attribute' => $key])
-                ->update(['value' => $item]);
-
-        }
 
 
-        $AllCatalog = DB::table('catalog')
-            ->get();
-
+        $AllCatalog = DB::table('catalog')->get();
+        DB::table('descriptions')
+            ->where('id', "=", $request->id)
+            ->update(['file' => $request->image]);
         return $this->OneGood($request->id);
-        //return Redirect::back();
+
     }
 
     public
@@ -224,7 +325,6 @@ class GoodsController extends Controller
         $Attrs = DB::table('attributes')
             ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
             ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
-
             ->select('attributes.name as name', 'goods.name as Gname', 'goods_attributes.value', 'attributes.id as id')
             ->where('goods.id', '=', $id)
             ->get();
@@ -249,5 +349,44 @@ class GoodsController extends Controller
                 'Descriptions' => $Descriptions,
                 'id' => $id
             ]);
+    }
+
+    public function SaveDescr(Request $request)
+    {
+        $Post = $request->request;
+
+
+        $AllCatalog = DB::table('catalog')->get();
+        DB::table('descriptions')
+            ->where('id', "=", $request->id)
+            ->update(['text' => $request->text]);
+        return $this->OneGood($request->id);
+
+    }
+
+    public function SaveAttr(Request $request)
+    {
+        $Post = $request->request;
+        //  dump($request->id);
+        foreach ($request->Val as $key => $item) {
+            DB::table('goods_attributes')
+                ->where(['id_good' => $request->id, 'attributes_id' => $key])
+                ->update(['value' => $item]);
+
+        }
+        $values = array("text" => $request->text);
+        if ($request->image != '') {
+            $values['file'] = $request->image;
+        }
+        DB::table('descriptions')
+            ->where('id', "=", $request->id)
+            ->update($values);
+
+
+        $AllCatalog = DB::table('catalog')
+            ->get();
+
+        return $this->OneGood($request->id);
+        //return Redirect::back();
     }
 }

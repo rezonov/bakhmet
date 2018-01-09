@@ -29,13 +29,21 @@ Route::get('/categories', function (){
 
 
 
+
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/дщпшт', 'HomeController@index')->name('home');
 Route::get('/admin/catalogs', 'GoodsController@AllCatalogs')->middleware('auth');
 Route::get('/admin/catalog/{id}', 'GoodsController@ShowCatalog')->middleware('auth');;
 Route::get('/admin/catalog/edit/{id}', 'GoodsController@EditCatalogs')->middleware('auth');;
+Route::get('/admin/catalogs/excel/{id}', 'GoodsController@SaveExcel')->middleware('auth');;
 
+Route::get('/admin/goods/{id}', 'GoodsController@OneGood')->middleware('auth');
+Route::get('/attrs', 'AttributesController@AllAttributes')->middleware('auth');
 
-Route::get('/admin/goods/{id}', 'GoodsController@OneGood')->middleware('auth');;
-Route::get('/attrs', 'AttributesController@AllAttributes')->middleware('auth');;
-
+Route::get('/admin/import', 'GoodsController@ImportCatalog')->middleware('auth');
+Route::post('/postDiamond', [
+    'as' => 'postDiamond',
+    'uses' => 'GoodsController@postDiamond'
+]);
+Route::get('/admin/excel', 'GoodsController@ShowExcel');

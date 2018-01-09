@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>ТБ БАХМЕТ</b>',
+    'logo' => '<b>ТБ БАХМЕТ2</b>',
 
     'logo_mini' => '<b>TD</b>',
 
@@ -110,13 +110,14 @@ return [
     'menu' => [
         'Главное меню',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text'        => 'Каталоги',
             'url'         => 'admin/catalogs',
+            'icon'        => 'file',
+
+        ],
+        [
+            'text'        => 'Импорт каталогов',
+            'url'         => 'admin/import',
             'icon'        => 'file',
 
         ],

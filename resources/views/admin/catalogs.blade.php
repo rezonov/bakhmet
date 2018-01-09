@@ -9,11 +9,14 @@
 @section('content')
     <div class="box">
 
-        <div class="box-body">
+        <div class="box-header">
             <h3 class="box-title">Каталог</h3>
+        </div>
+        <div class="col-md-12">
 
-            <div class="box-body">
-                <div class="box-body">
+        </div>
+        <div class="body">
+
                     <table id="example1" class="table table-bordered table-striped">
                         <tbody>
                         @foreach($fnames as $item)
@@ -31,8 +34,7 @@
                         <tfoot>
 
                     </table>
-                </div>
-            </div>
+
         </div>
     </div>
 

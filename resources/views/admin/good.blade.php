@@ -7,6 +7,10 @@
 @stop
 
 @section('content')
+    {!! Form::open([
+                          'action' => 'GoodsController@SaveAttr',
+                          'method' => 'post'
+                          ]) !!}
     <div class="box">
 
         <div class="box-body">
@@ -36,10 +40,7 @@
 
                 <div class="box-body">
                     <div class="row">
-                        {!! Form::open([
-                            'action' => 'GoodsController@SaveAttr',
-                            'method' => 'post'
-                            ]) !!}
+
                         <input type="hidden" name="id" value="{{$id}}"/>
                         @foreach ($attrs as $item)
                             <div class="col-xs-3">
@@ -54,7 +55,7 @@
                             <div>
                                 <br/>
                                 <input type="submit" value="Сохранить" class="btn btn-success"/>
-                                {!! Form::close() !!}
+
                             </div>
                         </div>
 
@@ -72,10 +73,8 @@
         <div class="box-header">
             <div class="row">
                 <div class="col-md-12">
-                    {!! Form::open([
-                                'action' => 'GoodsController@SaveAttr',
-                                'method' => 'post'
-                                ]) !!}
+
+
                 </div>
             </div>
             <h3 class="box-title">Описание</h3>
@@ -83,13 +82,13 @@
         <div class="box-body">
             <div class="col-md-12">
 
-                <textarea id="editor1">{{$Descriptions[0]->text}}</textarea>
+                <textarea id="editor1" name="text">{{$Descriptions[0]->text}}</textarea>
                 <div class="row">
                     <div class="col-sm-12">
                         <div>
                             <br/>
                             <p><input type="submit" value="Сохранить" class="btn btn-success"/></p>
-                            {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>
@@ -109,7 +108,9 @@
                             <h3 class="box-title">Текущее изображение</h3>
                         </div>
                         <div class="box-body">
-                            <img width="250px" src="/img/{{$Descriptions[0]->file}}"/>
+
+
+                            <img width="250px" src="{{$Descriptions[0]->file}}"/>
                         </div>
                     </div>
                 </div>
@@ -128,7 +129,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 align-right">
-                    <input type="button" class="btn btn-success" value="Сохранить">
+                    <input type="submit" class="btn btn-success" value="Сохранить">
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

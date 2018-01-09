@@ -10,10 +10,14 @@
     <div class="box">
 
         <div class="box-body">
+            <div class="col-md-6">
+                <a href="/admin/catalogs/excel/{{$id}}">
+                    <img src="http://download.seaicons.com/icons/ziggy19/microsoft-office-mac-tilt/512/Excel-icon.png" width="100px" />
+                </a>
+            </div>
             <h3 class="box-title">Каталог</h3>
-
-            <div class="box-body">
-                <div class="box-body">
+        </div>
+        <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
