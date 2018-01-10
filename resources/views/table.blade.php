@@ -7,9 +7,25 @@
         </tr>
     @foreach($table as $tr)
         <tr class="valuerow">
-            @foreach($tr as $td)
-                <td>{{$td}}</td>
-            @endforeach
+
+            @for($i=0;$i<count($tr);$i++)
+
+                        <td>
+                            @if ($i==1)
+                            <a href="#" onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
+                                @else
+                                {{$tr[$i]}}
+                                @endif
+
+                </td>
+            @endfor
         </tr>
+            <tr>
+                    <td colspan="{{count($tr)}}">
+                            <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
+                                <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
+                                {!! $descs[$tr[0]]['text'] !!}</div>
+                    </td>
+            </tr>
     @endforeach
 </table>

@@ -34,7 +34,7 @@
         </div>
         <div class="col-md-10">
 
-                @include('table', ['table'=>$data, 'header' => $header])
+                @include('table', ['table'=>$data, 'header' => $header, 'descs' => $descs])
 
         </div>
     </div>

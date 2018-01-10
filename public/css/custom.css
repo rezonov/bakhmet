@@ -16,3 +16,13 @@
 .filters label, .filters input[type=text]{
     font-size:14px;
 }
+
+.descrtd p {
+    width:700px;
+    white-space: normal;
+    text-align: left;
+}
+
+.descrtd img {
+    float:left;
+}

@@ -231,6 +231,15 @@ class GoodsController extends Controller
                 $c++;
             }
 
+            $Descrs = DB::table('descriptions')
+                ->select('text', 'file')
+                ->where('id', '=', $Cat->id)
+                ->get();
+
+            foreach ($Descrs as $dd) {
+                $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
+                $Descs[$Cat->id]['file'] = $dd->file;
+            }
         }
 
         for ($i = 1; $i <= count($ValueArr); $i++) {
@@ -245,6 +254,7 @@ class GoodsController extends Controller
         return view('header', [
             'header' => $HeaderAr,
             'data' => $finalAr,
+            'descs' => $Descs,
 
         ]);
 
