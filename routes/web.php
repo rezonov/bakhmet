@@ -46,4 +46,4 @@ Route::post('/postDiamond', [
     'as' => 'postDiamond',
     'uses' => 'GoodsController@postDiamond'
 ]);
-Route::get('/admin/excel', 'GoodsController@ShowExcel');
+Route::get('/admin/excel/{filename}', 'GoodsController@ShowExcel');

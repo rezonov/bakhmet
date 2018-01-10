@@ -47,22 +47,92 @@ class GoodsController extends Controller
 
         return response()->json(array('files' => $photos), 200);
     }
-    public function ShowExcel() {
+    public function ShowExcel($filename) {
 
 
-        $filename = '/public/uploads/Filename(73).xls';
-        Excel::load($filename, function($reader) {
+        $filename = '/public/uploads/'.$filename;
+        $r = Excel::load($filename, function($reader) {
 
             // Getting all results
             $results = $reader->first();
 
-            $results = $reader->all();
-            dump($results[0]);
+            $results = $reader->all()->toArray();
+
+            //dump($results);
+            $html = '<table><tr>';
+            foreach ($results[0] as $key=>$value) {
+                $html .= '<td>'.$this->translit($key).'</td>';
+            }
+            $html.='</tr>';
+
+            foreach ($results as $rows) {
+                $html .= '<tr>';
+                foreach ($rows as $key=>$value) {
+                    $html .= '<td>'.$value.'</td>';
+                }
+                $html .= '</tr>';
+            }
+            $html .= '</table>';
+            echo $html;
+            return $html;
             // ->all() is a wrapper for ->get() and will work the same
     //        return json(array($results));
 
         });
 
+
+    }
+    public function translit($word) {
+        $translit = array(
+
+            'а' => 'a',   'б' => 'b',   'в' => 'v',
+
+            'г' => 'g',   'д' => 'd',   'е' => 'e',
+
+            'ё' => 'yo',   'ж' => 'zh',  'з' => 'z',
+
+            'и' => 'i',   'й' => 'j',   'к' => 'k',
+
+            'л' => 'l',   'м' => 'm',   'н' => 'n',
+
+            'о' => 'o',   'п' => 'p',   'р' => 'r',
+
+            'с' => 's',   'т' => 't',   'у' => 'u',
+
+            'ф' => 'f',   'х' => 'x',   'ц' => 'c',
+
+            'ч' => 'ch',  'ш' => 'sh',  'щ' => 'shh',
+
+            'ь' => '\'',  'ы' => 'y',   'ъ' => '\'\'',
+
+            'э' => 'e\'',   'ю' => 'yu',  'я' => 'ya',
+
+
+            'А' => 'A',   'Б' => 'B',   'В' => 'V',
+
+            'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+
+            'Ё' => 'YO',   'Ж' => 'Zh',  'З' => 'Z',
+
+            'И' => 'I',   'Й' => 'J',   'К' => 'K',
+
+            'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+
+            'О' => 'O',   'П' => 'P',   'Р' => 'R',
+
+            'С' => 'S',   'Т' => 'T',   'У' => 'U',
+
+            'Ф' => 'F',   'Х' => 'X',   'Ц' => 'C',
+
+            'Ч' => 'CH',  'Ш' => 'SH',  'Щ' => 'SHH',
+
+            'Ь' => '\'',  'Ы' => 'Y\'',   'Ъ' => '\'\'',
+
+            'Э' => 'E\'',   'Ю' => 'YU',  'Я' => 'YA',
+
+        );
+        $word = strtr($word, array_flip($translit));
+        return $word;
     }
     public function postDiamond(Request $request) {
         $supplier_name = $request->supplier_name;
@@ -71,7 +141,7 @@ class GoodsController extends Controller
         $dir = 'uploads/';
         $filename = uniqid().'_'.time().'_'.date('Ymd').'.'.$extension;
         $request->file('file')->move($dir, $filename);
-
+        return $filename;
     }
     public function ImportCatalog() {
         return view('admin/importexcel');

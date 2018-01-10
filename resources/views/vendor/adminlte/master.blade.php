@@ -83,7 +83,15 @@
                 cache: false, // To unable request pages to be cached
                 processData: false,
                 success: function(data) {
-                    console.log(data);
+                    $.ajax({
+                        url: "/admin/excel/" + data,
+                        type: 'GET',
+                        contentType: false,
+                        success: function(html) {
+                            console.log('--------' + html);
+                            $('#results').append(html);
+                        }
+                    })
                 }
             });
         }
