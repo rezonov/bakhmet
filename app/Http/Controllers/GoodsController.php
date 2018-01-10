@@ -297,12 +297,12 @@ class GoodsController extends Controller
                 $FinalArray[] = $FArray;
                 $FArray = array();
         }
-
+      //  dump($FinalArray);
 
         Excel::create('Filename', function ($excel) use ($FinalArray, $HeaderAr) {
+            $excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr)  {
 
-            $excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
-                $sheet->appendRow($HeaderAr);
+    $sheet->appendRow($HeaderAr);
                 $sheet->row(1, function($row) {
 
                     // call cell manipulation methods
@@ -316,6 +316,21 @@ class GoodsController extends Controller
             });
 
         })->export('xls');
+
+
+            /*$excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
+                $sheet->appendRow($HeaderAr);
+                /*$sheet->row(1, function($row) {
+                    // call cell manipulation methods
+                    $row->setBackground('#367fa9');
+                    $row->setFontColor('#ffffff');
+                });
+                foreach ($FinalArray as $item) {
+                    //$sheet->appendRow($item);
+                }
+            });*/
+
+       
     }
 
     function ShowCatalog($id)
