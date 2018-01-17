@@ -13,20 +13,31 @@
             <h3 class="box-title">Каталог</h3>
         </div>
         <div class="col-md-12">
-
         </div>
         <div class="body">
 
                     <table id="example1" class="table table-bordered table-striped">
                         <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>PARENT</th>
+                            <th>CIN</th>
+                            <th>COUT</th>
+                        </tr>
                         @foreach($fnames as $item)
                             <tr>
-                                @if ($item->CN < 1)
-                                    <th>{{$item->name}}</th>
-                                @else
+                                <td>{{$item->id}}</td>
+                                @if ($item->level == 0)
+                                    <td>{{$item->name}}</td>
+                                @elseif ($item->level == 1)
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/admin/catalog/{{$item->id}}">{{$item->name}}</a></td>
+                                @else
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/admin/catalog/{{$item->id}}">{{$item->name}}</a></td>
                                 @endif
-                                <td>{{$item->CN}}</td>
+                                    <td>{{$item->parent}}</td>
+                                <td>{{$item->CIn}}</td>
+                                    <td>{{$item->COut}}</td>
                                 <td><a href="/admin/catalog/edit/{{$item->id}}">Редактировать</a></td>
                             </tr>
                         @endforeach

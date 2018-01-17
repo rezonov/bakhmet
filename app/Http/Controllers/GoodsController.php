@@ -27,13 +27,16 @@ class GoodsController extends Controller
         return view('admin/home', ['names' => $finalAr]);
     }
 
-    public function PostCatalog (Request $request) {
+    public function PostCatalog(Request $request)
+    {
         $product = Product::create($request->all());
         ProductPhoto::whereIn('id', explode(",", $request->file_ids))
             ->update(['product_id' => $product->id]);
         return 'Product saved successfully';
     }
-    public function UploadCatalog(Request $request) {
+
+    public function UploadCatalog(Request $request)
+    {
         $photos = [];
 
         foreach ($request->photos as $photo) {
@@ -47,11 +50,13 @@ class GoodsController extends Controller
 
         return response()->json(array('files' => $photos), 200);
     }
-    public function ShowExcel($filename) {
+
+    public function ShowExcel($filename)
+    {
 
 
-        $filename = '/public/uploads/'.$filename;
-        $r = Excel::load($filename, function($reader) {
+        $filename = '/public/uploads/' . $filename;
+        $r = Excel::load($filename, function ($reader) {
 
             // Getting all results
             $results = $reader->first();
@@ -60,15 +65,15 @@ class GoodsController extends Controller
 
             //dump($results);
             $html = '<table><tr>';
-            foreach ($results[0] as $key=>$value) {
-                $html .= '<td>'.$this->translit($key).'</td>';
+            foreach ($results[0] as $key => $value) {
+                $html .= '<td>' . $this->translit($key) . '</td>';
             }
-            $html.='</tr>';
+            $html .= '</tr>';
 
             foreach ($results as $rows) {
                 $html .= '<tr>';
-                foreach ($rows as $key=>$value) {
-                    $html .= '<td>'.$value.'</td>';
+                foreach ($rows as $key => $value) {
+                    $html .= '<td>' . $value . '</td>';
                 }
                 $html .= '</tr>';
             }
@@ -76,89 +81,114 @@ class GoodsController extends Controller
             echo $html;
             return $html;
             // ->all() is a wrapper for ->get() and will work the same
-    //        return json(array($results));
+            //        return json(array($results));
 
         });
 
 
     }
-    public function translit($word) {
+
+    public function translit($word)
+    {
         $translit = array(
 
-            'а' => 'a',   'б' => 'b',   'в' => 'v',
+            'а' => 'a', 'б' => 'b', 'в' => 'v',
 
-            'г' => 'g',   'д' => 'd',   'е' => 'e',
+            'г' => 'g', 'д' => 'd', 'е' => 'e',
 
-            'ё' => 'yo',   'ж' => 'zh',  'з' => 'z',
+            'ё' => 'yo', 'ж' => 'zh', 'з' => 'z',
 
-            'и' => 'i',   'й' => 'j',   'к' => 'k',
+            'и' => 'i', 'й' => 'j', 'к' => 'k',
 
-            'л' => 'l',   'м' => 'm',   'н' => 'n',
+            'л' => 'l', 'м' => 'm', 'н' => 'n',
 
-            'о' => 'o',   'п' => 'p',   'р' => 'r',
+            'о' => 'o', 'п' => 'p', 'р' => 'r',
 
-            'с' => 's',   'т' => 't',   'у' => 'u',
+            'с' => 's', 'т' => 't', 'у' => 'u',
 
-            'ф' => 'f',   'х' => 'x',   'ц' => 'c',
+            'ф' => 'f', 'х' => 'x', 'ц' => 'c',
 
-            'ч' => 'ch',  'ш' => 'sh',  'щ' => 'shh',
+            'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shh',
 
-            'ь' => '\'',  'ы' => 'y',   'ъ' => '\'\'',
+            'ь' => '\'', 'ы' => 'y', 'ъ' => '\'\'',
 
-            'э' => 'e\'',   'ю' => 'yu',  'я' => 'ya',
+            'э' => 'e\'', 'ю' => 'yu', 'я' => 'ya',
 
 
-            'А' => 'A',   'Б' => 'B',   'В' => 'V',
+            'А' => 'A', 'Б' => 'B', 'В' => 'V',
 
-            'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+            'Г' => 'G', 'Д' => 'D', 'Е' => 'E',
 
-            'Ё' => 'YO',   'Ж' => 'Zh',  'З' => 'Z',
+            'Ё' => 'YO', 'Ж' => 'Zh', 'З' => 'Z',
 
-            'И' => 'I',   'Й' => 'J',   'К' => 'K',
+            'И' => 'I', 'Й' => 'J', 'К' => 'K',
 
-            'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+            'Л' => 'L', 'М' => 'M', 'Н' => 'N',
 
-            'О' => 'O',   'П' => 'P',   'Р' => 'R',
+            'О' => 'O', 'П' => 'P', 'Р' => 'R',
 
-            'С' => 'S',   'Т' => 'T',   'У' => 'U',
+            'С' => 'S', 'Т' => 'T', 'У' => 'U',
 
-            'Ф' => 'F',   'Х' => 'X',   'Ц' => 'C',
+            'Ф' => 'F', 'Х' => 'X', 'Ц' => 'C',
 
-            'Ч' => 'CH',  'Ш' => 'SH',  'Щ' => 'SHH',
+            'Ч' => 'CH', 'Ш' => 'SH', 'Щ' => 'SHH',
 
-            'Ь' => '\'',  'Ы' => 'Y\'',   'Ъ' => '\'\'',
+            'Ь' => '\'', 'Ы' => 'Y\'', 'Ъ' => '\'\'',
 
-            'Э' => 'E\'',   'Ю' => 'YU',  'Я' => 'YA',
+            'Э' => 'E\'', 'Ю' => 'YU', 'Я' => 'YA',
 
         );
         $word = strtr($word, array_flip($translit));
         return $word;
     }
-    public function postDiamond(Request $request) {
+
+    public function postDiamond(Request $request)
+    {
         $supplier_name = $request->supplier_name;
         $extension = $request->file('file');
         $extension = $request->file('file')->getClientOriginalExtension(); // getting excel extension
         $dir = 'uploads/';
-        $filename = uniqid().'_'.time().'_'.date('Ymd').'.'.$extension;
+        $filename = uniqid() . '_' . time() . '_' . date('Ymd') . '.' . $extension;
         $request->file('file')->move($dir, $filename);
         return $filename;
     }
-    public function ImportCatalog() {
+
+    public function ImportCatalog()
+    {
         return view('admin/importexcel');
     }
+
     function AllCatalogs()
     {
 
 
         $Allc = DB::table('catalog as CG')->
-        select(DB::RAW('CG.name, CG.id, CG.parent, (
-            SELECT COUNT(*) from catalog 
-                 join goods_catalogs on goods_catalogs.id_catalog = catalog.id
-            where catalog.id = CG.id
-            ) as CN'))->
+        select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+        where('CG.parent', '=', 0)->
         get();
+      //  dump($Allc);
         foreach ($Allc as $Cat) {
+            $Cat->level = '0';
             $finalCat[] = $Cat;
+            $Allc2 = DB::table('catalog as CG')->
+            select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+            where('CG.parent', '=', $Cat->id)->
+            get();
+            foreach ($Allc2 as $Cat) {
+                $Cat->level = '1';
+                $finalCat[] = $Cat;
+                $Allc = DB::table('catalog as CG')->
+                select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+                where('CG.parent', '=', $Cat->id)->
+                get();
+                foreach ($Allc as $Cat) {
+                    $Cat->level = '2';
+                    $finalCat[] = $Cat;
+                }
+            }
         }
         return view('admin/catalogs', ['fnames' => $finalCat]);
 
@@ -199,10 +229,8 @@ class GoodsController extends Controller
             ->groupBy('goods.id')
             ->where('catalog.id', '=', $id)
             ->select('goods.name as name', 'goods.id as id')
-            ->skip($start)
-            ->take(1000)
             ->get();
-
+        $finalmenu = '';
 
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
@@ -251,10 +279,67 @@ class GoodsController extends Controller
             $HeaderAr[$i]['max'] = max($ValueArr[$i]);
         }
 
+        $Allc = DB::table('catalog as CG')->
+        select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+        where('CG.parent', '=', 0)->
+        get();
+        //  dump($Allc);
+        $html_start = '';
+        $html_end = '';
+        foreach ($Allc as $Cat) {
+            $Cat->level = '0';
+            $html_start = ' <li><a href="#">'.$Cat->name.'</a>
+                                        <ul class="submenu">';
+
+            $html_end = '</ul></li>';
+            $finalCat[] = $Cat;
+            $Allc2 = DB::table('catalog as CG')->
+            select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+            where('CG.parent', '=', $Cat->id)->
+            get();
+            foreach ($Allc2 as $Cat) {
+                $Cat->level = '1';
+                $finalCat[] = $Cat;
+
+                $Allc = DB::table('catalog as CG')->
+                select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+                where('CG.parent', '=', $Cat->id)->
+                get();
+                if(count($Allc) == 0) {
+                    $html_start .= '<li><a href="/catalog/'.$Cat->id.'/0">'.$Cat->name.'</a>
+                                       ';
+                    $html_end .= '</li>';
+                } else {
+                    $html_start .= '<li>
+                                        <div class="spoiler">
+
+                                            <input type="checkbox">'.$Cat->name.
+                        '
+                                            <div class="box">';
+
+
+                foreach ($Allc as $Cat) {
+                    $Cat->level = '2';
+                    $html_start .='<a href="/catalog/'.$Cat->id.'/0">'.$Cat->name.'</a>';
+
+                    $finalCat[] = $Cat;
+                }
+                    $html_start .= '  </div> </div>
+                                    </li>';
+
+                }
+            }
+            $finalmenu .= $html_start."".$html_end;
+        }
+
         return view('header', [
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
+            'menu' => $finalmenu,
 
         ]);
 
@@ -278,7 +363,7 @@ class GoodsController extends Controller
             $finalAr[$Cat->id][] = $Cat->name;
 
             $Name = $Cat->name;
-           // $HeaderAr[0][0] = 'Модель';
+            // $HeaderAr[0][0] = 'Модель';
             $Attrs = DB::table('attributes')
                 ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
@@ -288,32 +373,32 @@ class GoodsController extends Controller
             $c = 1;
             $HeaderAr2 = array('Модель');
             foreach ($Attrs as $item) {
-                    $HeaderAr2[] = $item->Gname;
-                    $finalAr[$Cat->id][] = $item->value;
+                $HeaderAr2[] = $item->Gname;
+                $finalAr[$Cat->id][] = $item->value;
             }
         }
 
 
-        foreach ($HeaderAr2 as $key=>$value) {
+        foreach ($HeaderAr2 as $key => $value) {
             $HeaderAr3[] = $value;
         }
         $HeaderAr = $HeaderAr3;
-       // dump($HeaderAr);
+        // dump($HeaderAr);
         foreach ($finalAr as $item) {
 
-                foreach ($item as $key => $value) {
-                    $FArray[] = $value;
-                }
-                $FinalArray[] = $FArray;
-                $FArray = array();
+            foreach ($item as $key => $value) {
+                $FArray[] = $value;
+            }
+            $FinalArray[] = $FArray;
+            $FArray = array();
         }
-      //  dump($FinalArray);
+        //  dump($FinalArray);
 
         Excel::create('Filename', function ($excel) use ($FinalArray, $HeaderAr) {
-            $excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr)  {
+            $excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
 
-    $sheet->appendRow($HeaderAr);
-                $sheet->row(1, function($row) {
+                $sheet->appendRow($HeaderAr);
+                $sheet->row(1, function ($row) {
 
                     // call cell manipulation methods
                     $row->setBackground('#367fa9');
@@ -328,19 +413,19 @@ class GoodsController extends Controller
         })->export('xls');
 
 
-            /*$excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
-                $sheet->appendRow($HeaderAr);
-                /*$sheet->row(1, function($row) {
-                    // call cell manipulation methods
-                    $row->setBackground('#367fa9');
-                    $row->setFontColor('#ffffff');
-                });
-                foreach ($FinalArray as $item) {
-                    //$sheet->appendRow($item);
-                }
-            });*/
+        /*$excel->sheet('Sheetname', function ($sheet) use ($FinalArray, $HeaderAr) {
+            $sheet->appendRow($HeaderAr);
+            /*$sheet->row(1, function($row) {
+                // call cell manipulation methods
+                $row->setBackground('#367fa9');
+                $row->setFontColor('#ffffff');
+            });
+            foreach ($FinalArray as $item) {
+                //$sheet->appendRow($item);
+            }
+        });*/
 
-       
+
     }
 
     function ShowCatalog($id)
