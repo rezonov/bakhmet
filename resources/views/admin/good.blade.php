@@ -110,7 +110,7 @@
                         <div class="box-body">
 
 
-                            <img width="250px" src="{{$Descriptions[0]->file}}"/>
+                            <img width="250px" src="/img/{{$Descriptions[0]->file}}"/>
                         </div>
                     </div>
                 </div>
