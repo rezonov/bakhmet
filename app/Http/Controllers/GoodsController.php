@@ -167,7 +167,7 @@ class GoodsController extends Controller
                  where catalog.id = CG.parent) as CIn'))->
         where('CG.parent', '=', 0)->
         get();
-      //  dump($Allc);
+        //  dump($Allc);
         foreach ($Allc as $Cat) {
             $Cat->level = '0';
             $finalCat[] = $Cat;
@@ -194,24 +194,71 @@ class GoodsController extends Controller
 
     }
 
+    public function SaveEditCatalog(Request $request)
+    {
+        $Attrs = DB::table('attributes')
+            ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
+            ->select('attributes.name as name',
+                'attributes.type as type',
+                'attributes.id as id',
+                'catalogs__attributes.sh as sh',
+                'catalogs__attributes.fl as fl',
+                'catalogs__attributes.id_catalog as IdC',
+                'catalogs__attributes.id_attribute as IdA'
+            )
+            ->where('catalogs__attributes.id_catalog', '=', $request->id)
+            ->get();
+
+        foreach ($Attrs as $item) {
+            if (!isset($request->sh[$item->id])) {
+                DB::table('catalogs__attributes')
+                    ->where(['id_catalog' => $request->id, 'id_attribute' => $item->id])
+                    ->update(['sh' => 'Off']);
+            } else {
+                DB::table('catalogs__attributes')
+                    ->where(['id_catalog' => $request->id, 'id_attribute' => $item->id])
+                    ->update(['sh' => 'on']);
+            }
+
+            if (!isset($request->fl[$item->id])) {
+                DB::table('catalogs__attributes')
+                    ->where(['id_catalog' => $request->id, 'id_attribute' => $item->id])
+                    ->update(['fl' => 'Off']);
+            } else {
+                DB::table('catalogs__attributes')
+                    ->where(['id_catalog' => $request->id, 'id_attribute' => $item->id])
+                    ->update(['fl' => 'on']);
+            }
+        }
+        //dump($request->request);
+
+        return $this->EditCatalogs($request->id);
+    }
+
     function EditCatalogs($id)
     {
 
         $Attrs = DB::table('attributes')
             ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
-            ->select('attributes.name as name', 'attributes.type as type', 'attributes.id as id')
+            ->select('attributes.name as name',
+                'attributes.type as type',
+                'attributes.id as id',
+                'catalogs__attributes.sh as sh',
+                'catalogs__attributes.fl as fl',
+                'catalogs__attributes.id_catalog as IdC',
+                'catalogs__attributes.id_attribute as IdA'
+            )
             ->where('catalogs__attributes.id_catalog', '=', $id)
             ->get();
-        dump($Attrs);
+        //    dump($Attrs);
         foreach ($Attrs as $item) {
             $finalAr[] = $item;
 
 
         }
-        return view('admin/editcatalogs', ['fnames' => $finalAr]);
+        return view('admin/editcatalogs', ['fnames' => $finalAr, 'id' => $id]);
 
     }
-
 
     public function ShowPublicCatalog($id, $start = 0)
     {
@@ -289,7 +336,7 @@ class GoodsController extends Controller
         $html_end = '';
         foreach ($Allc as $Cat) {
             $Cat->level = '0';
-            $html_start = ' <li><a href="#">'.$Cat->name.'</a>
+            $html_start = ' <li><a href="#">' . $Cat->name . '</a>
                                         <ul class="submenu">';
 
             $html_end = '</ul></li>';
@@ -308,31 +355,31 @@ class GoodsController extends Controller
                  where catalog.id = CG.parent) as CIn'))->
                 where('CG.parent', '=', $Cat->id)->
                 get();
-                if(count($Allc) == 0) {
-                    $html_start .= '<li><a href="/catalog/'.$Cat->id.'/0">'.$Cat->name.'</a>
+                if (count($Allc) == 0) {
+                    $html_start .= '<li><a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>
                                        ';
                     $html_end .= '</li>';
                 } else {
                     $html_start .= '<li>
                                         <div class="spoiler">
 
-                                            <input type="checkbox">'.$Cat->name.
+                                            <input type="checkbox">' . $Cat->name .
                         '
                                             <div class="box">';
 
 
-                foreach ($Allc as $Cat) {
-                    $Cat->level = '2';
-                    $html_start .='<a href="/catalog/'.$Cat->id.'/0">'.$Cat->name.'</a>';
+                    foreach ($Allc as $Cat) {
+                        $Cat->level = '2';
+                        $html_start .= '<a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>';
 
-                    $finalCat[] = $Cat;
-                }
+                        $finalCat[] = $Cat;
+                    }
                     $html_start .= '  </div> </div>
                                     </li>';
 
                 }
             }
-            $finalmenu .= $html_start."".$html_end;
+            $finalmenu .= $html_start . "" . $html_end;
         }
 
         return view('header', [
@@ -450,15 +497,19 @@ class GoodsController extends Controller
             $Attrs = DB::table('attributes')
                 ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
-                ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname')
+                ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
+                ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname', 'catalogs__attributes.sh as Sh')
                 ->where('goods.id', '=', $Cat->id)
+                ->groupBy('goods_attributes.id')
                 ->get();
+            //dump($Attrs);
             $c = 1;
             foreach ($Attrs as $item) {
-
-                $HeaderAr[0][$c] = $item->Gname;
-                $finalAr[$Cat->id][] = $item->value;
-                $c++;
+                if ($item->Sh != 'Off') {
+                    $HeaderAr[0][$c] = $item->Gname;
+                    $finalAr[$Cat->id][] = $item->value;
+                    $c++;
+                }
             }
             $c = 1;
         }
@@ -520,6 +571,11 @@ class GoodsController extends Controller
             ->where('goods.id', '=', $id)
             ->get();
 
+        $Seo = DB::table('goods__seo')
+            ->join('goods', 'goods.id', '=', 'goods__seo.id')
+            ->where('goods.id', '=', $id)
+            ->get();
+
         // die();
         // dump($finalAr);
         return view('admin/good',
@@ -527,9 +583,11 @@ class GoodsController extends Controller
                 'Gname' => $Gname,
                 'AllCatalog' => $AllCatalog,
                 'Descriptions' => $Descriptions,
+                'Seo' => $Seo,
                 'id' => $id
             ]);
     }
+
 
     public function SaveDescr(Request $request)
     {
@@ -555,14 +613,27 @@ class GoodsController extends Controller
 
         }
         $values = array("text" => $request->text);
+        $seo = array("title" => $request->seotitle, "keywords" => $request->seokeywords, "keywords" => $request->seodescription);
         if ($request->image != '') {
             $values['file'] = $request->image;
         }
+
+
         DB::table('descriptions')
             ->where('id', "=", $request->id)
             ->update($values);
-
-
+        $row = DB::table('goods__seo')
+            ->where('id', "=", $request->id)
+            ->get();
+        if (count($row) > 0) {
+            DB::table('goods__seo')
+                ->where('id', "=", $request->id)
+                ->update($seo);
+        } else {
+            $seo['id'] = $request->id;
+            DB::table('goods__seo')
+                ->insert($seo);
+        }
         $AllCatalog = DB::table('catalog')
             ->get();
 

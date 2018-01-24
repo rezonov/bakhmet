@@ -31,7 +31,7 @@ Route::get('/categories', function (){
 
 
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
-
+Route::post('/admin/catalogs/edit/', ['uses' => 'GoodsController@SaveEditCatalog']);
 Route::get('/дщпшт', 'HomeController@index')->name('home');
 Route::get('/admin/catalogs', 'GoodsController@AllCatalogs')->middleware('auth');
 Route::get('/admin/catalog/{id}', 'GoodsController@ShowCatalog')->middleware('auth');;
@@ -47,3 +47,4 @@ Route::post('/postDiamond', [
     'uses' => 'GoodsController@postDiamond'
 ]);
 Route::get('/admin/excel/{filename}', 'GoodsController@ShowExcel');
+Route::get('/admin/settings', 'SettingsController@ShowAttr');

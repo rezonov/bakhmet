@@ -121,6 +121,12 @@ return [
             'icon'        => 'file',
 
         ],
+        [
+            'text'        => 'Системные настройки',
+            'url'         => 'admin/settings',
+            'icon'        => 'cog',
+
+        ],
 
     ],
 

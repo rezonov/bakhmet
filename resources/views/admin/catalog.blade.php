@@ -9,12 +9,7 @@
 @section('content')
     <div class="box">
 
-        <div class="box-body">
-            <div class="col-md-6">
-                <a href="/admin/catalogs/excel/{{$id}}">
-                    <img src="http://download.seaicons.com/icons/ziggy19/microsoft-office-mac-tilt/512/Excel-icon.png" width="100px" />
-                </a>
-            </div>
+        <div class="box-header">
             <h3 class="box-title">Каталог</h3>
         </div>
         <div class="box-body">
