@@ -1,6 +1,13 @@
-#allcatalog th {
+/*@import url(http://allfont.ru/allfont.css?fonts=arial-narrow);*/
 
-    padding:0px;
+#allcatalog {
+    margin-top:15px;
+}
+#allcatalog th {
+    background:#006794;
+    color:#fff;
+    padding:5px;
+
     padding-top:5px;
     font-size:14px;
     text-align: center;
@@ -112,4 +119,124 @@ nav li:hover > div.submenu {
 }
 .spoiler >  input:checked + .box {
     display: block;
+}
+
+.mainmenu {
+    background:#00a0e3;
+    color:#fff;
+}
+
+.navbar-brand {
+    color:#fff;
+}
+
+.navbar-nav > li > a {
+color:#fff;
+}
+
+.navbar-brand {
+    color:#fff;
+}
+
+body {
+    padding-left:10px;
+    padding-right:10px;
+    font-family: "Arial Narrow", sans-serif;
+
+
+
+}
+
+.form-control {
+    padding-right:10px;
+}
+.menu {
+    padding-bottom: 0px;
+    margin-bottom: -4px;
+}
+.menu li {
+    background: #f7f7f7;
+    height:45px;
+    position:relative;
+    display: block;
+    margin-left:-30px;
+    width:230px;
+    font-family: "Arial";
+    font-size:12px;
+    padding-left:40px;
+    padding-top:13px;
+    border-bottom: solid 1px #a0a0a0 ;
+    text-transform: uppercase;
+    color:#3a3a3a;
+}
+
+.menu_wrapper {
+    background: #f7f7f7;
+    padding:3px;
+    width:250px;
+    margin-left:15px;
+    padding-bottom:-17px;
+    border:solid 2px #a0a0a0;
+}
+
+
+.filters {
+    width:250px;
+    text-align:center;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:20px;
+    border:solid 2px #a0a0a0;
+    margin-top:20px;
+    margin-left:15px;
+}
+
+.header {
+    top:-40px;
+    text-align: center;
+    margin: auto 0px;
+
+}
+
+.header .pics {
+    width:700px;
+    text-align: center;
+    left:7%;
+}
+.header div {
+    float:left;
+    width:120px;
+    position: relative;
+    margin-left:20px;
+    text-align: center;
+}
+
+.header div p {
+    font-size:14px;
+    color:#00a0e3;
+    font-weight: bold;
+}
+
+.header h2 {
+    color:#3084a9;
+    font-weight:300;
+    font-size:24px;
+}
+
+.phones {
+    color:#2f83a9;
+    font-size:22px;
+    font-weight: bold;
+}
+.btn-orange {
+    background: #ff6000;
+    color:#fff;
+    font-size:16px;
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+.btn-orange:hover {
+    color:#fff;
+    background: #dd5300;
 }

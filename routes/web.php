@@ -14,6 +14,7 @@
 
 
 Auth::routes();
+
 Route::get('/catalog/{id}/{start}', 'GoodsController@ShowPublicCatalog');
 Route::post('/actions/json', 'GoodsController@JsonCatalog');
 /*

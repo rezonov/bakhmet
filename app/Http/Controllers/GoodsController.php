@@ -263,22 +263,20 @@ class GoodsController extends Controller
     public function ShowPublicCatalog($id, $start = 0)
     {
 
-        /*
-         *select goods.id, goods_catalogs.id_catalog, goods.name from `goods`, `goods_catalogs`
-        where `goods`.id = `goods_catalogs`.`id_good` and
-        `goods_catalogs`.`id_catalog` = 1
-        GROUP by id_good
-         */
 
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
             ->groupBy('goods.id')
             ->where('catalog.id', '=', $id)
+
             ->select('goods.name as name', 'goods.id as id')
             ->get();
         $finalmenu = '';
-
+/*
+ *
+ * 'catalogs__attributes.sh as Sh'
+ */
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
             $finalAr[$Cat->id][] = $Cat->name;
@@ -291,8 +289,10 @@ class GoodsController extends Controller
             $Attrs = DB::table('attributes')
                 ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
+                ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
                 ->select('attributes.name as name', 'attributes.id as id', 'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type')
                 ->where('goods.id', '=', $Cat->id)
+                ->groupBy('goods_attributes.id')
                 ->get();
             $c = 1;
 
@@ -392,6 +392,9 @@ class GoodsController extends Controller
 
     }
 
+    public function SaveImages(Request $request) {
+
+    }
     public function SaveExcel($id)
     {
         $finalAr = array();

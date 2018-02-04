@@ -17,7 +17,20 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
     <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="/css/jquery.fileupload.css">
+    <link rel="stylesheet" href="/css/jquery.fileupload-ui.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="/js/jQuery-Picture-Cut/src/jquery.picture.cut.js"></script>
 
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="/css/jquery.fileupload-noscript.css"></noscript>
+    <noscript><link rel="stylesheet" href="/css/jquery.fileupload-ui-noscript.css"></noscript>
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
@@ -43,15 +56,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 
-
 </head>
 <body class="hold-transition @yield('body_class')">
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/js/jquery.ui.widget.js"></script>
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.upload.js"></script>
 
 @yield('body')
 <script>
@@ -97,8 +105,8 @@
         }
     });
 </script>
-<script src="/js/jquery-ui/jquery-ui.js"></script>
-<script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!--<script src="/js/jquery-ui/jquery-ui.js"></script>-->
+
 <script src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/ckeditor.js"></script>
 <script src="https://adminlte.io/themes/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 @if(config('adminlte.plugins.select2'))
@@ -111,7 +119,7 @@
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 @endif
 
-<script src="/js/jQuery-Picture-Cut/src/jquery.picture.cut.js"></script>
+
 @yield('adminlte_js')
 <script>
     $(function () {
