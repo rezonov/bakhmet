@@ -342,6 +342,29 @@ class GoodsController extends Controller
         where('CG.parent', '=', 0)->
         get();
         //  dump($Allc);
+        foreach ($Allc as $Cat) {
+            $Cat->level = '0';
+            $finalCat[] = $Cat;
+            $Allc2 = DB::table('catalog as CG')->
+            select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+            where('CG.parent', '=', $Cat->id)->
+            get();
+            foreach ($Allc2 as $Cat) {
+                $Cat->level = '1';
+                $finalCat[] = $Cat;
+                $Allc = DB::table('catalog as CG')->
+                select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+                 where catalog.id = CG.parent) as CIn'))->
+                where('CG.parent', '=', $Cat->id)->
+                get();
+                foreach ($Allc as $Cat) {
+                    $Cat->level = '2';
+                    $finalCat[] = $Cat;
+                }
+            }
+        }
+
         $html_start = '';
         $html_end = '';
 
@@ -350,7 +373,7 @@ class GoodsController extends Controller
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-            //  'menu' => $finalmenu,
+            'menu' => $finalCat,
 
         ]);
 
