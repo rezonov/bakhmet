@@ -276,13 +276,20 @@ class GoodsController extends Controller
             $finalAr[$Cat->id][] = $Cat->id;
             $finalAr[$Cat->id][] = $Cat->name;
             // dump($finalAr);
-            $HeaderAr[0]['name'] = "Модель";
+            $HeaderAr[0]['name'] = "ID";
             $HeaderAr[0]['type'] = 'text';
             $HeaderAr[0]['id'] = 0;
             $HeaderAr[0]['Sh'] = "On";
             $HeaderAr[0]['Fl'] = "Off";
             $HeaderAr[0]['min'] = 0;
             $HeaderAr[0]['max'] = 0;
+            $HeaderAr[1]['name'] = "Модель";
+            $HeaderAr[1]['type'] = 'text';
+            $HeaderAr[1]['id'] = 0;
+            $HeaderAr[1]['Sh'] = "On";
+            $HeaderAr[1]['Fl'] = "Off";
+            $HeaderAr[1]['min'] = 0;
+            $HeaderAr[1]['max'] = 0;
             $Attrs = DB::table('attributes')
                 ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
@@ -293,7 +300,7 @@ class GoodsController extends Controller
                 ->groupBy('goods_attributes.id')
                 ->get();
 
-            $c = 1;
+            $c = 2;
 
             foreach ($Attrs as $item) {
 
@@ -320,7 +327,7 @@ class GoodsController extends Controller
             }
         }
 
-        for ($i = 1; $i <= count($ValueArr); $i++) {
+        for ($i = 2; $i <= count($ValueArr)+1; $i++) {
             if (!empty(min($ValueArr[$i]))) {
                 $HeaderAr[$i]['min'] = min($ValueArr[$i]);
             } else {
@@ -337,7 +344,7 @@ class GoodsController extends Controller
         //  dump($Allc);
         $html_start = '';
         $html_end = '';
-        dump($HeaderAr);
+
 
         return view('header', [
             'header' => $HeaderAr,
