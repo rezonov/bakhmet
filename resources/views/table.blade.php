@@ -2,14 +2,16 @@
         <tr>
                 <th></th>
                 @foreach($header as $th)
+                    @if($th['Sh']!='Off')
                         <th>{{$th['name']}}</th>
+                @endif
                         @endforeach
         </tr>
     @foreach($table as $tr)
         <tr class="valuerow">
 
             @for($i=0;$i<count($tr);$i++)
-
+                        @if($tr['Sh'] != 'Off')
                         <td>
                             @if ($i==1)
                             <a href="#" onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
@@ -17,7 +19,8 @@
                                 {{$tr[$i]}}
                                 @endif
 
-                </td>
+                        </td>
+                        @endif
             @endfor
         </tr>
             <tr>

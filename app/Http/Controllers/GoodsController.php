@@ -269,14 +269,9 @@ class GoodsController extends Controller
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
             ->groupBy('goods.id')
             ->where('catalog.id', '=', $id)
-
             ->select('goods.name as name', 'goods.id as id')
             ->get();
-        $finalmenu = '';
-/*
- *
- * 'catalogs__attributes.sh as Sh'
- */
+
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
             $finalAr[$Cat->id][] = $Cat->name;
@@ -284,26 +279,34 @@ class GoodsController extends Controller
             $HeaderAr[0]['name'] = "Модель";
             $HeaderAr[0]['type'] = 'text';
             $HeaderAr[0]['id'] = 0;
+            $HeaderAr[0]['Sh'] = "On";
+            $HeaderAr[0]['Fl'] = "Off";
             $HeaderAr[0]['min'] = 0;
             $HeaderAr[0]['max'] = 0;
             $Attrs = DB::table('attributes')
                 ->join('goods_attributes', 'goods_attributes.attributes_id', '=', 'attributes.id')
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
                 ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
-                ->select('attributes.name as name', 'attributes.id as id', 'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type')
+                ->select('attributes.name as name', 'attributes.id as id',
+                    'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl')
                 ->where('goods.id', '=', $Cat->id)
                 ->groupBy('goods_attributes.id')
                 ->get();
+
             $c = 1;
 
             foreach ($Attrs as $item) {
 
-                $HeaderAr[$c]['name'] = $item->Gname;
-                $HeaderAr[$c]['type'] = $item->type;
-                $HeaderAr[$c]['id'] = $item->id;
-                $ValueArr[$c][] = $item->value;
-                $finalAr[$Cat->id][] = $item->value;
-                $c++;
+                    $HeaderAr[$c]['name'] = $item->Gname;
+                    $HeaderAr[$c]['type'] = $item->type;
+                    $HeaderAr[$c]['id'] = $item->id;
+                    $HeaderAr[$c]['Sh'] = $item->Sh;
+                    $HeaderAr[$c]['Fl'] = $item->Fl;
+                    $ValueArr[$c][] = $item->value;
+                    $finalAr[$Cat->id][] = $item->value;
+                    $c++;
+
+
             }
 
             $Descrs = DB::table('descriptions')
@@ -334,67 +337,23 @@ class GoodsController extends Controller
         //  dump($Allc);
         $html_start = '';
         $html_end = '';
-        foreach ($Allc as $Cat) {
-            $Cat->level = '0';
-            $html_start = ' <li><a href="#">' . $Cat->name . '</a>
-                                        <ul class="submenu">';
-
-            $html_end = '</ul></li>';
-            $finalCat[] = $Cat;
-            $Allc2 = DB::table('catalog as CG')->
-            select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
-                 where catalog.id = CG.parent) as CIn'))->
-            where('CG.parent', '=', $Cat->id)->
-            get();
-            foreach ($Allc2 as $Cat) {
-                $Cat->level = '1';
-                $finalCat[] = $Cat;
-
-                $Allc = DB::table('catalog as CG')->
-                select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
-                 where catalog.id = CG.parent) as CIn'))->
-                where('CG.parent', '=', $Cat->id)->
-                get();
-                if (count($Allc) == 0) {
-                    $html_start .= '<li><a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>
-                                       ';
-                    $html_end .= '</li>';
-                } else {
-                    $html_start .= '<li>
-                                        <div class="spoiler">
-
-                                            <input type="checkbox">' . $Cat->name .
-                        '
-                                            <div class="box">';
-
-
-                    foreach ($Allc as $Cat) {
-                        $Cat->level = '2';
-                        $html_start .= '<a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>';
-
-                        $finalCat[] = $Cat;
-                    }
-                    $html_start .= '  </div> </div>
-                                    </li>';
-
-                }
-            }
-            $finalmenu .= $html_start . "" . $html_end;
-        }
+        dump($HeaderAr);
 
         return view('header', [
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-            'menu' => $finalmenu,
+            //  'menu' => $finalmenu,
 
         ]);
 
     }
 
-    public function SaveImages(Request $request) {
+    public function SaveImages(Request $request)
+    {
 
     }
+
     public function SaveExcel($id)
     {
         $finalAr = array();
