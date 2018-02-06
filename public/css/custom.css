@@ -40,7 +40,7 @@
     display: block;
 }
 
-nav {background: #413F3C;}
+nav {color:#1a1a1a;}
 nav ul {
     margin: 0;
     padding: 0;
@@ -59,15 +59,16 @@ nav a {
 .topmenu > li {
     float: left;
     position: relative;
-    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    width:250px;
 }
 .topmenu > li:first-child {border-left: 0;}
 .topmenu > li > a {
     padding: 20px 30px;
     font-size: 12px;
-    text-transform: uppercase;
-    color: #FEFDFD;
-    letter-spacing: 2px;
+
+    color: #1a1a1a;
+
 }
 .topmenu > li > a.active,
 .submenu a:hover {color: #ddbe86;}
@@ -79,9 +80,10 @@ nav a {
 .submenu {
     position: absolute;
     z-index: 5;
-    min-width: 200px;
+    min-width: 240px;
     background: white;
     left:200px;
+    top:0px;
     border-left: 1px solid #CBCBCC;
     border-right: 1px solid #CBCBCC;
     visibility: hidden;
