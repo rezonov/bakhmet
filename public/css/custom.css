@@ -59,15 +59,24 @@ nav a {
 .topmenu > li {
     float: left;
     position: relative;
-    border-bottom: 1px solid black;
+
     width:250px;
 }
 .topmenu > li:first-child {border-left: 0;}
 .topmenu > li > a {
-    padding: 20px 30px;
-    font-size: 12px;
+    background: #f7f7f7;
+    height:45px;
+    position:relative;
+    display: block;
 
-    color: #1a1a1a;
+    width:230px;
+    font-family: "Arial";
+    font-size:12px;
+    padding-left:40px;
+    padding-top:13px;
+    border-bottom: solid 1px #a0a0a0 ;
+    text-transform: uppercase;
+    color:#3a3a3a;
 
 }
 .topmenu > li > a.active,
@@ -80,9 +89,9 @@ nav a {
 .submenu {
     position: absolute;
     z-index: 5;
-    min-width: 240px;
+    min-width: 200px;
     background: white;
-    left:200px;
+    left:240px;
     top:0px;
     border-left: 1px solid #CBCBCC;
     border-right: 1px solid #CBCBCC;
@@ -95,9 +104,10 @@ nav a {
 .submenu li {position: relative;}
 .submenu li a {
     color: #282828;
-    padding: 10px 20px;
+
     font-size: 13px;
-    border-bottom: 1px solid #CBCBCC;
+    padding-bottom:5px;
+    padding-top:5px;
 }
 .submenu .submenu {
     position: absolute;
