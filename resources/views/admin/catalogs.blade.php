@@ -12,8 +12,7 @@
         <div class="box-header">
             <h3 class="box-title">Каталог</h3>
         </div>
-        <div class="col-md-12">
-        </div>
+
         <div class="body">
 
                     <table id="example1" class="table table-bordered table-striped">

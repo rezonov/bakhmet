@@ -14,12 +14,13 @@
 
 
 Auth::routes();
-
+Route::get('/', 'PagesController@ShowIndex' );
 Route::get('/catalog/{id}/{start}', 'GoodsController@ShowPublicCatalog');
 Route::post('/actions/json', 'GoodsController@JsonCatalog');
 /*
  * Административная часть
  */
+Route::get('/{name}', 'PagesController@ShowPage' );
 Route::get('/admin', function () {
     return view('admin/dashboard');
 })->middleware('auth');
@@ -37,7 +38,11 @@ Route::get('/дщпшт', 'HomeController@index')->name('home');
 Route::get('/admin/catalogs', 'GoodsController@AllCatalogs')->middleware('auth');
 Route::get('/admin/catalog/{id}', 'GoodsController@ShowCatalog')->middleware('auth');;
 Route::get('/admin/catalog/edit/{id}', 'GoodsController@EditCatalogs')->middleware('auth');;
-Route::get('/admin/catalogs/excel/{id}', 'GoodsController@SaveExcel')->middleware('auth');;
+Route::get('/admin/catalogs/excel/{id}', 'GoodsController@SaveExcel')->middleware('auth');
+
+Route::get('/admin/pages', 'PagesController@AdminPages')->middleware('auth');
+Route::post('/admin/page/save/', ['uses' => 'PagesController@SavePage'])->middleware('auth');
+Route::get('/admin/page/{name}', 'PagesController@AdminPage')->middleware('auth');
 
 Route::get('/admin/goods/{id}', 'GoodsController@OneGood')->middleware('auth');
 Route::get('/attrs', 'AttributesController@AllAttributes')->middleware('auth');

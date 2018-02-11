@@ -122,8 +122,8 @@ return [
 
         ],
         [
-            'text'        => 'Системные настройки',
-            'url'         => 'admin/settings',
+            'text'        => 'Страницы',
+            'url'         => 'admin/pages',
             'icon'        => 'cog',
 
         ],
