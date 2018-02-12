@@ -129,7 +129,7 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            @include('menu', ['menu' => $menu])
+            @widget('test')
             <div>
 
                 @include('layers', ['attr'=>$header])

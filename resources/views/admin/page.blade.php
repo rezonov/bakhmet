@@ -11,7 +11,7 @@
     <div class="box">
 
         <div class="box-header">
-            <h3 class="box-title">{{$tables->name}}</h3>
+            <h3 class="box-title">{{$tables->title or 'Добавить новую страницу'}}</h3>
         </div>
         <div class="box-body">
             {!! Form::open([
@@ -20,24 +20,24 @@
                                     ]) !!}
             <label>Заголовок</label>
             <input class="form-control" type="text" name="title"
-                   value="{{$tables->title}}" placeholder="Default input">
+                   value="{{$tables->title or ''}}" placeholder="Введите заголовок">
 
             <label>Описание страницы (200 символов)</label>
             <input class="form-control" type="text" name="descriptions"
-                   value="{{$tables->description}}" placeholder="Default input">
+                   value="{{$tables->description or ''}}" placeholder="Введите описание">
 
             <label>Ключевые слова</label>
             <input class="form-control" type="text" name="keywords"
-                   value="{{$tables->keywords}}" placeholder="Default input">
+                   value="{{$tables->keywords or ''}}" placeholder="Введите ключевые слова">
 
             <label>URL</label>
             <input class="form-control" type="text" name="url"
-                   value="{{$tables->url}}" placeholder="Default input">
+                   value="{{$tables->url or ''}}" placeholder="Введите url">
             <label>Контент</label>
 
-            <textarea id="editor1" name="text">{{$tables->content}}</textarea>
+            <textarea id="editor1" name="text">{{$tables->content or ''}}</textarea>
 
-            <input type="hidden" name="id" value="{{ $tables->id }}"/>
+            <input type="hidden" name="id" value="{{ $tables->id or '0' }}"/>
             <input type="submit" class="btn btn-success" value="Сохранить">
             {!! Form::close() !!}
         </div>

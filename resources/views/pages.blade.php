@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru-RU" itemscope itemtype="http://schema.org/Article" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta name="csrf-token" content="tXcE3u4iytTSOfjpBJ6u6ERdgdsapulUgSenb0KR">
-    <script type="text/javascript"
-            src="http://gc.kis.v2.scr.kaspersky-labs.com/20EFB0EA-8B55-5747-A402-0F64DA5E8187/main.js"
-            charset="UTF-8"></script>
+    <title>{{$tables->title}}</title>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -52,12 +49,8 @@
                             <li><a href="#">Гарантии</a></li>
                             <li><a href="#">Контакты</a></li>
                             <li><a href="#">Вакансии</a></li>
-
                         </ul>
-
                     </div>
-
-
                 </nav>
             </div>
             <div class="row">
@@ -98,7 +91,38 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="row">
+        <div class="col-md-12" style="background: #4cbceb; height:75px">
+
+            <div class="col-sm-5">
+                <div style="width:250px; color:#fff; height:70px; border-top-left-radius:10px; border-top-right-radius:10px;  position:relative; top:10px; padding-top:20px; font-size:20px; background:#006896; text-align:center;">
+                    Каталог товаров
+                </div>
+
+            </div>
+            <div class="col-sm-7">
+                <div style="background: #3386ab; width:669px; height:100px; position:relative; top:-50px; border:solid 1px #666666; padding:10px">
+                    <p style="color:#fff; font-size:18px; padding-top:10px; padding-left:20px;">Поиск в базе по <u>11
+                                                                                                                   248</u>
+                                                                                                товарам</p>
+                    <p style="padding-left:10px;"><input type="text" class="form-control"/><input type="submit"
+                                                                                                  value="ПОИСК"
+                                                                                                  class="btn btn-orange"
+                                                                                                  style="width: 15%;
+    float: right;
+    top: -35px;
+    position: relative;"></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            @widget('test')
+
+        </div>
         <div class="col-md-6">
             {!! $tables->content !!}
         </div>

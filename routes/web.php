@@ -20,7 +20,7 @@ Route::post('/actions/json', 'GoodsController@JsonCatalog');
 /*
  * Административная часть
  */
-Route::get('/{name}', 'PagesController@ShowPage' );
+Route::get('/{name}.html', 'PagesController@ShowPage' );
 Route::get('/admin', function () {
     return view('admin/dashboard');
 })->middleware('auth');
@@ -42,6 +42,7 @@ Route::get('/admin/catalogs/excel/{id}', 'GoodsController@SaveExcel')->middlewar
 
 Route::get('/admin/pages', 'PagesController@AdminPages')->middleware('auth');
 Route::post('/admin/page/save/', ['uses' => 'PagesController@SavePage'])->middleware('auth');
+Route::get('/admin/page/add', 'PagesController@AddPage')->middleware('auth');
 Route::get('/admin/page/{name}', 'PagesController@AdminPage')->middleware('auth');
 
 Route::get('/admin/goods/{id}', 'GoodsController@OneGood')->middleware('auth');

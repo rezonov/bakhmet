@@ -11,6 +11,7 @@
         "barryvdh/laravel-debugbar": "^2.4",
         "barryvdh/laravel-ide-helper": "^2.4",
         "jeroennoten/laravel-adminlte": "^1.22",
+        "klisl/laravel-widgets": "^1.6",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.2.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5377cfeb963f4c52448c2bc318cfdecb",
+    "content-hash": "246e0ced8768888a99735b791483615c",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1007,6 +1007,57 @@
                 "laravel"
             ],
             "time": "2017-10-02T14:52:05+00:00"
+        },
+        {
+            "name": "klisl/laravel-widgets",
+            "version": "1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/klisl/laravel-widgets.git",
+                "reference": "1880255880e1d465aaf110b9c203b359e3c12925"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/klisl/laravel-widgets/zipball/1880255880e1d465aaf110b9c203b359e3c12925",
+                "reference": "1880255880e1d465aaf110b9c203b359e3c12925",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.3",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Klisl\\Widgets\\WidgetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Klisl\\Widgets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Klimenchuk",
+                    "email": "ksl80@ukr.net",
+                    "homepage": "https://github.com/klisl/laravel-widgets",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Package for using widgets in Laravel-5",
+            "keywords": [
+                "laravel",
+                "widget",
+                "widgets"
+            ],
+            "time": "2018-01-08T20:58:05+00:00"
         },
         {
             "name": "laravel/browser-kit-testing",
@@ -2229,6 +2280,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {

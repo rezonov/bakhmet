@@ -4975,3 +4975,10 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+.button_edit {
+
+  padding-top: 3px;
+  padding-bottom: 1px;
+  height: 45px;
+
+}
