@@ -36,7 +36,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
-            <img width="200px" src="/images/logo.jpg"/>
+            <img width="180px" src="/images/logo.jpg"/>
         </div>
         <div class="col-sm-10">
             <div class="row">

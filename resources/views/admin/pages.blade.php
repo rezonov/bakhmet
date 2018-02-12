@@ -41,8 +41,8 @@
                         <td>{{$tr->url}}</td>
 
                         <td>
-                            <a class="btn btn-app button_edit">
-                            <i class="fa fa-edit"></i>Редактировать
+                            <a class="btn btn-app button_edit" href="/admin/page/{{$tr->url}}">
+                            <i class="fa fa-edit" ></i>Редактировать
                             </a>
                         </td>
                     </tr>
