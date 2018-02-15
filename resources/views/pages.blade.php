@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru-RU" itemscope itemtype="http://schema.org/Article" prefix="og: http://ogp.me/ns#">
+<html>
 <head>
     <title>{{$tables->title}}</title>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/custom.css"/>
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
 
-    <!-- Latest compiled and minified JavaScript -->
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
@@ -31,12 +27,13 @@
             menu.css({ left:newpos });
         });
     </script>
+    <link rel="stylesheet" href="/css/custom.css"/>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
-            <img width="180px" src="/images/logo.png"/>
+            <div class="logo"><img width="200px" src="/images/logo.png"/></div>
         </div>
         <div class="col-sm-10">
             <div class="row">
@@ -45,10 +42,10 @@
                     <div class="col-sm-12">
                         <ul class="nav navbar-nav">
                             <li><a href="#">О Нас</a></li>
-                            <li><a href="#">Доставка</a></li>
-                            <li><a href="#">Гарантии</a></li>
-                            <li><a href="#">Контакты</a></li>
-                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="dostavka.html">Доставка</a></li>
+                            <li><a href="garantii.html">Гарантии</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                            <li><a href="vakansii.html">Вакансии</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -123,7 +120,7 @@
             @widget('test')
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
             {!! $tables->content !!}
         </div>
     </div>

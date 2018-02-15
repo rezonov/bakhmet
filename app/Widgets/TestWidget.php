@@ -28,7 +28,7 @@ class TestWidget implements ContractWidget{
         foreach ($Allc as $Cat) {
             $Cat->level = '0';
             $html_start = ' <li><a href="#">' . $Cat->name . '</a>
-                                        <ul class="submenu"><li ><div class="container">';
+                                        <ul class="submenu"><li ><div class="cont">';
 
             $html_end = '</div></li></ul></li>';
             $finalCat[] = $Cat;
