@@ -14,7 +14,7 @@ class PagesController extends Controller
         $Attrs = DB::table('pages')
             ->where('url','=','index')
             ->get();
-        dump($Attrs);
+     //   dump($Attrs);
 
         return view('pages', ['tables' => $Attrs[0]]);
     }

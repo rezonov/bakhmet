@@ -12,7 +12,13 @@
         <div class="box-header">
             <h3 class="box-title">Каталог</h3>
         </div>
+
         <div class="box-body">
+            <div class="row">
+                <div class="col-md-2 container">
+                    <a href="/admin/catalogs/excel/{{$id}}"><button type="button" class="btn btn-block btn-success">Скачать Excel</button></a>
+                </div>
+            </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
