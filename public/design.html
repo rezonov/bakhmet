@@ -1,0 +1,5809 @@
+<!DOCTYPE html>
+<html lang="ru-RU" itemscope itemtype="http://schema.org/Article" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta name="csrf-token" content="tXcE3u4iytTSOfjpBJ6u6ERdgdsapulUgSenb0KR">
+    <script type="text/javascript"
+            src="http://gc.kis.v2.scr.kaspersky-labs.com/20EFB0EA-8B55-5747-A402-0F64DA5E8187/main.js"
+            charset="UTF-8"></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css"/>
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <img width="200px" src="/images/logo.jpg"/>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <nav class="navbar navbar-default mainmenu">
+
+                    <div class="col-sm-12">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">О Нас</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Гарантии</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Вакансии</a></li>
+
+                        </ul>
+
+                    </div>
+
+
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 header">
+                    <h2>ПОЛНОЦЕННЫЙ ОТДЕЛ СНАБЖЕНИЯ
+                        ДЛЯ ВАШЕЙ КОМПАНИИ</h2>
+
+                    <div class="pics">
+                        <div>
+                            <img src="/images/pics/clients.jpg"/>
+                            <p>БОЛЕЕ 400 КЛИЕНТОВ</p>
+                        </div>
+                        <div>
+                            <img src="/images/pics/tender.jpg"/>
+                            <p>ПОБЕДИТЕЛИ ТЕНДЕРОВ</p>
+                        </div>
+                        <div>
+                            <img src="/images/pics/avto.jpg"/>
+                            <p>УМЕЕМ "СРОЧНО" И "ВЧЕРА"</p>
+                        </div>
+                        <div>
+                            <img src="/images/pics/pack.jpg"/>
+                            <P>100 ПОЗИЦИЙ = 1 ДОСТАВКА</P>
+                        </div>
+                        <div>
+                            <img src="/images/pics/geo.jpg"/>
+                            <P>ДОСТАВЛЯЕМ ПО ВСЕЙ РОССИИ</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="phones">
+                        +7 (495) 508 15 25<br/>
+                        +7 (905) 538 77 73 <br/>
+                        <input type="submit" class="btn btn-orange" value="ЗАКАЗАТЬ ЗВОНОК"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12" style="background: #4cbceb; height:75px">
+
+            <div class="col-sm-5">
+                <div style="width:250px; color:#fff; height:70px; border-top-left-radius:10px; border-top-right-radius:10px;  position:relative; top:10px; padding-top:20px; font-size:20px; background:#006896; text-align:center;">
+                    Каталог товаров
+                </div>
+
+            </div>
+            <div class="col-sm-7">
+                <div style="background: #3386ab; width:669px; height:100px; position:relative; top:-50px; border:solid 1px #666666; padding:10px">
+                    <p style="color:#fff; font-size:18px; padding-top:10px; padding-left:20px;">Поиск в базе по <u>11
+                                                                                                                   248</u>
+                                                                                                товарам</p>
+                    <p style="padding-left:10px;"><input type="text" class="form-control"/><input type="submit"
+                                                                                                  value="ПОИСК"
+                                                                                                  class="btn btn-orange"
+                                                                                                  style="width: 15%;
+    float: right;
+    top: -35px;
+    position: relative;"></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="menu_wrapper">
+                <ul class="menu">
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                    <li>Насосы</li>
+                </ul>
+            </div>
+            <div>
+                <div class="filters">
+
+
+                    <p>
+                        <label for="amount">Модель</label>
+                        <input type="text" id="amount-0" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-0"></div>
+
+                    <script>
+                        $("#slider-range-0").slider({
+                            range: true,
+                            min: 0,
+                            max: 0,
+                            values: [0, 0],
+                            change: function (event, ui) {
+                                $("#amount-0").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '1', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-0").val($("#slider-range-0").slider("values", 0) +
+                            " - " + $("#slider-range-0").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Двигатель
+                                            кВт/об.мин.</label>
+                        <input type="text" id="amount-2" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-2"></div>
+
+                    <script>
+                        $("#slider-range-2").slider({
+                            range: true,
+                            min: 0.18 / 1000,
+                            max: 75 / 1000,
+                            values: [0.18 / 1000, 75 / 1000],
+                            change: function (event, ui) {
+                                $("#amount-2").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '2', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-2").val($("#slider-range-2").slider("values", 0) +
+                            " - " + $("#slider-range-2").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Производительность
+                                            тыс. м3/час</label>
+                        <input type="text" id="amount-125" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-125"></div>
+
+                    <script>
+                        $("#slider-range-125").slider({
+                            range: true,
+                            min: 0,
+                            max: 9.1 - 22.1,
+                            values: [0, 9.1 - 22.1],
+                            change: function (event, ui) {
+                                $("#amount-125").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '3', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-125").val($("#slider-range-125").slider("values", 0) +
+                            " - " + $("#slider-range-125").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Полное давление,
+                                            Па</label>
+                        <input type="text" id="amount-126" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-126"></div>
+
+                    <script>
+                        $("#slider-range-126").slider({
+                            range: true,
+                            min: 0,
+                            max: 990 - 400,
+                            values: [0, 990 - 400],
+                            change: function (event, ui) {
+                                $("#amount-126").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '4', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-126").val($("#slider-range-126").slider("values", 0) +
+                            " - " + $("#slider-range-126").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Вес
+                                            кг</label>
+                        <input type="text" id="amount-12" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-12"></div>
+
+                    <script>
+                        $("#slider-range-12").slider({
+                            range: true,
+                            min: 0,
+                            max: 1490,
+                            values: [0, 1490],
+                            change: function (event, ui) {
+                                $("#amount-12").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '5', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-12").val($("#slider-range-12").slider("values", 0) +
+                            " - " + $("#slider-range-12").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Углерод.
+                                            Ст. с НДС</label>
+                        <input type="text" id="amount-127" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-127"></div>
+
+                    <script>
+                        $("#slider-range-127").slider({
+                            range: true,
+                            min: 6100.00,
+                            max: заказ,
+                            values: [6100.00, заказ],
+                            change: function (event, ui) {
+                                $("#amount-127").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '6', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-127").val($("#slider-range-127").slider("values", 0) +
+                            " - " + $("#slider-range-127").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount"> Нерж.
+                                             Ст. с НДС </label>
+                        <input type="text" id="amount-128" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-128"></div>
+
+                    <script>
+                        $("#slider-range-128").slider({
+                            range: true,
+                            min: 12050.00,
+                            max: заказ,
+                            values: [12050.00, заказ],
+                            change: function (event, ui) {
+                                $("#amount-128").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '7', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-128").val($("#slider-range-128").slider("values", 0) +
+                            " - " + $("#slider-range-128").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Разнор.
+                                            с НДС</label>
+                        <input type="text" id="amount-129" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-129"></div>
+
+                    <script>
+                        $("#slider-range-129").slider({
+                            range: true,
+                            min: 0,
+                            max: заказ,
+                            values: [0, заказ],
+                            change: function (event, ui) {
+                                $("#amount-129").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '8', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-129").val($("#slider-range-129").slider("values", 0) +
+                            " - " + $("#slider-range-129").slider("values", 1));
+                    </script>
+
+                    <p>
+                        <label for="amount">Алюм.
+                                            с НДС</label>
+                        <input type="text" id="amount-130" style="border:0; color:#f6931f; font-weight:bold;"/>
+                    </p>
+                    <div id="slider-range-130"></div>
+
+                    <script>
+                        $("#slider-range-130").slider({
+                            range: true,
+                            min: 0,
+                            max: заказ,
+                            values: [0, заказ],
+                            change: function (event, ui) {
+                                $("#amount-130").val(ui.values[0] + " - " + ui.values[1]);
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                filterTable('#allcatalog', '9', ui.values[0], ui.values[1]);
+                            }
+                        });
+                        $("#amount-130").val($("#slider-range-130").slider("values", 0) +
+                            " - " + $("#slider-range-130").slider("values", 1));
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <table id="allcatalog" class="table">
+                <tr>
+                    <th></th>
+                    <th>Модель</th>
+                    <th>Двигатель
+                        кВт/об.мин.
+                    </th>
+                    <th>Производительность
+                        тыс. м3/час
+                    </th>
+                    <th>Полное давление,
+                        Па
+                    </th>
+                    <th>Вес
+                        кг
+                    </th>
+                    <th>Углерод.
+                        Ст. с НДС
+                    </th>
+                    <th> Нерж.
+                         Ст. с НДС
+                    </th>
+                    <th>Разнор.
+                        с НДС
+                    </th>
+                    <th>Алюм.
+                        с НДС
+                    </th>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7559
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7559').css('display') == 'none') { $('#descr7559').css('display', 'block') } else { $('#descr7559').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №2,5</a>
+
+                    </td>
+
+                    <td>
+                        0.18/1500
+
+                    </td>
+
+                    <td>
+                        0.37-0.88
+
+                    </td>
+
+                    <td>
+                        137-55
+
+                    </td>
+
+                    <td>
+                        22
+
+                    </td>
+
+                    <td>
+                        6100.00
+
+                    </td>
+
+                    <td>
+                        12050.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7559" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x25.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7560
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7560').css('display') == 'none') { $('#descr7560').css('display', 'block') } else { $('#descr7560').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №2,5</a>
+
+                    </td>
+
+                    <td>
+                        0.25/1500
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        6600.00
+
+                    </td>
+
+                    <td>
+                        12500.00
+
+                    </td>
+
+                    <td>
+                        10640.00
+
+                    </td>
+
+                    <td>
+                        12870.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7560" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x25.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7561
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7561').css('display') == 'none') { $('#descr7561').css('display', 'block') } else { $('#descr7561').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №2,5</a>
+
+                    </td>
+
+                    <td>
+                        0.37/3000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        6750.00
+
+                    </td>
+
+                    <td>
+                        12610.00
+
+                    </td>
+
+                    <td>
+                        10640.00
+
+                    </td>
+
+                    <td>
+                        12870.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7561" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x25.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7562
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7562').css('display') == 'none') { $('#descr7562').css('display', 'block') } else { $('#descr7562').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №2,5</a>
+
+                    </td>
+
+                    <td>
+                        0.55/3000
+
+                    </td>
+
+                    <td>
+                        1.05-1.82
+
+                    </td>
+
+                    <td>
+                        640-330
+
+                    </td>
+
+                    <td>
+                        22
+
+                    </td>
+
+                    <td>
+                        6750.00
+
+                    </td>
+
+                    <td>
+                        12610.00
+
+                    </td>
+
+                    <td>
+                        10640.00
+
+                    </td>
+
+                    <td>
+                        12870.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7562" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x25.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7563
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7563').css('display') == 'none') { $('#descr7563').css('display', 'block') } else { $('#descr7563').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №2,5</a>
+
+                    </td>
+
+                    <td>
+                        0.75/3000
+
+                    </td>
+
+                    <td>
+                        1.1-2.25
+
+                    </td>
+
+                    <td>
+                        1020-480
+
+                    </td>
+
+                    <td>
+                        27
+
+                    </td>
+
+                    <td>
+                        7580.00
+
+                    </td>
+
+                    <td>
+                        13300.00
+
+                    </td>
+
+                    <td>
+                        10940.00
+
+                    </td>
+
+                    <td>
+                        13180.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7563" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x25.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7564
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7564').css('display') == 'none') { $('#descr7564').css('display', 'block') } else { $('#descr7564').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        0.18/1500
+
+                    </td>
+
+                    <td>
+                        1.03-1.82
+
+                    </td>
+
+                    <td>
+                        275-138
+
+                    </td>
+
+                    <td>
+                        30
+
+                    </td>
+
+                    <td>
+                        7100.00
+
+                    </td>
+
+                    <td>
+                        16600.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7564" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7565
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7565').css('display') == 'none') { $('#descr7565').css('display', 'block') } else { $('#descr7565').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        0.25/1500
+
+                    </td>
+
+                    <td>
+                        1.0-1.95
+
+                    </td>
+
+                    <td>
+                        315-163
+
+                    </td>
+
+                    <td>
+                        30
+
+                    </td>
+
+                    <td>
+                        7600.00
+
+                    </td>
+
+                    <td>
+                        17150.00
+
+                    </td>
+
+                    <td>
+                        11740.00
+
+                    </td>
+
+                    <td>
+                        15980.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7565" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7566
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7566').css('display') == 'none') { $('#descr7566').css('display', 'block') } else { $('#descr7566').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        0.37/1500
+
+                    </td>
+
+                    <td>
+                        1.08-2.25
+
+                    </td>
+
+                    <td>
+                        375-178
+
+                    </td>
+
+                    <td>
+                        30
+
+                    </td>
+
+                    <td>
+                        7800.00
+
+                    </td>
+
+                    <td>
+                        17620.00
+
+                    </td>
+
+                    <td>
+                        11740.00
+
+                    </td>
+
+                    <td>
+                        15980.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7566" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7567
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7567').css('display') == 'none') { $('#descr7567').css('display', 'block') } else { $('#descr7567').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        1.1/3000
+
+                    </td>
+
+                    <td>
+                        1.44-3.5
+
+                    </td>
+
+                    <td>
+                        900-360
+
+                    </td>
+
+                    <td>
+                        30
+
+                    </td>
+
+                    <td>
+                        8940.00
+
+                    </td>
+
+                    <td>
+                        18590.00
+
+                    </td>
+
+                    <td>
+                        12050.00
+
+                    </td>
+
+                    <td>
+                        16050.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7567" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7568
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7568').css('display') == 'none') { $('#descr7568').css('display', 'block') } else { $('#descr7568').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        1.5/3000
+
+                    </td>
+
+                    <td>
+                        2.1-3.7
+
+                    </td>
+
+                    <td>
+                        1100-550
+
+                    </td>
+
+                    <td>
+                        34
+
+                    </td>
+
+                    <td>
+                        9990.00
+
+                    </td>
+
+                    <td>
+                        19470.00
+
+                    </td>
+
+                    <td>
+                        13050.00
+
+                    </td>
+
+                    <td>
+                        17270.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7568" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7569
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7569').css('display') == 'none') { $('#descr7569').css('display', 'block') } else { $('#descr7569').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №3,15</a>
+
+                    </td>
+
+                    <td>
+                        2.2/3000
+
+                    </td>
+
+                    <td>
+                        2.17-4.5
+
+                    </td>
+
+                    <td>
+                        1500-700
+
+                    </td>
+
+                    <td>
+                        40
+
+                    </td>
+
+                    <td>
+                        10370.00
+
+                    </td>
+
+                    <td>
+                        19800.00
+
+                    </td>
+
+                    <td>
+                        16850.00
+
+                    </td>
+
+                    <td>
+                        20900.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7569" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x315.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7570
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7570').css('display') == 'none') { $('#descr7570').css('display', 'block') } else { $('#descr7570').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        0.18/1000
+
+                    </td>
+
+                    <td>
+                        1.03-2.4
+
+                    </td>
+
+                    <td>
+                        167-68
+
+                    </td>
+
+                    <td>
+                        52
+
+                    </td>
+
+                    <td>
+                        9350.00
+
+                    </td>
+
+                    <td>
+                        23100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7570" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7571
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7571').css('display') == 'none') { $('#descr7571').css('display', 'block') } else { $('#descr7571').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        0.25/1000
+
+                    </td>
+
+                    <td>
+                        1.25-2.95
+
+                    </td>
+
+                    <td>
+                        230-130
+
+                    </td>
+
+                    <td>
+                        52
+
+                    </td>
+
+                    <td>
+                        9550.00
+
+                    </td>
+
+                    <td>
+                        23200.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7571" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7572
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7572').css('display') == 'none') { $('#descr7572').css('display', 'block') } else { $('#descr7572').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        0.37/1000
+
+                    </td>
+
+                    <td>
+                        1.5-3.0
+
+                    </td>
+
+                    <td>
+                        280-130
+
+                    </td>
+
+                    <td>
+                        52
+
+                    </td>
+
+                    <td>
+                        10330.00
+
+                    </td>
+
+                    <td>
+                        23900.00
+
+                    </td>
+
+                    <td>
+                        14600.00
+
+                    </td>
+
+                    <td>
+                        20480.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7572" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7573
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7573').css('display') == 'none') { $('#descr7573').css('display', 'block') } else { $('#descr7573').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        0.55/1500
+
+                    </td>
+
+                    <td>
+                        2.2-3.75
+
+                    </td>
+
+                    <td>
+                        460-240
+
+                    </td>
+
+                    <td>
+                        53
+
+                    </td>
+
+                    <td>
+                        9750.00
+
+                    </td>
+
+                    <td>
+                        23350.00
+
+                    </td>
+
+                    <td>
+                        14600.00
+
+                    </td>
+
+                    <td>
+                        20480.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7573" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7574
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7574').css('display') == 'none') { $('#descr7574').css('display', 'block') } else { $('#descr7574').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        0.75/1500
+
+                    </td>
+
+                    <td>
+                        1.85-4.3
+
+                    </td>
+
+                    <td>
+                        520-290
+
+                    </td>
+
+                    <td>
+                        55
+
+                    </td>
+
+                    <td>
+                        10160.00
+
+                    </td>
+
+                    <td>
+                        23750.00
+
+                    </td>
+
+                    <td>
+                        14600.00
+
+                    </td>
+
+                    <td>
+                        20480.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7574" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7575
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7575').css('display') == 'none') { $('#descr7575').css('display', 'block') } else { $('#descr7575').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        1.1/1500
+
+                    </td>
+
+                    <td>
+                        2.2-4.5
+
+                    </td>
+
+                    <td>
+                        610-300
+
+                    </td>
+
+                    <td>
+                        55
+
+                    </td>
+
+                    <td>
+                        11150.00
+
+                    </td>
+
+                    <td>
+                        24550.00
+
+                    </td>
+
+                    <td>
+                        17600.00
+
+                    </td>
+
+                    <td>
+                        23500.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7575" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7576
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7576').css('display') == 'none') { $('#descr7576').css('display', 'block') } else { $('#descr7576').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        4.0/3000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        15770.00
+
+                    </td>
+
+                    <td>
+                        28500.00
+
+                    </td>
+
+                    <td>
+                        20200.00
+
+                    </td>
+
+                    <td>
+                        25650.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7576" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7577
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7577').css('display') == 'none') { $('#descr7577').css('display', 'block') } else { $('#descr7577').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №4</a>
+
+                    </td>
+
+                    <td>
+                        5.5/3000
+
+                    </td>
+
+                    <td>
+                        3.8-8.8
+
+                    </td>
+
+                    <td>
+                        2100-1190
+
+                    </td>
+
+                    <td>
+                        72
+
+                    </td>
+
+                    <td>
+                        17700.00
+
+                    </td>
+
+                    <td>
+                        30100.00
+
+                    </td>
+
+                    <td>
+                        20200.00
+
+                    </td>
+
+                    <td>
+                        26650.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7577" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x4.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7578
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7578').css('display') == 'none') { $('#descr7578').css('display', 'block') } else { $('#descr7578').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        0.55/1000
+
+                    </td>
+
+                    <td>
+                        1.95-4.6
+
+                    </td>
+
+                    <td>
+                        265-107
+
+                    </td>
+
+                    <td>
+                        91
+
+                    </td>
+
+                    <td>
+                        14450.00
+
+                    </td>
+
+                    <td>
+                        32500.00
+
+                    </td>
+
+                    <td>
+                        19600.00
+
+                    </td>
+
+                    <td>
+                        25150.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7578" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7579
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7579').css('display') == 'none') { $('#descr7579').css('display', 'block') } else { $('#descr7579').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        0.75/1000
+
+                    </td>
+
+                    <td>
+                        2.6-5.1
+
+                    </td>
+
+                    <td>
+                        370-195
+
+                    </td>
+
+                    <td>
+                        95
+
+                    </td>
+
+                    <td>
+                        15400.00
+
+                    </td>
+
+                    <td>
+                        33350.00
+
+                    </td>
+
+                    <td>
+                        20600.00
+
+                    </td>
+
+                    <td>
+                        26150.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7579" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7580
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7580').css('display') == 'none') { $('#descr7580').css('display', 'block') } else { $('#descr7580').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        1.1/1000
+
+                    </td>
+
+                    <td>
+                        2.95-5.8
+
+                    </td>
+
+                    <td>
+                        530-275
+
+                    </td>
+
+                    <td>
+                        97
+
+                    </td>
+
+                    <td>
+                        16100.00
+
+                    </td>
+
+                    <td>
+                        33950.00
+
+                    </td>
+
+                    <td>
+                        20600.00
+
+                    </td>
+
+                    <td>
+                        26150.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7580" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7581
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7581').css('display') == 'none') { $('#descr7581').css('display', 'block') } else { $('#descr7581').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        1.5/1500
+
+                    </td>
+
+                    <td>
+                        4.2-7.3
+
+                    </td>
+
+                    <td>
+                        750-375
+
+                    </td>
+
+                    <td>
+                        107
+
+                    </td>
+
+                    <td>
+                        15650.00
+
+                    </td>
+
+                    <td>
+                        33550.00
+
+                    </td>
+
+                    <td>
+                        20600.00
+
+                    </td>
+
+                    <td>
+                        26150.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7581" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7582
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7582').css('display') == 'none') { $('#descr7582').css('display', 'block') } else { $('#descr7582').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        2.2/1500
+
+                    </td>
+
+                    <td>
+                        3.95-7.9
+
+                    </td>
+
+                    <td>
+                        860-440
+
+                    </td>
+
+                    <td>
+                        107
+
+                    </td>
+
+                    <td>
+                        18100.00
+
+                    </td>
+
+                    <td>
+                        35600.00
+
+                    </td>
+
+                    <td>
+                        22700.00
+
+                    </td>
+
+                    <td>
+                        28800.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7582" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7583
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7583').css('display') == 'none') { $('#descr7583').css('display', 'block') } else { $('#descr7583').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №5</a>
+
+                    </td>
+
+                    <td>
+                        3.0/1500
+
+                    </td>
+
+                    <td>
+                        4.2-8.9
+
+                    </td>
+
+                    <td>
+                        1050-470
+
+                    </td>
+
+                    <td>
+                        107
+
+                    </td>
+
+                    <td>
+                        19700.00
+
+                    </td>
+
+                    <td>
+                        37000.00
+
+                    </td>
+
+                    <td>
+                        25200.00
+
+                    </td>
+
+                    <td>
+                        31300.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7583" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7584
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7584').css('display') == 'none') { $('#descr7584').css('display', 'block') } else { $('#descr7584').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        1.1/1000
+
+                    </td>
+
+                    <td>
+                        4.0-9.2
+
+                    </td>
+
+                    <td>
+                        430-170
+
+                    </td>
+
+                    <td>
+                        190
+
+                    </td>
+
+                    <td>
+                        20600.00
+
+                    </td>
+
+                    <td>
+                        49950.00
+
+                    </td>
+
+                    <td>
+                        25350.00
+
+                    </td>
+
+                    <td>
+                        38450.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7584" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7585
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7585').css('display') == 'none') { $('#descr7585').css('display', 'block') } else { $('#descr7585').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        1.5/1000
+
+                    </td>
+
+                    <td>
+                        5.6-8.8
+
+                    </td>
+
+                    <td>
+                        520-260
+
+                    </td>
+
+                    <td>
+                        161
+
+                    </td>
+
+                    <td>
+                        22400.00
+
+                    </td>
+
+                    <td>
+                        51500.00
+
+                    </td>
+
+                    <td>
+                        27500.00
+
+                    </td>
+
+                    <td>
+                        41000.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7585" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7586
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7586').css('display') == 'none') { $('#descr7586').css('display', 'block') } else { $('#descr7586').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        2.2/1000
+
+                    </td>
+
+                    <td>
+                        5.2-10.5
+
+                    </td>
+
+                    <td>
+                        600-310
+
+                    </td>
+
+                    <td>
+                        162
+
+                    </td>
+
+                    <td>
+                        24200.00
+
+                    </td>
+
+                    <td>
+                        53000.00
+
+                    </td>
+
+                    <td>
+                        36750.00
+
+                    </td>
+
+                    <td>
+                        50250.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7586" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7587
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7587').css('display') == 'none') { $('#descr7587').css('display', 'block') } else { $('#descr7587').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        3.0/1000
+
+                    </td>
+
+                    <td>
+                        5.85-12.0
+
+                    </td>
+
+                    <td>
+                        830-400
+
+                    </td>
+
+                    <td>
+                        180
+
+                    </td>
+
+                    <td>
+                        27700.00
+
+                    </td>
+
+                    <td>
+                        55950.00
+
+                    </td>
+
+                    <td>
+                        39700.00
+
+                    </td>
+
+                    <td>
+                        53300.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7587" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7588
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7588').css('display') == 'none') { $('#descr7588').css('display', 'block') } else { $('#descr7588').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        5.5/1500
+
+                    </td>
+
+                    <td>
+                        8.0-15.8
+
+                    </td>
+
+                    <td>
+                        1280-710
+
+                    </td>
+
+                    <td>
+                        178
+
+                    </td>
+
+                    <td>
+                        28600.00
+
+                    </td>
+
+                    <td>
+                        56750.00
+
+                    </td>
+
+                    <td>
+                        32300.00
+
+                    </td>
+
+                    <td>
+                        46100.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7588" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7589
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7589').css('display') == 'none') { $('#descr7589').css('display', 'block') } else { $('#descr7589').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        7.5/1500
+
+                    </td>
+
+                    <td>
+                        8.5-17.8
+
+                    </td>
+
+                    <td>
+                        1650-770
+
+                    </td>
+
+                    <td>
+                        201
+
+                    </td>
+
+                    <td>
+                        32900.00
+
+                    </td>
+
+                    <td>
+                        60400.00
+
+                    </td>
+
+                    <td>
+                        43400.00
+
+                    </td>
+
+                    <td>
+                        56500.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7589" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7590
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7590').css('display') == 'none') { $('#descr7590').css('display', 'block') } else { $('#descr7590').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №6,3</a>
+
+                    </td>
+
+                    <td>
+                        11/1500
+
+                    </td>
+
+                    <td>
+                        8.7-18.0
+
+                    </td>
+
+                    <td>
+                        1900-900
+
+                    </td>
+
+                    <td>
+                        201
+
+                    </td>
+
+                    <td>
+                        35700.00
+
+                    </td>
+
+                    <td>
+                        62750.00
+
+                    </td>
+
+                    <td>
+                        49900.00
+
+                    </td>
+
+                    <td>
+                        63000.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7590" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x63.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7591
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7591').css('display') == 'none') { $('#descr7591').css('display', 'block') } else { $('#descr7591').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        3.0/750
+
+                    </td>
+
+                    <td>
+                        8.8-18.1
+
+                    </td>
+
+                    <td>
+                        660-310
+
+                    </td>
+
+                    <td>
+                        280
+
+                    </td>
+
+                    <td>
+                        37400.00
+
+                    </td>
+
+                    <td>
+                        80050.00
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7591" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7592
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7592').css('display') == 'none') { $('#descr7592').css('display', 'block') } else { $('#descr7592').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        4.0/750
+
+                    </td>
+
+                    <td>
+                        8.9-18.2
+
+                    </td>
+
+                    <td>
+                        780-360
+
+                    </td>
+
+                    <td>
+                        325
+
+                    </td>
+
+                    <td>
+                        40400.00
+
+                    </td>
+
+                    <td>
+                        82650.00
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7592" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7593
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7593').css('display') == 'none') { $('#descr7593').css('display', 'block') } else { $('#descr7593').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        4.0/1000
+
+                    </td>
+
+                    <td>
+                        8.1-19.0
+
+                    </td>
+
+                    <td>
+                        700-275
+
+                    </td>
+
+                    <td>
+                        250
+
+                    </td>
+
+                    <td>
+                        35500.00
+
+                    </td>
+
+                    <td>
+                        78500.00
+
+                    </td>
+
+                    <td>
+                        58800.00
+
+                    </td>
+
+                    <td>
+                        87000.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7593" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7594
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7594').css('display') == 'none') { $('#descr7594').css('display', 'block') } else { $('#descr7594').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        5.5/1000
+
+                    </td>
+
+                    <td>
+                        11.6-19.9
+
+                    </td>
+
+                    <td>
+                        840-435
+
+                    </td>
+
+                    <td>
+                        270
+
+                    </td>
+
+                    <td>
+                        40100.00
+
+                    </td>
+
+                    <td>
+                        82400.00
+
+                    </td>
+
+                    <td>
+                        63100.00
+
+                    </td>
+
+                    <td>
+                        89500.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7594" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7595
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7595').css('display') == 'none') { $('#descr7595').css('display', 'block') } else { $('#descr7595').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        7.5/1000
+
+                    </td>
+
+                    <td>
+                        11.6-24.5
+
+                    </td>
+
+                    <td>
+                        1180-540
+
+                    </td>
+
+                    <td>
+                        293
+
+                    </td>
+
+                    <td>
+                        42800.00
+
+                    </td>
+
+                    <td>
+                        84600.00
+
+                    </td>
+
+                    <td>
+                        68900.00
+
+                    </td>
+
+                    <td>
+                        95600.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7595" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7596
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7596').css('display') == 'none') { $('#descr7596').css('display', 'block') } else { $('#descr7596').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        11/1000
+
+                    </td>
+
+                    <td>
+                        11.8-24.5
+
+                    </td>
+
+                    <td>
+                        1350-640
+
+                    </td>
+
+                    <td>
+                        337
+
+                    </td>
+
+                    <td>
+                        54000.00
+
+                    </td>
+
+                    <td>
+                        94100.00
+
+                    </td>
+
+                    <td>
+                        74300.00
+
+                    </td>
+
+                    <td>
+                        101400.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7596" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x8.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7597
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7597').css('display') == 'none') { $('#descr7597').css('display', 'block') } else { $('#descr7597').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        7.5/750
+
+                    </td>
+
+                    <td>
+                        15.9-31.5
+
+                    </td>
+
+                    <td>
+                        860-550
+
+                    </td>
+
+                    <td>
+                        600
+
+                    </td>
+
+                    <td>
+                        76600.00
+
+                    </td>
+
+                    <td>
+                        196300.00
+
+                    </td>
+
+                    <td>
+                        93800.00
+
+                    </td>
+
+                    <td>
+                        159800.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7597" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7598
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7598').css('display') == 'none') { $('#descr7598').css('display', 'block') } else { $('#descr7598').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        11/750
+
+                    </td>
+
+                    <td>
+                        23.0-38.5
+
+                    </td>
+
+                    <td>
+                        1300-660
+
+                    </td>
+
+                    <td>
+                        627
+
+                    </td>
+
+                    <td>
+                        82800.00
+
+                    </td>
+
+                    <td>
+                        201500.00
+
+                    </td>
+
+                    <td>
+                        98400.00
+
+                    </td>
+
+                    <td>
+                        164800.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7598" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7599
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7599').css('display') == 'none') { $('#descr7599').css('display', 'block') } else { $('#descr7599').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        15/1000
+
+                    </td>
+
+                    <td>
+                        23.0-38.5
+
+                    </td>
+
+                    <td>
+                        1300-660
+
+                    </td>
+
+                    <td>
+                        627
+
+                    </td>
+
+                    <td>
+                        83000.00
+
+                    </td>
+
+                    <td>
+                        201700.00
+
+                    </td>
+
+                    <td>
+                        98000.00
+
+                    </td>
+
+                    <td>
+                        164300.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7599" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7600
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7600').css('display') == 'none') { $('#descr7600').css('display', 'block') } else { $('#descr7600').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        18.5/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        91400.00
+
+                    </td>
+
+                    <td>
+                        208800.00
+
+                    </td>
+
+                    <td>
+                        107100.00
+
+                    </td>
+
+                    <td>
+                        174100.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7600" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7601
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7601').css('display') == 'none') { $('#descr7601').css('display', 'block') } else { $('#descr7601').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        22/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        103500.00
+
+                    </td>
+
+                    <td>
+                        219100.00
+
+                    </td>
+
+                    <td>
+                        131600.00
+
+                    </td>
+
+                    <td>
+                        200500.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7601" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7602
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7602').css('display') == 'none') { $('#descr7602').css('display', 'block') } else { $('#descr7602').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        18.5/750
+
+                    </td>
+
+                    <td>
+                        33.7-58.1
+
+                    </td>
+
+                    <td>
+                        1170-590
+
+                    </td>
+
+                    <td>
+                        1490
+
+                    </td>
+
+                    <td>
+                        118200.00
+
+                    </td>
+
+                    <td>
+                        307600.00
+
+                    </td>
+
+                    <td>
+                        138100.00
+
+                    </td>
+
+                    <td>
+                        191300.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7602" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7603
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7603').css('display') == 'none') { $('#descr7603').css('display', 'block') } else { $('#descr7603').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        22/750
+
+                    </td>
+
+                    <td>
+                        31.1-61.5
+
+                    </td>
+
+                    <td>
+                        1350-700
+
+                    </td>
+
+                    <td>
+                        1380
+
+                    </td>
+
+                    <td>
+                        124200.00
+
+                    </td>
+
+                    <td>
+                        312700.00
+
+                    </td>
+
+                    <td>
+                        153600.00
+
+                    </td>
+
+                    <td>
+                        206800.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7603" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7604
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7604').css('display') == 'none') { $('#descr7604').css('display', 'block') } else { $('#descr7604').css('display', 'none') }">ВР80-75
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        30/750
+
+                    </td>
+
+                    <td>
+                        34.1-69.1
+
+                    </td>
+
+                    <td>
+                        1600-750
+
+                    </td>
+
+                    <td>
+                        1410
+
+                    </td>
+
+                    <td>
+                        139100.00
+
+                    </td>
+
+                    <td>
+                        325300.00
+
+                    </td>
+
+                    <td>
+                        159200.00
+
+                    </td>
+
+                    <td>
+                        212400.00
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7604" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x1x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-1 &ndash; это радиальные вентиляторы низкого давления, которые
+                                изготавливаются по первой конструктивной схеме, предполагающей непосредственное
+                                соединение с электродвигателем, что представлено на рисунке. Производительность ВР 80-75
+                                от 1000 м3/ч до&nbsp;100&nbsp;000 м3/ч, полное давление от 100 Па до 1&nbsp;800 Па.
+                                Такие вентиляторы в основном применяются в системах, где требуется высокий КПД, низкий
+                                уровень шума, а также при параллельной работе вентиляторов.</p>
+                            <p><img alt="" src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_1.gif"
+                                    style="width: 500px; height: 204px;"/></p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7605
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7605').css('display') == 'none') { $('#descr7605').css('display', 'block') } else { $('#descr7605').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        3.0/750
+
+                    </td>
+
+                    <td>
+                        7.4-18.0
+
+                    </td>
+
+                    <td>
+                        690-285
+
+                    </td>
+
+                    <td>
+                        340
+
+                    </td>
+
+                    <td>
+                        69800.00
+
+                    </td>
+
+                    <td>
+                        152300.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7605" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7606
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7606').css('display') == 'none') { $('#descr7606').css('display', 'block') } else { $('#descr7606').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        4.0/750
+
+                    </td>
+
+                    <td>
+                        8.2-20.0
+
+                    </td>
+
+                    <td>
+                        830-350
+
+                    </td>
+
+                    <td>
+                        357
+
+                    </td>
+
+                    <td>
+                        72400.00
+
+                    </td>
+
+                    <td>
+                        154900.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7606" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7607
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7607').css('display') == 'none') { $('#descr7607').css('display', 'block') } else { $('#descr7607').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        4.0/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        68300.00
+
+                    </td>
+
+                    <td>
+                        150800.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7607" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7608
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7608').css('display') == 'none') { $('#descr7608').css('display', 'block') } else { $('#descr7608').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        5.5/1000
+
+                    </td>
+
+                    <td>
+                        9.1-22.1
+
+                    </td>
+
+                    <td>
+                        1040-430
+
+                    </td>
+
+                    <td>
+                        377
+
+                    </td>
+
+                    <td>
+                        72100.00
+
+                    </td>
+
+                    <td>
+                        154600.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7608" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7609
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7609').css('display') == 'none') { $('#descr7609').css('display', 'block') } else { $('#descr7609').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        7.5/1000
+
+                    </td>
+
+                    <td>
+                        10.2-25.0
+
+                    </td>
+
+                    <td>
+                        1300-530
+
+                    </td>
+
+                    <td>
+                        393
+
+                    </td>
+
+                    <td>
+                        74400.00
+
+                    </td>
+
+                    <td>
+                        156900.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7609" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7610
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7610').css('display') == 'none') { $('#descr7610').css('display', 'block') } else { $('#descr7610').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №8</a>
+
+                    </td>
+
+                    <td>
+                        11/1000
+
+                    </td>
+
+                    <td>
+                        11.7-27.5
+
+                    </td>
+
+                    <td>
+                        1630-700
+
+                    </td>
+
+                    <td>
+                        437
+
+                    </td>
+
+                    <td>
+                        83900.00
+
+                    </td>
+
+                    <td>
+                        166400.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7610" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7611
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7611').css('display') == 'none') { $('#descr7611').css('display', 'block') } else { $('#descr7611').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        5.5/750
+
+                    </td>
+
+                    <td>
+                        12.3-30.1
+
+                    </td>
+
+                    <td>
+                        780-325
+
+                    </td>
+
+                    <td>
+                        770
+
+                    </td>
+
+                    <td>
+                        106800.00
+
+                    </td>
+
+                    <td>
+                        221800.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7611" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7612
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7612').css('display') == 'none') { $('#descr7612').css('display', 'block') } else { $('#descr7612').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        7.5/750
+
+                    </td>
+
+                    <td>
+                        13.9-33.9
+
+                    </td>
+
+                    <td>
+                        990-400
+
+                    </td>
+
+                    <td>
+                        810
+
+                    </td>
+
+                    <td>
+                        115200.00
+
+                    </td>
+
+                    <td>
+                        230300.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7612" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7613
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7613').css('display') == 'none') { $('#descr7613').css('display', 'block') } else { $('#descr7613').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        11/750
+
+                    </td>
+
+                    <td>
+                        15.8-37.5
+
+                    </td>
+
+                    <td>
+                        1250-530
+
+                    </td>
+
+                    <td>
+                        840
+
+                    </td>
+
+                    <td>
+                        120500.00
+
+                    </td>
+
+                    <td>
+                        235500.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7613" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7614
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7614').css('display') == 'none') { $('#descr7614').css('display', 'block') } else { $('#descr7614').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        5.5/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        104800.00
+
+                    </td>
+
+                    <td>
+                        219800.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7614" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7615
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7615').css('display') == 'none') { $('#descr7615').css('display', 'block') } else { $('#descr7615').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        7.5/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        107000.00
+
+                    </td>
+
+                    <td>
+                        222100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7615" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7616
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7616').css('display') == 'none') { $('#descr7616').css('display', 'block') } else { $('#descr7616').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        11/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        116500.00
+
+                    </td>
+
+                    <td>
+                        231500.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7616" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7617
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7617').css('display') == 'none') { $('#descr7617').css('display', 'block') } else { $('#descr7617').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        15/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        120700.00
+
+                    </td>
+
+                    <td>
+                        235700.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7617" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7618
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7618').css('display') == 'none') { $('#descr7618').css('display', 'block') } else { $('#descr7618').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        18.5/1000
+
+                    </td>
+
+                    <td>
+                        18.4-45.3
+
+                    </td>
+
+                    <td>
+                        1800-720
+
+                    </td>
+
+                    <td>
+                        750
+
+                    </td>
+
+                    <td>
+                        127800.00
+
+                    </td>
+
+                    <td>
+                        242800.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7618" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7619
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7619').css('display') == 'none') { $('#descr7619').css('display', 'block') } else { $('#descr7619').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №10</a>
+
+                    </td>
+
+                    <td>
+                        22/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        138000.00
+
+                    </td>
+
+                    <td>
+                        253100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7619" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7620
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7620').css('display') == 'none') { $('#descr7620').css('display', 'block') } else { $('#descr7620').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        7.5/750
+
+                    </td>
+
+                    <td>
+                        18.6-45.1
+
+                    </td>
+
+                    <td>
+                        730-300
+
+                    </td>
+
+                    <td>
+                        1270
+
+                    </td>
+
+                    <td>
+                        152300.00
+
+                    </td>
+
+                    <td>
+                        330900.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7620" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7621
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7621').css('display') == 'none') { $('#descr7621').css('display', 'block') } else { $('#descr7621').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        11/750
+
+                    </td>
+
+                    <td>
+                        21.8-52.1
+
+                    </td>
+
+                    <td>
+                        920-380
+
+                    </td>
+
+                    <td>
+                        980
+
+                    </td>
+
+                    <td>
+                        157600.00
+
+                    </td>
+
+                    <td>
+                        336100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7621" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7622
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7622').css('display') == 'none') { $('#descr7622').css('display', 'block') } else { $('#descr7622').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        15/750
+
+                    </td>
+
+                    <td>
+                        23.5-58.1
+
+                    </td>
+
+                    <td>
+                        1180-470
+
+                    </td>
+
+                    <td>
+                        1020
+
+                    </td>
+
+                    <td>
+                        166600.00
+
+                    </td>
+
+                    <td>
+                        345100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7622" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7623
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7623').css('display') == 'none') { $('#descr7623').css('display', 'block') } else { $('#descr7623').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        18.5/750
+
+                    </td>
+
+                    <td>
+                        25.1-61.1
+
+                    </td>
+
+                    <td>
+                        1310-540
+
+                    </td>
+
+                    <td>
+                        1050
+
+                    </td>
+
+                    <td>
+                        178600.00
+
+                    </td>
+
+                    <td>
+                        357200.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7623" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7624
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7624').css('display') == 'none') { $('#descr7624').css('display', 'block') } else { $('#descr7624').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        22/750
+
+                    </td>
+
+                    <td>
+                        26.7-65.1
+
+                    </td>
+
+                    <td>
+                        1490-610
+
+                    </td>
+
+                    <td>
+                        1100
+
+                    </td>
+
+                    <td>
+                        183700.00
+
+                    </td>
+
+                    <td>
+                        362300.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7624" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7625
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7625').css('display') == 'none') { $('#descr7625').css('display', 'block') } else { $('#descr7625').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        30/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        196300.00
+
+                    </td>
+
+                    <td>
+                        374800.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7625" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7626
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7626').css('display') == 'none') { $('#descr7626').css('display', 'block') } else { $('#descr7626').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        11/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        153600.00
+
+                    </td>
+
+                    <td>
+                        332100.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7626" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7627
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7627').css('display') == 'none') { $('#descr7627').css('display', 'block') } else { $('#descr7627').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        15/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        157800.00
+
+                    </td>
+
+                    <td>
+                        336300.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7627" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7628
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7628').css('display') == 'none') { $('#descr7628').css('display', 'block') } else { $('#descr7628').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        18.5/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        164900.00
+
+                    </td>
+
+                    <td>
+                        343400.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7628" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7629
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7629').css('display') == 'none') { $('#descr7629').css('display', 'block') } else { $('#descr7629').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        22/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        175100.00
+
+                    </td>
+
+                    <td>
+                        353700.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7629" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7630
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7630').css('display') == 'none') { $('#descr7630').css('display', 'block') } else { $('#descr7630').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №12,5</a>
+
+                    </td>
+
+                    <td>
+                        30/1000
+
+                    </td>
+
+                    <td>
+                        29.8-71.4
+
+                    </td>
+
+                    <td>
+                        1820-750
+
+                    </td>
+
+                    <td>
+                        1150
+
+                    </td>
+
+                    <td>
+                        182300.00
+
+                    </td>
+
+                    <td>
+                        360900.00
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7630" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x125.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7631
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7631').css('display') == 'none') { $('#descr7631').css('display', 'block') } else { $('#descr7631').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        11/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7631" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7632
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7632').css('display') == 'none') { $('#descr7632').css('display', 'block') } else { $('#descr7632').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        15/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7632" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7633
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7633').css('display') == 'none') { $('#descr7633').css('display', 'block') } else { $('#descr7633').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        18.5/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7633" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7634
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7634').css('display') == 'none') { $('#descr7634').css('display', 'block') } else { $('#descr7634').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        30/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7634" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7635
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7635').css('display') == 'none') { $('#descr7635').css('display', 'block') } else { $('#descr7635').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        45/750
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7635" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7636
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7636').css('display') == 'none') { $('#descr7636').css('display', 'block') } else { $('#descr7636').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        30/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7636" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7637
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7637').css('display') == 'none') { $('#descr7637').css('display', 'block') } else { $('#descr7637').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        55/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7637" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+                <tr class="valuerow">
+
+
+                    <td>
+                        7638
+
+                    </td>
+
+                    <td>
+                        <a href="#"
+                           onClick="if($('#descr7638').css('display') == 'none') { $('#descr7638').css('display', 'block') } else { $('#descr7638').css('display', 'none') }">ВР80-75-5
+                                                                                                                                                                              №16</a>
+
+                    </td>
+
+                    <td>
+                        75/1000
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+                        заказ
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+
+                    <td>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="descrtd" id="descr7638" style="display: none;width:300px ">
+                            <img width="300" float="right" src="/img/vr_80x75x5x16.800x800w.jpg"/>
+                            <p> Вентиляторы ВР 80-75-5 &ndash; это радиальные вентиляторы низкого давления,
+                                изготовленные, по пятой конструктивной схеме с ременным приводом, что представлено на
+                                рисунке:<br/> <img alt=""
+                                                   src="/files/uploads/image/konstruktivnoe_ispolnenie_shema_5.gif"
+                                                   style="width: 600px; height: 256px;"/><br/> &nbsp;</p></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+
+
+        </div>
+    </div>
+</div>
+<script>
+    function filterTable($table, $col, $min, $max) {
+
+        var $rows = $('#allcatalog').find('.valuerow');
+        $rows.each(function (rowIndex) {
+            var valid = true;
+
+            var result = $(this).find('td').eq($col).html();
+            if ((result > $min) && (result < $max)) {
+                valid = true;
+                console.log($min + ">" + result + "<" + $max);
+            } else
+                valid = false;
+
+            if (valid == false) {
+                $(this).css('display', 'none');
+            } else {
+                $(this).css('display', '');
+            }
+
+
+        });
+        console.log('---------');
+    }
+
+    $('.dropdown-toggle').dropdown();
+
+</script>
+</div>
+</body>
+</html>
