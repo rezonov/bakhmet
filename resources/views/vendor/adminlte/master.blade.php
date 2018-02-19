@@ -25,7 +25,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <script src="/js/jQuery-Picture-Cut/src/jquery.picture.cut.js"></script>
+
 
     <!-- CSS adjustments for browsers with JavaScript disabled -->
     <noscript>
