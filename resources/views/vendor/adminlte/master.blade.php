@@ -165,10 +165,10 @@
     $(function () {
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
-        CKEDITOR.plugins.addExternal('colorbutton', '/js/colorbutton/', 'plugin.js');
+
 
         CKEDITOR.replace('editor1', {
-                extraPlugins: 'colorbutton'
+
             }
         );
         //bootstrap WYSIHTML5 - text editor
