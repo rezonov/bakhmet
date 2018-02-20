@@ -105,16 +105,20 @@
                 <div class="col-md-12">
                     <label>Title страницы</label>
                     <input class="form-control" type="text" name="seotitle"
-                           @if(!empty($Seo[0]) && !empty($Seo[0]->title))value=" {{$Seo[0]->title}}"
-                           @endifplaceholder="Введите Title">
+                    @if(!empty($Seo[0]) && !empty($Seo[0]->title))
+                    value=" {{$Seo[0]->title}}"
+                           @endif
+                            placeholder="Введите Title">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <label>Ключевые слова</label>
                     <input class="form-control" type="text" name="seokeywords"
-                           @if(!empty($Seo[0]) && !empty($Seo[0]->keywords))value=" {{$Seo[0]->keywords}}"
-                           @endifplaceholder="Введите ключевые слова">
+                           @if(!empty($Seo[0]) && !empty($Seo[0]->keywords))
+                           value=" {{$Seo[0]->keywords}}"
+                           @endif
+                           placeholder="Введите ключевые слова">
                 </div>
 
             </div>
@@ -122,8 +126,10 @@
                 <div class="col-md-12">
                     <label>Описание страницы</label>
                     <input class="form-control" type="text" name="seodescriptions"
-                           @if(!empty($Seo[0]) && !empty($Seo[0]->keywords))value=" {{$Seo[0]->descriptions}}"
-                           @endifplaceholder="Введите Описание">
+                           @if(!empty($Seo[0]) && !empty($Seo[0]->keywords))
+                           value=" {{$Seo[0]->descriptions}}"
+                           @endif
+                           placeholder="Введите Описание">
                 </div>
 
             </div>
@@ -176,11 +182,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form id="fileupload" action="https://jquery-file-upload.appspot.com/" method="POST"
-                          enctype="multipart/form-data">
+                    <form id="fileupload" action="https://jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
                         <!-- Redirect browsers with JavaScript disabled to the origin page -->
-                        <noscript><input type="hidden" name="redirect"
-                                         value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+                        <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
                         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
                         <div class="row fileupload-buttonbar">
                             <div class="col-lg-7">
@@ -209,8 +213,7 @@
                             <!-- The global progress state -->
                             <div class="col-lg-5 fileupload-progress fade">
                                 <!-- The global progress bar -->
-                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
-                                     aria-valuemax="100">
+                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
                                     <div class="progress-bar progress-bar-success" style="width:0%;"></div>
                                 </div>
                                 <!-- The extended global progress state -->
@@ -218,9 +221,7 @@
                             </div>
                         </div>
                         <!-- The table listing the files available for upload/download -->
-                        <table role="presentation" class="table table-striped">
-                            <tbody class="files"></tbody>
-                        </table>
+                        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
                     </form>
                     <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
                         <div class="slides"></div>
@@ -262,8 +263,7 @@
         </td>
     </tr>
 {% } %}
-
-                    </script>
+</script>
                     <script id="template-download" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
@@ -305,8 +305,7 @@
         </td>
     </tr>
 {% } %}
-
-                    </script>
+</script>
                     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
                     <script src="/js/js/vendor/jquery.ui.widget.js"></script>
                     <script src="/js/js/jquery.iframe-transport.js"></script>
@@ -369,5 +368,4 @@
             });
         });
     </script>
-
 @stop
