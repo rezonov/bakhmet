@@ -161,7 +161,7 @@
         CKEDITOR.plugins.addExternal('colorbutton', '/js/colorbutton/', 'plugin.js');
 
         CKEDITOR.replace('editor1', {
-                extraPlugins: 'colorbutton'
+                extraPlugins: 'colorbutton,font'
             }
         );
         //bootstrap WYSIHTML5 - text editor
