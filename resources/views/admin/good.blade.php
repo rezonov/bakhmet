@@ -167,6 +167,13 @@
                 </div>
 
             </div>
+
+            <div class="row">
+                <div class="col-md-6 align-right">
+                    <input type="submit" class="btn btn-success" value="Сохранить">
+                    {!! Form::close() !!}
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <form id="fileupload" action="https://jquery-file-upload.appspot.com/" method="POST"
@@ -337,13 +344,6 @@
                     <div id="result"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 align-right">
-                    <input type="submit" class="btn btn-success" value="Сохранить">
-                    {!! Form::close() !!}
-                </div>
-            </div>
-
         </div>
     </div>
     <div class="">
