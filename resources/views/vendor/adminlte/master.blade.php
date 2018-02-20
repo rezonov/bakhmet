@@ -111,24 +111,6 @@
 <!--<script src="/js/jquery-ui/jquery-ui.js"></script>-->
 
 <script src="https://adminlte.io/themes/AdminLTE/bower_components/ckeditor/ckeditor.js"></script>
-<script>
-    $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-
-
-        CKEDITOR.replace('editor1', {
-
-            }
-        );
-        //bootstrap WYSIHTML5 - text editor
-        $('.textarea').wysihtml5();
-
-
-    })
-
-
-</script>
 <script src="https://adminlte.io/themes/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
@@ -168,18 +150,28 @@
                 }
             }
         })
-        /* $('#example1').DataTable({
-             'paging': true,
-             'lengthChange': false,
-             'searching': true,
-             'ordering': true,
-             'info': true,
-             'autoWidth': false
-         })*/
+
     })
 
 </script>
+<script>
+    $(function () {
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.plugins.addExternal('colorbutton', '/js/colorbutton/', 'plugin.js');
 
+        CKEDITOR.replace('editor1', {
+                extraPlugins: 'colorbutton'
+            }
+        );
+        //bootstrap WYSIHTML5 - text editor
+        $('.textarea').wysihtml5();
+
+
+    })
+
+
+</script>
 
 </body>
 </html>
