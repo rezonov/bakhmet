@@ -15,9 +15,6 @@ class ClientsController extends Controller
         $Users->phone = $request->email;
         $Users->message = $request->message;
         $Users->save();
-        Mail::send('emails.welcome', ['key' => 'value'], function($message)
-        {
-            $message->to('foo@example.com', 'John Smith')->subject('Welcome!');
-        });
+
     }
 }
