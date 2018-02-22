@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Clients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -79,4 +80,11 @@ class PagesController extends Controller
         return $this->AdminPage($request->url);
 
     }
+
+        public function send(Request $request)
+        {
+
+
+        }
+
 }

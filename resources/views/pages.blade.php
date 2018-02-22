@@ -84,7 +84,10 @@
                     <div class="phones">
                         +7 (495) 508 15 25<br/>
                         +7 (905) 538 77 73 <br/>
-                        <input type="submit" class="btn btn-orange" value="ЗАКАЗАТЬ ЗВОНОК"/>
+
+
+                        <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
+                            ЗАКАЗАТЬ ЗВОНОК</button>
                     </div>
                 </div>
             </div>
@@ -120,17 +123,17 @@
     <div class="row">
         <div class="col-md-3">
             @widget('test')
-
         </div>
         <div class="col-md-9">
             {!! $tables->content !!}
         </div>
     </div>
+
 <script>
 
     $('.dropdown-toggle').dropdown();
 
 </script>
-
+@include('form')
 </body>
 </html>

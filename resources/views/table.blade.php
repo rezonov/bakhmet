@@ -22,6 +22,8 @@
                         </td>
                         @endif
             @endfor
+            <td> <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
+                    ЗАКАЗАТЬ                       </button></td>
         </tr>
             <tr>
                     <td colspan="{{count($tr)}}">

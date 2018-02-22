@@ -21,6 +21,8 @@ Route::post('/actions/json', 'GoodsController@JsonCatalog');
  * Административная часть
  */
 Route::get('/{name}.html', 'PagesController@ShowPage' );
+
+Route::post('/sendmail', 'ClientsController@Record');
 Route::get('/admin', function () {
     return view('admin/dashboard');
 })->middleware('auth');
