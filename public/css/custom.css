@@ -17,7 +17,7 @@
 .spoiler span.close_sp,
 .spoiler span.open{
     padding-left:22px;
-    color: #00f!important;
+    color: #3a3a3a;
     text-decoration: underline;
 }
 .spoiler >  input[type="checkbox"]:focus {
@@ -150,7 +150,7 @@ nav a {
 }
 .submenu li {position: relative;}
 .submenu li a {
-    color: #282828;
+    color: #3a3a3a;
 
 
     padding-bottom:5px;
