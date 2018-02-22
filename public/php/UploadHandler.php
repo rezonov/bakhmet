@@ -45,10 +45,11 @@ class UploadHandler
         $this->options = array(
             'script_url' => $this->get_full_url().'/'.$this->basename($this->get_server_var('SCRIPT_NAME')),
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/'.$this->DirOfGood().'/',
+
             'upload_url' => $this->get_full_url().'/files/'.$this->DirOfGood().'/',
             'input_stream' => 'php://input',
             'user_dirs' => false,
-            'mkdir_mode' => 0755,
+            'mkdir_mode' => 0777,
             'param_name' => 'files',
             // Set the following option to 'POST', if your server does not support
             // DELETE requests. This is a parameter sent to the client:
@@ -184,6 +185,7 @@ class UploadHandler
         $path= parse_url($dir, PHP_URL_QUERY);
         $ar = explode("?", $path);
         $result = array_pop($ar);
+
         return $result;
     }
     protected function initialize() {
@@ -233,7 +235,8 @@ class UploadHandler
         return '';
     }
 
-    protected function get_upload_path($file_name = null, $version = null) {
+
+    protected function get_upload_path($file_name = null, $version = null, $dir = '') {
         $file_name = $file_name ? $file_name : '';
         if (empty($version)) {
             $version_path = '';
@@ -244,7 +247,8 @@ class UploadHandler
             }
             $version_path = $version.'/';
         }
-        return $this->options['upload_dir'].$this->get_user_path()
+
+        return $this->options['upload_dir'].$dir.$this->get_user_path()
             .$version_path.$file_name;
     }
 
@@ -1394,7 +1398,8 @@ class UploadHandler
         }
         $response = array();
         foreach ($file_names as $file_name) {
-            $file_path = $this->get_upload_path($file_name);
+            $folder_name = explode("&folder=", $this->DirOfGood());
+            $file_path = $this->get_upload_path($file_name, $folder_name[1]);
             $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
             if ($success) {
                 foreach ($this->options['image_versions'] as $version => $options) {
@@ -1406,11 +1411,18 @@ class UploadHandler
                     }
                 }
             }
-            $response[$file_name] = $success;
+
+            $response[$file_path] = $success;
+            $response[$_SERVER['REQUEST_URI']] = $folder_name[1];
         }
+
         return $this->generate_response($response, $print_response);
     }
 
+    protected function GetSubUrl() {
+        $url = $_SERVER['REQUEST_URI'];
+
+    }
     protected function basename($filepath, $suffix = null) {
         $splited = preg_split('/\//', rtrim ($filepath, '/ '));
         return substr(basename('X'.$splited[count($splited)-1], $suffix), 1);

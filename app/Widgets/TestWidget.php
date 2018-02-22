@@ -37,9 +37,9 @@ class TestWidget implements ContractWidget{
                  where catalog.id = CG.parent) as CIn'))->
             where('CG.parent', '=', $Cat->id)->
             get();
-            $col1 = '<div class="col-md-3">';
-            $col2 ='<div class="col-md-3">';
-            $col3 = '<div class="col-md-3">';
+            $col1 = '<div class="col-md-4">';
+            $col2 ='<div class="col-md-4">';
+            $col3 = '<div class="col-md-4">';
 
             $c =0;
             foreach ($Allc2 as $Cat) {
@@ -60,9 +60,13 @@ class TestWidget implements ContractWidget{
                     $punkt_start .= '
                                         <div class="spoiler">
 
-                                            <input type="checkbox">' . $Cat->name .
-                        '
-                                            <div class="box col-md-12">';
+<!--* Добавлен tabindex="-1" для снятия фокуса при переходе по "tab" -->
+<input style="width:360px;" type="checkbox" tabindex="-1">
+     <div class="box">
+         <span class="close_sp">'.$Cat->name.'</span><span class="open">'.$Cat->name.'</span>
+         <div class="Untext">
+';
+
 
 
                     foreach ($Allc as $Cat) {
@@ -71,7 +75,7 @@ class TestWidget implements ContractWidget{
 
                         $finalCat[] = $Cat;
                     }
-                    $punkt_start .= '  </div></div>
+                    $punkt_start .= '  </div></div></div>
                                    ';
 
                 }

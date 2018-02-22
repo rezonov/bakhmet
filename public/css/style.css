@@ -13,3 +13,7 @@
 body {
 
 }
+input[type="checkbox"] + span {
+    background: url(images/switch.png) no-repeat;
+
+}

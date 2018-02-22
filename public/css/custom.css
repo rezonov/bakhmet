@@ -1,4 +1,56 @@
 /*@import url(http://allfont.ru/allfont.css?fonts=arial-narrow);*/
+.spoiler >  input + .box > div{
+    display: none;
+}
+.spoiler >  input:checked + .box > div {
+    display: block;
+    padding-left:25px;
+}
+.spoiler >  input[type="checkbox"] {
+    cursor: pointer;
+    border-color:transparent!important;
+    border-style:none!important;
+    background:transparent none!important;
+    position:relative;z-index:1;
+    margin:12px 0 -30px -230px;
+}
+.spoiler span.close_sp,
+.spoiler span.open{
+    padding-left:22px;
+    color: #00f!important;
+    text-decoration: underline;
+}
+.spoiler >  input[type="checkbox"]:focus {
+    outline:none;	/* Убираем обводку в ИЕ8 при "фокусе" */
+}
+.spoiler >  input +  .box > span.close_sp {
+    display: none;
+}
+.spoiler >  input:checked +  .box > span.close_sp {
+    background: url(http://hostjs-mybb2011.narod.ru/img/minus.png) 4px 60% no-repeat;
+    display: inline;
+}
+.spoiler >  input:checked  + .box > span.open {
+    display: none;
+}
+.spoiler >  input +  .box >  span.open {
+    background: url(http://hostjs-mybb2011.narod.ru/img/plus.png) 4px  60% no-repeat;
+    display: inline;
+}
+.spoiler div,
+.spoiler{
+
+}
+.spoiler {
+    overflow-x:hidden;
+
+}
+.spoiler div {
+
+    min-height: 25px;
+
+}
+
 
 #allcatalog {
     margin-top:15px;
@@ -33,12 +85,7 @@
 .descrtd img {
     float:left;
 }
-.spoiler >  input + .box {
-    display: none;
-}
-.spoiler >  input:checked + .box {
-    display: block;
-}
+
 
 nav {color:#1a1a1a;}
 nav ul {
@@ -90,22 +137,22 @@ nav a {
     position: absolute;
     z-index: 5;
     min-width: 200px;
-    background: white;
+
     left:240px;
     top:0px;
-    border-left: 1px solid #CBCBCC;
-    border-right: 1px solid #CBCBCC;
+    background: #faf8f8;
+    border: 1px solid #CBCBCC;
     visibility: hidden;
     opacity: 0;
     transform-origin: 0% 0%;
     transform: rotateX(-90deg);
-    transition: .3s linear;
+
 }
 .submenu li {position: relative;}
 .submenu li a {
     color: #282828;
 
-    font-size: 13px;
+
     padding-bottom:5px;
     padding-top:5px;
 }
@@ -119,6 +166,7 @@ nav li:hover > .submenu {
     transform: rotateX(0deg);
     visibility: visible;
     opacity: 1;
+    font-size:16px;
 }
 nav li:hover > div.submenu {
     transform: rotateX(0deg);
@@ -126,12 +174,8 @@ nav li:hover > div.submenu {
     opacity: 1;
     width:100%;
 }
-.spoiler >  input + .box {
-    display: none;
-}
-.spoiler >  input:checked + .box {
-    display: block;
-}
+
+
 
 .mainmenu {
     background:#00a0e3;
@@ -264,3 +308,4 @@ body {
     padding-bottom:20px;
     padding-left:25px;
 }
+

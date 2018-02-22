@@ -291,7 +291,7 @@
         </td>
         <td>
             {% if (file.deleteUrl) { %}
-                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}&folder=49"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                     <i class="glyphicon glyphicon-trash"></i>
                     <span>Delete</span>
                 </button>
@@ -306,11 +306,6 @@
     </tr>
 {% } %}
 </script>
-                    <div id="result"></div>
-                </div>
-            </div>
-        </div>
-    </div>
                     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
                     <script src="/js/js/vendor/jquery.ui.widget.js"></script>
                     <script src="/js/js/jquery.iframe-transport.js"></script>
@@ -345,7 +340,11 @@
                     <!-- The main application script -->
                     <script src="/js/js/main.js"></script>
 
-
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="">
 
     </div>

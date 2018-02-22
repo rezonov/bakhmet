@@ -1,3 +1,5 @@
+<!DOCTYPE>
+
 <html>
 <head>
     <title>{{$tables->title}}</title>
@@ -33,7 +35,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
-            <div class="logo"><img width="200px" src="/images/logo.png"/></div>
+            <div class="logo"><img src="/images/logo.jpg"/></div>
         </div>
         <div class="col-sm-10">
             <div class="row">
@@ -41,7 +43,7 @@
 
                     <div class="col-sm-12">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">О Нас</a></li>
+                            <li><a href="#">О нас</a></li>
                             <li><a href="dostavka.html">Доставка</a></li>
                             <li><a href="garantii.html">Гарантии</a></li>
                             <li><a href="contacts.html">Контакты</a></li>
