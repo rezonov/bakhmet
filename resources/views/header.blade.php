@@ -41,7 +41,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
-            <div class="logo"><img src="/images/logo.png"/></div>
+            <div class="logo"><img src="/images/logo.jpg"/></div>
         </div>
         <div class="col-sm-10">
             <div class="row">
