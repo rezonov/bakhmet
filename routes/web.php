@@ -33,6 +33,8 @@ Route::get('/categories', function (){
 
 
 
+Route::get('/admin/clients', 'ClientsController@Show')->middleware('auth');
+Route::get('/admin/clients/show/{id}', 'ClientsController@ShowClient')->middleware('auth');
 
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
 Route::post('/admin/catalogs/edit/', ['uses' => 'GoodsController@SaveEditCatalog']);
@@ -56,4 +58,4 @@ Route::post('/postDiamond', [
     'uses' => 'GoodsController@postDiamond'
 ]);
 Route::get('/admin/excel/{filename}', 'GoodsController@ShowExcel');
-Route::get('/admin/settings', 'SettingsController@ShowAttr');
+Route::get('/admin/settings', 'SettingsController@ShowSettings')->middleware('auth');

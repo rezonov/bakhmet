@@ -112,7 +112,20 @@ return [
         [
             'text'        => 'Каталоги',
             'url'         => 'admin/catalogs',
+            'icon'        => 'navicon',
+
+        ],
+
+        [
+            'text'        => 'Страницы',
+            'url'         => 'admin/pages',
             'icon'        => 'file',
+
+        ],
+        [
+            'text'        => 'Заявки',
+            'url'         => 'admin/clients',
+            'icon'        => 'clone',
 
         ],
         [
@@ -122,11 +135,11 @@ return [
 
         ],
         [
-            'text'        => 'Страницы',
-            'url'         => 'admin/pages',
-            'icon'        => 'cog',
+            'text'          => 'Настройки сайта',
+            'url'           => 'admin/settings',
+            'icon'          => 'gears',
+        ]
 
-        ],
 
     ],
 

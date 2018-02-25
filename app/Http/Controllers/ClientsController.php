@@ -17,4 +17,16 @@ class ClientsController extends Controller
         $Users->save();
 
     }
+
+    public function Show() {
+        $Clients = Clients::all();
+
+        return view('admin/clients', ['fnames' => $Clients]);
+    }
+
+    public function ShowClient($id) {
+        $Clients = Clients::where('id', $id)->first();
+
+        return view ('admin/client', ['item' => $Clients]);
+    }
 }
