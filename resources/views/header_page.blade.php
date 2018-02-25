@@ -123,10 +123,10 @@
 </div>
 <div class="container-fluid"  style="background: url('{{$background}}')">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3" style="background: #fff">
             @widget('test')
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="background: #fff">
 @yield('content')
 
         </div>
