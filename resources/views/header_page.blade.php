@@ -126,7 +126,7 @@
         <div class="col-md-3">
             @widget('test')
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="background: #fff">
 @yield('content')
 
         </div>
