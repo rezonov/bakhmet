@@ -19,6 +19,7 @@ class SettingsController extends Controller
             $finalAr[] = $item;
         }
         // die();
+
         // dump($finalAr);
         return view('admin/settings/attributes', ['table' => $finalAr]);
     }
