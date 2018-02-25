@@ -121,8 +121,8 @@
 
     </div>
 </div>
-<div class="container-fluid" >
-    <div class="row" style="background: url('{{$background}}')">
+<div class="container-fluid"  style="background: url('{{$background}}')">
+    <div class="row">
         <div class="col-md-3">
             @widget('test')
         </div>
