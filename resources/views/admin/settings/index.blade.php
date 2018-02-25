@@ -64,7 +64,7 @@
     <script>
         $(function () {
             $("#container_image").PictureCut({
-                InputOfImageDirectory: "image",
+                InputOfImageDirectory: "background",
                 ImageButtonCSS: {
                     border: "1px #CCC solid",
                     width: 500,
@@ -72,7 +72,7 @@
                 },
 
                 PluginFolderOnServer: "/js/jQuery-Picture-Cut/",
-                FolderOnServer: "/img/",
+                FolderOnServer: "/img/set/",
 
                 CropWindowStyle: "Bootstrap",
                 UploadedCallback: function (data) {
