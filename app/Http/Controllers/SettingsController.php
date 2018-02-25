@@ -31,6 +31,9 @@ class SettingsController extends Controller
     }
 
     public function SaveSet (Request $request) {
-        dump($request->image);
+        foreach($request as $r) {
+           // $Set = Settings::firstOrNew(array($request))
+            dump($r);
+        }
     }
 }
