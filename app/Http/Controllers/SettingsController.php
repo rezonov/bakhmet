@@ -31,9 +31,9 @@ class SettingsController extends Controller
     }
 
     public function SaveSet (Request $request) {
-        foreach($request->parameters as $r) {
+        foreach($request as $r) {
            // $Set = Settings::firstOrNew(array($request))
-            dump($r);
+            dump($r->parameters);
         }
     }
 }
