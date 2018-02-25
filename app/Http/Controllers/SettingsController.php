@@ -35,6 +35,10 @@ class SettingsController extends Controller
            // $Set = Settings::firstOrNew(array($request))
             dump($r);
         }*/
-        dump($request->Val);
+        dump($request->all());
+        foreach ($request->Val as $key => $item) {
+           dump($key);
+
+        }
     }
 }
