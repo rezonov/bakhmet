@@ -37,7 +37,7 @@ class SettingsController extends Controller
         }*/
 
         foreach ($request->all() as $key => $item) {
-          if($key !== '_token') {
+          if($key != '_token') {
              $Set = Settings::firstOrNew(array("name" => $key, "value" => $item ));
               $Set->save();
             dump($key);
