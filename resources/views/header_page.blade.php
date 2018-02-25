@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="row" style="background: url('{{$background}}')">
+    <div class="row">
         <div class="col-md-12" style="background: #4cbceb; height:75px">
 
             <div class="col-sm-5">
@@ -120,7 +120,7 @@
         </div>
 
     </div>
-    <div class="row">
+    <div class="row"  style="background: url('{{$background}}')">
         <div class="col-md-3">
             @widget('test')
         </div>
