@@ -51,6 +51,16 @@
 
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <br/>
+                <input type="submit" value="Сохранить" class="btn btn-success"/>
+
+            </div>
+        </div>
+
+    </div>
     <script>
         $(function () {
             $("#container_image").PictureCut({
