@@ -59,3 +59,4 @@ Route::post('/postDiamond', [
 ]);
 Route::get('/admin/excel/{filename}', 'GoodsController@ShowExcel');
 Route::get('/admin/settings', 'SettingsController@ShowSettings')->middleware('auth');
+Route::post('/admin/settings/save/', ['uses' => 'SettingsController@SaveSet'])->middleware('auth');

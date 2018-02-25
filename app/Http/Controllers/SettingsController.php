@@ -29,4 +29,8 @@ class SettingsController extends Controller
 
         return view('admin/settings/index', ['table' => $Settings]);
     }
+
+    public function SaveSet (Request $request) {
+        dump($request->image);
+    }
 }

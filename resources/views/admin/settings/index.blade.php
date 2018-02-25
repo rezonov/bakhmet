@@ -8,7 +8,10 @@
 
 @section('content')
     <div class="box">
-
+        {!! Form::open([
+                              'action' => 'SettingsController@SaveSet',
+                              'method' => 'post'
+                              ]) !!}
         <div class="box-header">
             <h3 class="box-title">Заявки</h3>
         </div>
