@@ -106,7 +106,7 @@
 
 
             var newtr = $(this).parent().parent();
-            var oldtr = $(this).parent().parent().prev();
+            var oldtr = $(this).parent().parent().next();
 
 
             var token = "{{ csrf_token() }}";
@@ -129,7 +129,7 @@
                     prev:newtr.find('td > .id_').val(),
                 },
                 success: function(result){
-                    oldtr.insertBefore(newtr);
+                    newtr.insertAfter(oldtr);
                     console.log(result);
                 }
             });
