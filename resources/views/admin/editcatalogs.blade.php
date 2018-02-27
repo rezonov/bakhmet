@@ -51,8 +51,8 @@
                                 <td>
                                     <input type="hidden" class="id_" value="{{$item->id}}"/>
                                     <input type="hidden" value="{{$item->sort}}"/>
-                                    <a class="btn btn-success up" onclick="">+</a>
-                                    <a class="btn btn-success down">-</a>
+                                    <a class="btn btn-success up" onclick=""><i class="fa fa-hand-o-up"></i></a>
+                                    <a class="btn btn-success down"><i class="fa fa-hand-o-down"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -106,9 +106,33 @@
 
 
             var newtr = $(this).parent().parent();
-            var oldtr = $(this).parent().parent().next();
-            oldtr.insertBefore(newtr);
+            var oldtr = $(this).parent().parent().prev();
 
+
+            var token = "{{ csrf_token() }}";
+
+
+            $.ajax({
+                type: 'POST',
+                beforeSend: function(xhr, type) {
+                    if (!type.crossDomain) {
+                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                    }
+                },
+                url: '/admin/catalogs/change',
+                data: {
+                    _token:token,
+                    sort:$(this).prev().prev().val(),
+                    cat:{{$id}},
+                    act:"minus",
+                    cursort:$(this).prev().val(),
+                    prev:oldtr.find('td > .id_').val(),
+                },
+                success: function(result){
+                    oldtr.insertBefore(newtr);
+                    console.log(result);
+                }
+            });
             return;
         });
     </script>

@@ -610,7 +610,12 @@ class GoodsController extends Controller
     }
 
     public function ChangeOrder(Request $request) {
+        if($request->act == 'plus') {
         $sort = $request->cursort - 10;
+        } else
+        {
+            $sort = $request->cursort + 10;
+        }
         DB::table('catalogs__attributes')
             ->where('id_catalog', "=", $request->cat)
             ->where('id_attribute',"=", $request->sort)
