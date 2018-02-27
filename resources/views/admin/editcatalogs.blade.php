@@ -45,9 +45,7 @@
                                             @endif
                                     >
                                 </td>
-                                <td><input type="text" value="{{$item->sort}}"/>
 
-                                </td>
                                 <td>
                                     <input type="hidden" class="id_" value="{{$item->id}}"/>
                                     <input type="hidden" value="{{$item->sort}}"/>
