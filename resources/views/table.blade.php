@@ -10,7 +10,7 @@
     @foreach($table as $tr)
         <tr class="valuerow">
 
-            @for($i=0;$i<count($tr);$i++)
+            @for($i=0;$i<count($header);$i++)
                         @if($header[$i]['Sh'] != 'Off')
                         <td>
                             @if ($i==1)
