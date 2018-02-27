@@ -468,7 +468,7 @@ class GoodsController extends Controller
                 ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname', 'catalogs__attributes.sh as Sh')
                 ->where('goods.id', '=', $Cat->id)
                 ->groupBy('goods_attributes.id')
-                ->orderBy('catalogs__atributes.sort')
+                ->orderBy('catalogs__attributes.sort')
                 ->get();
             //dump($Attrs);
             $c = 1;
