@@ -33,7 +33,7 @@ class TestWidget implements ContractWidget{
             $html_end = '</div></li></ul></li>';
             $finalCat[] = $Cat;
             $Allc2 = DB::table('catalog as CG')->
-            select(DB::RAW('CG.name, CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
+            select(DB::RAW('CG.name, CG.latin_name,  CG.id, CG.parent, (SELECT COUNT(*) from catalog where CG.id = catalog.parent) as COut, (SELECT COUNT(*) from catalog
                  where catalog.id = CG.parent) as CIn'))->
             where('CG.parent', '=', $Cat->id)->
             get();
