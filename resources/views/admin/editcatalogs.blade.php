@@ -126,7 +126,7 @@
                     cat:{{$id}},
                     act:"minus",
                     cursort:$(this).prev().prev().val(),
-                    prev:oldt.find('td > .id_').val(),
+                    prev:oldtr.find('td > .id_').val(),
                 },
                 success: function(result){
                     newtr.insertAfter(oldtr);
