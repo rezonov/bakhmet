@@ -53,7 +53,7 @@ class TestWidget implements ContractWidget{
                 get();
 
                 if (count($Allc) == 0) {
-                    $punkt_start .= '<a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>
+                    $punkt_start .= '<a href="/catalog/' . $Cat->latin_name . '.html">' . $Cat->name . '</a>
                                        ';
                     $html_end .= '';
                 } else {
