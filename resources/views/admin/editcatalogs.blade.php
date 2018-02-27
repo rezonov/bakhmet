@@ -122,10 +122,10 @@
                 url: '/admin/catalogs/change',
                 data: {
                     _token:token,
-                    sort:$(this).prev().prev().val(),
+                    sort:$(this).prev().prev().prev().val(),
                     cat:{{$id}},
                     act:"minus",
-                    cursort:$(this).prev().val(),
+                    cursort:$(this).prev().prev().val(),
                     prev:oldtr.find('td > .id_').val(),
                 },
                 success: function(result){
