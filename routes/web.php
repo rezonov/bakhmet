@@ -15,7 +15,7 @@
 
 Auth::routes();
 Route::get('/', 'PagesController@ShowIndex' );
-Route::get('/catalog/{id}/{start}', 'GoodsController@ShowPublicCatalog');
+Route::get('/catalog/{id}.html', 'GoodsController@ShowPublicCatalog');
 Route::post('/actions/json', 'GoodsController@JsonCatalog');
 /*
  * Административная часть
@@ -60,3 +60,5 @@ Route::post('/postDiamond', [
 Route::get('/admin/excel/{filename}', 'GoodsController@ShowExcel');
 Route::get('/admin/settings', 'SettingsController@ShowSettings')->middleware('auth');
 Route::post('/admin/settings/save/', ['uses' => 'SettingsController@SaveSet'])->middleware('auth');
+Route::post('/admin/catalogs/change/', ['uses' => 'GoodsController@ChangeOrder']);
+Route::get('/admin/rasstsort', 'GoodsController@RasstSort')->middleware('auth');

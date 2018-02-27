@@ -245,10 +245,12 @@ class GoodsController extends Controller
                 'attributes.id as id',
                 'catalogs__attributes.sh as sh',
                 'catalogs__attributes.fl as fl',
+                'catalogs__attributes.sort as sort',
                 'catalogs__attributes.id_catalog as IdC',
                 'catalogs__attributes.id_attribute as IdA'
             )
             ->where('catalogs__attributes.id_catalog', '=', $id)
+            ->orderBy('catalogs__attributes.sort')
             ->get();
         //    dump($Attrs);
         foreach ($Attrs as $item) {
@@ -268,7 +270,7 @@ class GoodsController extends Controller
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
             ->groupBy('goods.id')
-            ->where('catalog.id', '=', $id)
+            ->where('catalog.latin_name', '=', $id)
             ->select('goods.name as name', 'goods.id as id')
             ->get();
 
@@ -295,8 +297,9 @@ class GoodsController extends Controller
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
                 ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
                 ->select('attributes.name as name', 'attributes.id as id',
-                    'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl')
+                    'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl', 'catalogs__attributes.sort as Sort')
                 ->where('goods.id', '=', $Cat->id)
+                ->orderBy('catalogs__attributes.sort')
                 ->groupBy('goods_attributes.id')
                 ->get();
 
@@ -465,6 +468,7 @@ class GoodsController extends Controller
                 ->select('attributes.name as name', 'goods_attributes.value', 'attributes.name as Gname', 'catalogs__attributes.sh as Sh')
                 ->where('goods.id', '=', $Cat->id)
                 ->groupBy('goods_attributes.id')
+                ->orderBy('catalogs__atributes.sort')
                 ->get();
             //dump($Attrs);
             $c = 1;
@@ -603,5 +607,47 @@ class GoodsController extends Controller
 
         return $this->OneGood($request->id);
         //return Redirect::back();
+    }
+
+    public function ChangeOrder(Request $request) {
+        $sort = $request->cursort - 10;
+        DB::table('catalogs__attributes')
+            ->where('id_catalog', "=", $request->cat)
+            ->where('id_attribute',"=", $request->sort)
+            ->update(['sort' => $sort]);
+
+        DB::table('catalogs__attributes')
+            ->where('id_catalog', "=", $request->cat)
+            ->where('id_attribute',"=", $request->prev)
+            ->update(['sort' => $request->cursort]);
+        return response()->json($request);
+    }
+
+    public function RasstSort() {
+        $Allt = DB::table('catalogs__attributes')
+            ->groupBy('id_catalog')
+            ->get();
+
+
+        foreach($Allt as $t) {
+
+            $Allc = DB::table('catalogs__attributes')
+                ->where('id_catalog', "=", $t->id_catalog)
+                ->get();
+            $c = 0;
+            dump($Allc);
+            foreach ($Allc as $value) {
+                $c++;
+                $sort = $c*10;
+                $Allt = DB::table('catalogs__attributes')
+                    ->where('id', "=", $value->id)
+                    ->update(['sort' => $sort]);
+
+
+
+
+            }
+        }
+
     }
 }

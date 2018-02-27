@@ -32,29 +32,28 @@
                         <tbody>
                         @foreach($fnames as $item)
                             <tr>
-
-
                                 <td>
-
                                     {{$item->name}}
                                 </td>
                                 <td>
-
-
-                                    <input type="checkbox" name="sh[{{$item->id}}]"
-                                          @if($item->sh == 'on'): checked
-                                           @endif
-
-                                    >
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="fl[{{$item->id}}]"
-                                           @if ($item->fl == 'on'): checked
+                                    <input type="checkbox" name="sh[{{$item->id}}]" @if($item->sh == 'on'): checked
                                             @endif
                                     >
                                 </td>
+                                <td>
+                                    <input type="checkbox" name="fl[{{$item->id}}]" @if ($item->fl == 'on'): checked
+                                            @endif
+                                    >
+                                </td>
+                                <td><input type="text" value="{{$item->sort}}"/>
 
-
+                                </td>
+                                <td>
+                                    <input type="hidden" class="id_" value="{{$item->id}}"/>
+                                    <input type="hidden" value="{{$item->sort}}"/>
+                                    <a class="btn btn-success up" onclick="">+</a>
+                                    <a class="btn btn-success down">-</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -70,5 +69,48 @@
             </div>
         </div>
     </div>
+    <script>
+        $('.up').click(function () {
 
+
+            var newtr = $(this).parent().parent();
+            var oldtr = $(this).parent().parent().prev();
+
+
+            var token = "{{ csrf_token() }}";
+
+
+            $.ajax({
+                type: 'POST',
+                beforeSend: function(xhr, type) {
+                    if (!type.crossDomain) {
+                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                    }
+                },
+                url: '/admin/catalogs/change',
+                data: {
+                    _token:token,
+                    sort:$(this).prev().prev().val(),
+                    cat:{{$id}},act:"plus",
+                    cursort:$(this).prev().val(),
+                    prev:oldtr.find('td > .id_').val(),
+                },
+                success: function(result){
+                    newtr.insertBefore(oldtr);
+                    console.log(result);
+                }
+            });
+            return;
+        });
+        $('.down').click(function () {
+
+
+            var newtr = $(this).parent().parent();
+            var oldtr = $(this).parent().parent().next();
+            oldtr.insertBefore(newtr);
+
+            return;
+        });
+    </script>
 @stop
+
