@@ -347,7 +347,7 @@ class GoodsController extends Controller
                 ->get();
 
             foreach ($Descrs as $dd) {
-                dump($dd);
+
                 $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
