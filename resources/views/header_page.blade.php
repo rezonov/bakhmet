@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title', 'Торговый дом Бахмет')</title>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 
 
