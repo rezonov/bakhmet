@@ -1,6 +1,11 @@
 @extends ('header_page')
 
-@section('title', ( $Seo->title or 'empty string'))
+@section('title')
+    @if( is_null($Seo->title))
+        $Seo->title
+    @else
+        "ТД Бахмет"
+    @endif
 
 
 @section ('content')
