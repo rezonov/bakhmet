@@ -370,7 +370,7 @@ class GoodsController extends Controller
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-            'seo'   =>$Seo
+            'Seo'   =>$Seo
 
         ]);
 
