@@ -26,7 +26,7 @@
                     ЗАКАЗАТЬ                       </button></td>
         </tr>
             <tr>
-                    <td colspan="{{count($tr)}}">{{ dump($descs) }}
+                    <td colspan="{{count($tr)}}">
                         @if(!empty($descr[$tr[0]]['file']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
