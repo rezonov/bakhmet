@@ -345,7 +345,7 @@ class GoodsController extends Controller
                 ->select('text', 'file')
                 ->where('id', '=', $Cat->id)
                 ->get();
-
+            dump($Descrs);
             foreach ($Descrs as $dd) {
                 $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
                 $Descs[$Cat->id]['file'] = $dd->file;
