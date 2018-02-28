@@ -34,11 +34,7 @@
                                 {!! $descs[$tr[0]]['text'] !!}
 
                             </div>
-                            <div class="your-class">
-                                <div>your content</div>
-                                <div>your content</div>
-                                <div>your content</div>
-                            </div>
+
                             @endif
                     </td>
             </tr>
