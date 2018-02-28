@@ -41,5 +41,5 @@
     @endforeach
 </table>
 
-<script type="text/javascript" src="js/slick/slick.min.js"></script>
+
 
