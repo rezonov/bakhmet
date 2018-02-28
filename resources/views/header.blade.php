@@ -1,6 +1,6 @@
 @extends ('header_page')
 
-@section('title', $Seo->title)
+@section('title', !empty($Seo->title))
 
 
 @section ('content')
