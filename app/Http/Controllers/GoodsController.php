@@ -365,7 +365,7 @@ class GoodsController extends Controller
 
         $html_start = '';
         $html_end = '';
-
+        dump($Descs);
 
         return view('header', [
             'header' => $HeaderAr,
