@@ -11,7 +11,7 @@
 
 @section ('content')
 
-@include('table', ['table'=>$data, 'header' => $header, 'descs' => $descs])
+@include('table', ['table'=>$data, 'header' => $header, 'descr' => $descs])
 
 @stop
 
