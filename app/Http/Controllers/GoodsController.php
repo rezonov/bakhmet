@@ -286,7 +286,7 @@ class GoodsController extends Controller
         $Seo = DB::table('catalog')
             ->join ('catalogs__seo', 'catalogs__seo.id_catalog','=','catalog.id')
             ->where ('catalog.latin_name', '=', $id)
-        ->get();
+        ->toSQL();
 
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
