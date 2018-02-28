@@ -15,3 +15,8 @@
 
 @stop
 
+@section ('layers')
+    <div>
+        @include('layers', ['attr'=>$header])
+    </div>
+@endsection
