@@ -27,6 +27,7 @@
         </tr>
             <tr>
                     <td colspan="{{count($tr)}}">
+                        {{$descr[$tr[0]]['text']}}
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
