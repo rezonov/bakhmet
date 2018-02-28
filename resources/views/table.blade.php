@@ -47,11 +47,3 @@
 
 <script type="text/javascript" src="js/slick/slick.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.your-class').slick({
-
-    });
-    });
-</script>
-
