@@ -1,7 +1,7 @@
 @extends ('header_page')
 
 @section('title')
-    @if( (!is_empty($Seo->title)))
+    @if( (!empty($Seo->title)))
         $Seo->title
     @else
         "ТД Бахмет"
