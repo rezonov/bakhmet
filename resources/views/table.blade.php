@@ -30,9 +30,27 @@
                         @if(!empty($descr[$tr[0]]['file']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
-                                {!! $descs[$tr[0]]['text'] !!}</div>
+
+                                {!! $descs[$tr[0]]['text'] !!}
+                                <div class="your-class">
+                                    <div>your content</div>
+                                    <div>your content</div>
+                                    <div>your content</div>
+                                </div>
+                            </div>
                             @endif
                     </td>
             </tr>
     @endforeach
 </table>
+
+<script type="text/javascript" src="js/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.your-class').slick({
+            setting-name: setting-value
+    });
+    });
+</script>
+
