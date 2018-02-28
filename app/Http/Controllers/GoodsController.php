@@ -248,17 +248,22 @@ class GoodsController extends Controller
                 'catalogs__attributes.sort as sort',
                 'catalogs__attributes.id_catalog as IdC',
                 'catalogs__attributes.id_attribute as IdA'
+
             )
             ->where('catalogs__attributes.id_catalog', '=', $id)
             ->orderBy('catalogs__attributes.sort')
             ->get();
         //    dump($Attrs);
+
+        $Seo = DB::table('catalogs__seo')
+            ->where('id_catalog', '=', $id)
+            ->get();
         foreach ($Attrs as $item) {
             $finalAr[] = $item;
 
 
         }
-        return view('admin/editcatalogs', ['fnames' => $finalAr, 'id' => $id]);
+        return view('admin/editcatalogs', ['fnames' => $finalAr, 'id' => $id, 'Seo' => $Seo]);
 
     }
 

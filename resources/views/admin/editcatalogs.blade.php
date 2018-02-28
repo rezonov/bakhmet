@@ -16,7 +16,52 @@
 
         <div class="box-body">
             <h3 class="box-title">Каталог</h3>
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">SEO часть</h3>
+                </div>
 
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Title страницы</label>
+                            <input class="form-control" type="text" name="seotitle"
+                                   @if(!empty($Seo[0]) && !empty($Seo[0]->title))
+                                   value=" {{$Seo[0]->title}}"
+                                   @endif
+                                   placeholder="Введите Title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Ключевые слова</label>
+                            <input class="form-control" type="text" name="seokeywords"
+                                   @if(!empty($Seo[0]) && !empty($Seo[0]->keywords))
+                                   value=" {{$Seo[0]->keywords}}"
+                                   @endif
+                                   placeholder="Введите ключевые слова">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Описание страницы</label>
+                            <input class="form-control" type="text" name="seodescriptions"
+                                   @if(!empty($Seo[0]) && !empty($Seo[0]->descriptions))
+                                   value=" {{$Seo[0]->descriptions}}"
+                                   @endif
+                                   placeholder="Введите Описание">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-right">
+                            <input type="submit" class="btn btn-success" value="Сохранить">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="box-body">
                 <div class="box-body">
                     <table class="table table-bordered table-striped">
