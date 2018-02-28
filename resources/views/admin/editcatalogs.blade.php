@@ -47,19 +47,14 @@
                         <div class="col-md-12">
                             <label>Описание страницы</label>
                             <input class="form-control" type="text" name="seodescriptions"
-                                   @if(!empty($Seo[0]) && !empty($Seo[0]->descriptions))
-                                   value=" {{$Seo[0]->descriptions}}"
+                                   @if(!empty($Seo[0]) && !empty($Seo[0]->description))
+                                   value=" {{$Seo[0]->description}}"
                                    @endif
                                    placeholder="Введите Описание">
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 align-right">
-                            <input type="submit" class="btn btn-success" value="Сохранить">
 
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="box-body">

@@ -209,6 +209,7 @@ class GoodsController extends Controller
             ->where('catalogs__attributes.id_catalog', '=', $request->id)
             ->get();
 
+
         foreach ($Attrs as $item) {
             if (!isset($request->sh[$item->id])) {
                 DB::table('catalogs__attributes')
@@ -230,8 +231,20 @@ class GoodsController extends Controller
                     ->update(['fl' => 'on']);
             }
         }
-        //dump($request->request);
 
+        $seo = array("id_catalog" => $request->id, "title" => $request->seotitle, "keywords" => $request->seokeywords, "description" => $request->seodescriptions);
+        $row = DB::table('catalogs__seo')
+            ->where('id_catalog', "=", $request->id)
+            ->get();
+        if (count($row) > 0) {
+            DB::table('catalogs__seo')
+                ->where('id_catalog', "=", $request->id)
+                ->update($seo);
+        } else {
+
+            DB::table('catalogs__seo')
+                ->insert($seo);
+        }
         return $this->EditCatalogs($request->id);
     }
 
@@ -270,6 +283,10 @@ class GoodsController extends Controller
     public function ShowPublicCatalog($id, $start = 0)
     {
 
+        $Seo = DB::table('catalog')
+            ->join ('catalogs__seo', 'catalogs__seo.id_catalog','=','catalog.id')
+            ->where ('catalog.latin_name', '=', $id)
+        ->get();
 
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
@@ -353,7 +370,7 @@ class GoodsController extends Controller
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-
+            'seo'   =>$Seo
 
         ]);
 
