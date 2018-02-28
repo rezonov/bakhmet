@@ -32,11 +32,12 @@
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
 
                                 {!! $descs[$tr[0]]['text'] !!}
-                                <div class="your-class">
-                                    <div>your content</div>
-                                    <div>your content</div>
-                                    <div>your content</div>
-                                </div>
+
+                            </div>
+                            <div class="your-class">
+                                <div>your content</div>
+                                <div>your content</div>
+                                <div>your content</div>
                             </div>
                             @endif
                     </td>
