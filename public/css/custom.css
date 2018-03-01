@@ -331,13 +331,14 @@ body {
 }
 
 .slider {
-    width: 300px;
+    width: 200px;
     margin: 30px 50px 50px;
 }
 
 .slick-slide {
     background: #3a8999;
     color: white;
+    width:100px !important;
     padding: 40px 0;
     font-size: 30px;
     font-family: "Arial", "Helvetica";
