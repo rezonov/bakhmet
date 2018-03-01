@@ -354,7 +354,7 @@ class GoodsController extends Controller
 
             if(file_exists(public_path().'/php/files/'.$Cat->id.'/')) {
                 dump($files);
-                $files[$Cat->id] = array_diff(scandir(public_path().'/php/files/'.$Cat->id.'/'), array('..', '.', 'thumbinailes');
+                $files[$Cat->id] = array_diff(scandir(public_path().'/php/files/'.$Cat->id.'/'), array('..', '.', 'thumbinails'));
             }
 
         }
