@@ -42,7 +42,7 @@
                                 </div>
                                 <script type="text/javascript">
                                     function Slick() {
-                                    $('.variable-width').slick({
+                                    $('.variable-width').not('.slick-initialized').slick({
                                         dots: true,
                                         infinite: true,
                                         speed: 300,
