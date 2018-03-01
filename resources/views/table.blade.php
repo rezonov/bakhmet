@@ -31,17 +31,32 @@
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
-                                <div class="your-class">
+                                <div class="slider">
                                     <div>your content</div>
                                     <div>your content</div>
                                     <div>your content</div>
                                 </div>
-                                <script type="text/javascript">
-                                    $(document).ready(function(){
-                                        $('.your-class').slick({
+                                <script>
+                                    function createSlick(){
 
-                                    });
-                                    });
+                                        $(".slider").not('.slick-initialized').slick({
+                                            autoplay: true,
+                                            dots: true,
+                                            responsive: [{
+                                                breakpoint: 500,
+                                                settings: {
+                                                    dots: false,
+                                                    arrows: false,
+                                                    infinite: false,
+                                                    slidesToShow: 2,
+                                                    slidesToScroll: 2
+                                                }
+                                            }]
+                                        });
+
+                                    }
+
+                                    createSlick();
                                 </script>
 
                                 {!! $descs[$tr[0]]['text'] !!}
