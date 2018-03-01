@@ -39,27 +39,13 @@
                                     <div>slide5</div>
                                     <div>slide6</div>
                                 </section>
-                                <script>
-                                    function createSlick(){
-
-                                        $(".slider").not('.slick-initialized').slick({
-                                            autoplay: true,
-                                            dots: true,
-                                            responsive: [{
-                                                breakpoint: 500,
-                                                settings: {
-                                                    dots: false,
-                                                    arrows: false,
-                                                    infinite: false,
-                                                    slidesToShow: 2,
-                                                    slidesToScroll: 2
-                                                }
-                                            }]
-                                        });
-
-                                    }
-
-                                    createSlick();
+                                <script type="text/javascript">
+                                    $(document).ready(function(){
+                                        $('.slider').slick({
+                                            slidesToShow: 4,
+                                            slidesToScroll: 4``
+                                    });
+                                    });
                                 </script>
 
                                 {!! $descs[$tr[0]]['text'] !!}
