@@ -287,7 +287,7 @@ class GoodsController extends Controller
             ->join ('catalogs__seo', 'catalogs__seo.id_catalog','=','catalog.id')
             ->where ('catalog.latin_name', '=', $id)
         ->toSQL();
-
+        $files = array();
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
@@ -351,6 +351,7 @@ class GoodsController extends Controller
                 $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
+
             if(is_dir('/public/php/files/'.$Cat->id)) {
                 $files[$Cat->id] = scandir('/public/php/files/'.$Cat->id);
             }
