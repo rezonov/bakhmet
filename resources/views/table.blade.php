@@ -32,9 +32,9 @@
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
                                 <div class="slider variable-width">
-                                    <div style="width: 200px;"><p>200</p></div>
-                                    <div style="width: 200px;"><p>175</p></div>
-                                    <div style="width: 200px;"><p>150</p></div>
+                                    <div style="width: 250px;"><p>200</p></div>
+                                    <div style="width: 250px;"><p>175</p></div>
+                                    <div style="width: 250px;"><p>150</p></div>
 
                                 </div>
                                 <script type="text/javascript">
