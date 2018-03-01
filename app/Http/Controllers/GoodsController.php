@@ -351,6 +351,9 @@ class GoodsController extends Controller
                 $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
+
+            $files[$Cat->id] = scandir('/public/php/files/'.$Cat->id);
+
         }
 
         for ($i = 2; $i <= count($ValueArr)+1; $i++) {
@@ -371,7 +374,8 @@ class GoodsController extends Controller
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-            'Seo'   =>$Seo
+            'Seo'   =>$Seo,
+            'files' => $files
 
         ]);
 

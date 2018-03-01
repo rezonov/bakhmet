@@ -32,10 +32,9 @@
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
                                 <div class="slider variable-width">
-                                    <div style="width: 250px;"><p>200</p></div>
-                                    <div style="width: 250px;"><p>175</p></div>
-                                    <div style="width: 250px;"><p>150</p></div>
-
+                                    @foreach ($files[$tr[0]] as $item)
+                                    <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
+                                        @endfor
                                 </div>
                                 <script type="text/javascript">
                                     function Slick() {
