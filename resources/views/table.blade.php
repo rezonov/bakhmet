@@ -31,11 +31,14 @@
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
-                                <div class="slider">
-                                    <div>your content</div>
-                                    <div>your content</div>
-                                    <div>your content</div>
-                                </div>
+                                <section class="slider">
+                                    <div>slide1</div>
+                                    <div>slide2</div>
+                                    <div>slide3</div>
+                                    <div>slide4</div>
+                                    <div>slide5</div>
+                                    <div>slide6</div>
+                                </section>
                                 <script>
                                     function createSlick(){
 
