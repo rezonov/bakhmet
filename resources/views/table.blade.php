@@ -36,7 +36,7 @@
 
                                     @foreach ($files[$tr[0]] as $item)
                                     <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
-                                        @endfor
+                                        @endforeach
                                 </div>
                                 @endif
                                 <script type="text/javascript">
