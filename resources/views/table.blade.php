@@ -33,11 +33,8 @@
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
                                 <div class="slider variable-width">
                                     <div style="width: 200px;"><p>200</p></div>
-                                    <div style="width: 175px;"><p>175</p></div>
-                                    <div style="width: 150px;"><p>150</p></div>
-                                    <div style="width: 300px;"><p>300</p></div>
-                                    <div style="width: 225px;"><p>225</p></div>
-                                    <div style="width: 125px;"><p>125</p></div>
+                                    <div style="width: 200px;"><p>175</p></div>
+                                    <div style="width: 200px;"><p>150</p></div>
 
                                 </div>
                                 <script type="text/javascript">
