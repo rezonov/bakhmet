@@ -31,11 +31,14 @@
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
+                                @if(!empty($files[$tr[0]]))
                                 <div class="slider variable-width">
+
                                     @foreach ($files[$tr[0]] as $item)
                                     <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
                                         @endfor
                                 </div>
+                                @endfor
                                 <script type="text/javascript">
                                     function Slick() {
                                     $('.variable-width').not('.slick-initialized').slick({
