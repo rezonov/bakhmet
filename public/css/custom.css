@@ -335,3 +335,24 @@ body {
     margin: 30px 50px 50px;
 }
 
+.slick-slide {
+    background: #3a8999;
+    color: white;
+    padding: 40px 0;
+    font-size: 30px;
+    font-family: "Arial", "Helvetica";
+    text-align: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
+
+.slick-dots {
+    bottom: -30px;
+}
+
+.slick-slide:nth-child(odd) {
+    background: #e84a69;
+}
