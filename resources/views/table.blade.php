@@ -31,14 +31,19 @@
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
-                                <div class="slider variable-width">
-                                    <div style="width: 200px;"><p>200</p></div>
-                                    <div style="width: 175px;"><p>175</p></div>
-                                    <div style="width: 150px;"><p>150</p></div>
-                                    <div style="width: 300px;"><p>300</p></div>
-                                    <div style="width: 225px;"><p>225</p></div>
-                                    <div style="width: 125px;"><p>125</p></div>
-
+                                <div class="slider filtering">
+                                    <div><h3>1</h3></div>
+                                    <div><h3>2</h3></div>
+                                    <div><h3>3</h3></div>
+                                    <div><h3>4</h3></div>
+                                    <div><h3>5</h3></div>
+                                    <div><h3>6</h3></div>
+                                    <div><h3>7</h3></div>
+                                    <div><h3>8</h3></div>
+                                    <div><h3>9</h3></div>
+                                    <div><h3>10</h3></div>
+                                    <div><h3>11</h3></div>
+                                    <div><h3>12</h3></div>
                                 </div>
                                 <script type="text/javascript">
                                     $('.variable-width').slick({
