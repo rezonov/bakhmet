@@ -352,7 +352,7 @@ class GoodsController extends Controller
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
 
-            if(is_dir('/public/php/files/'.$Cat->id)) {
+            if(file_exists('/public/php/files/'.$Cat->id)) {
                 $files[$Cat->id] = scandir('/public/php/files/'.$Cat->id);
             }
 
