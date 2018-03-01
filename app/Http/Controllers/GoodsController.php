@@ -351,8 +351,9 @@ class GoodsController extends Controller
                 $Descs[$Cat->id]['text'] = htmlspecialchars_decode($dd->text);
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
-
-            $files[$Cat->id] = scandir('/public/php/files/'.$Cat->id);
+            if(is_dir('/public/php/files/'.$Cat->id)) {
+                $files[$Cat->id] = scandir('/public/php/files/'.$Cat->id);
+            }
 
         }
 
