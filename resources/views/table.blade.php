@@ -41,6 +41,7 @@
 
                                 </div>
                                 <script type="text/javascript">
+                                    function Slick() {
                                     $('.variable-width').slick({
                                         dots: true,
                                         infinite: true,
@@ -49,6 +50,8 @@
                                         centerMode: true,
                                         variableWidth: true
                                     });
+                                    }
+                                    Slick();
                                 </script>
 
                                 {!! $descs[$tr[0]]['text'] !!}
