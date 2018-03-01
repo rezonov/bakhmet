@@ -353,12 +353,12 @@ class GoodsController extends Controller
             }
 
             if(file_exists(public_path().'/php/files/'.$Cat->id.'/')) {
-                dump($files);
-                $files[$Cat->id] = array_diff(scandir(public_path().'/php/files/'.$Cat->id.'/'), array('..', '.', 'thumbinails'));
+
+                $files[$Cat->id] = array_diff(scandir(public_path().'/php/files/'.$Cat->id.'/'), array('..', '.', 'thumbnail'));
             }
 
         }
-
+        dump($files);
         for ($i = 2; $i <= count($ValueArr)+1; $i++) {
             if (!empty(min($ValueArr[$i]))) {
                 $HeaderAr[$i]['min'] = min($ValueArr[$i]);
