@@ -370,7 +370,7 @@ class GoodsController extends Controller
 
         $html_start = '';
         $html_end = '';
-
+        dump($files);
 
         return view('header', [
             'header' => $HeaderAr,

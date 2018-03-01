@@ -35,8 +35,8 @@
                                 <div class="slider variable-width">
 
                                     @foreach ($files[$tr[0]] as $item)
-                                    <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
-                                        @endforeach
+                                         <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
+                                    @endforeach
                                 </div>
                                 @endif
                                 <script type="text/javascript">
