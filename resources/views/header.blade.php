@@ -10,7 +10,9 @@
 @stop
 
 @section ('content')
-
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/slick/slick.min.js"></script>
 @include('table', ['table'=>$data, 'header' => $header, 'descr' => $descs])
 
 @stop
