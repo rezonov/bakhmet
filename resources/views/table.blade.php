@@ -31,14 +31,20 @@
                         @if(!empty($descr[$tr[0]]['text']))
                             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                                 <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}" />
-                                <section class="slider">
-                                    <div>slide1</div>
-                                    <div>slide2</div>
-                                    <div>slide3</div>
-                                    <div>slide4</div>
-                                    <div>slide5</div>
-                                    <div>slide6</div>
-                                </section>
+                                <div class="slider filtering">
+                                    <div><h3>1</h3></div>
+                                    <div><h3>2</h3></div>
+                                    <div><h3>3</h3></div>
+                                    <div><h3>4</h3></div>
+                                    <div><h3>5</h3></div>
+                                    <div><h3>6</h3></div>
+                                    <div><h3>7</h3></div>
+                                    <div><h3>8</h3></div>
+                                    <div><h3>9</h3></div>
+                                    <div><h3>10</h3></div>
+                                    <div><h3>11</h3></div>
+                                    <div><h3>12</h3></div>
+                                </div>
                                 <script type="text/javascript">
                                     $(document).ready(function(){
                                         $('.slider').slick({
