@@ -343,16 +343,3 @@ body {
     font-family: "Arial", "Helvetica";
     text-align: center;
 }
-
-.slick-prev:before,
-.slick-next:before {
-    color: black;
-}
-
-.slick-dots {
-    bottom: -30px;
-}
-
-.slick-slide:nth-child(odd) {
-    background: #e84a69;
-}
