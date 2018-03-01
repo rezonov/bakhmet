@@ -38,7 +38,7 @@
                                     <div style="width: 250px;"><a href="#"><img src="/php/files/{{$tr[0]}}/{{$item}}" /></a></div>
                                         @endfor
                                 </div>
-                                @endfor
+                                @endif
                                 <script type="text/javascript">
                                     function Slick() {
                                     $('.variable-width').not('.slick-initialized').slick({
