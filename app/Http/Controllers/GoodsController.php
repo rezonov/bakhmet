@@ -358,7 +358,7 @@ class GoodsController extends Controller
             }
 
         }
-        dump($files);
+        //dump($files);
         for ($i = 2; $i <= count($ValueArr)+1; $i++) {
             if (!empty(min($ValueArr[$i]))) {
                 $HeaderAr[$i]['min'] = min($ValueArr[$i]);
