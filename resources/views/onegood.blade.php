@@ -4,6 +4,7 @@
 
 
 @section ('content')
+    <div class="row">
     <div class="col-md-3">
 
         @if(!empty($Descrs->file))
@@ -62,5 +63,6 @@
         <div>
             {!! $Descrs->text !!}
         </div>
+    </div>
     </div>
 @stop
