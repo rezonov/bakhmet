@@ -713,6 +713,10 @@ dump($Allc);
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
                     ->update(['latin_name' => $this->translit($AC->Cname)."_".$this->translit($AC->CGName)]);
+            } else {
+                DB::table('catalog')
+                    ->where('id', "=", $AC->id)
+                    ->update(['latin_name' => $this->translit($AC->Cname)]);
             }
         }
     }
