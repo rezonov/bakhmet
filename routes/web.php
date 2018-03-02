@@ -62,3 +62,4 @@ Route::get('/admin/settings', 'SettingsController@ShowSettings')->middleware('au
 Route::post('/admin/settings/save/', ['uses' => 'SettingsController@SaveSet'])->middleware('auth');
 Route::post('/admin/catalogs/change/', ['uses' => 'GoodsController@ChangeOrder']);
 Route::get('/admin/rasstsort', 'GoodsController@RasstSort')->middleware('auth');
+Route::get('/admin/catalogs/names', 'GoodsController@GetListUrl')->middleware('auth');

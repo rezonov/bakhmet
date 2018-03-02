@@ -690,4 +690,13 @@ class GoodsController extends Controller
         }
 
     }
+
+    public function GetListUrl() {
+        $Allc = DB::table('catalog as C')
+            ->join('catalog as CG', 'CG.parent', '=', 'C.id')
+            ->select('C.name, C.parent, C.latin_name, CG.latin_name')
+        ->get()
+        ;
+dump($Allc);
+    }
 }
