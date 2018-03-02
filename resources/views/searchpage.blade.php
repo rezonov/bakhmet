@@ -6,7 +6,7 @@
 @section ('content')
 
     <table class="table">
-        @foreach($name as $n)
+        @foreach($names as $n)
         <tr>
             <td>{{$n->Name}}</td>
         </tr>
