@@ -51,7 +51,7 @@
                             function Slick() {
                                 $('.variable-width').not('.slick-initialized').slick({
                                     dots: true,
-                                    autoscroll:false,
+                                    autoscroll: false,
                                     infinite: true,
                                     speed: 300,
                                     slidesToShow: 1,
