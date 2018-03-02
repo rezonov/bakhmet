@@ -1,6 +1,6 @@
 @extends ('header_page')
 
-@section('title', $tables->title)
+@section('title', "YEAH")
 
 
 @section ('content')
