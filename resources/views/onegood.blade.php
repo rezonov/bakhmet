@@ -41,7 +41,7 @@
                     </script>
 
 
-                </div>
+
 
             @endif
         </div>
