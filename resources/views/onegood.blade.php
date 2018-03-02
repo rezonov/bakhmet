@@ -13,7 +13,7 @@
                     @if(!empty($files[$tr[0]]))
                         <div class="slider variable-width">
 
-                            @foreach ($files[$tr[0]] as $item)
+                            @foreach ($files as $item)
                                 <div style="width: 250px;"><a href="#"><img width="250px"
                                                                             src="/php/files/{{$tr[0]}}/{{$item}}"/></a>
                                 </div>

@@ -760,7 +760,7 @@ dump($Allc);
             ->get();
         if (file_exists(public_path() . '/php/files/' . $Allc->id_good . '/')) {
 
-            $files[$Allc->id_good] = array_diff(scandir(public_path() . '/php/files/' . $Allc->id_good . '/'), array('..', '.', 'thumbnail'));
+            $files = array_diff(scandir(public_path() . '/php/files/' . $Allc->id_good . '/'), array('..', '.', 'thumbnail'));
         }
 
         dump($Attributes);
