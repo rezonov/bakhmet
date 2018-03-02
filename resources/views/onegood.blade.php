@@ -46,7 +46,9 @@
         @endif
     </div>
     <div class="col-md-6">
-    <table class="table">
+        <div class="table-responsive">
+
+        <table class="table">
 
 
     @foreach($Attributes as $A)
@@ -56,5 +58,6 @@
             </tr>
     @endforeach
     </table>
+        </div>
     </div>
 @stop
