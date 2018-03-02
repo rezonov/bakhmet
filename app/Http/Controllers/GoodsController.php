@@ -287,7 +287,7 @@ class GoodsController extends Controller
 
             -> where ('name', 'LIKE', '%'.$request->word.'%')
             ->get();
-
+        $Allc = array();
         foreach($Database as $Db) {
             $Allc[] = DB::table('catalog as C')
                 ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
