@@ -749,7 +749,11 @@ dump($Allc);
            ->where('GA.id_good','=',$Allc->id_good)
            ->get();
 
-       dump($Attributes);
+        $Descrs = DB::table('descriptions')
+            ->select('text', 'file')
+            ->where('id', '=', $Allc->id_good)
+            ->get();
+
 
     }
 }
