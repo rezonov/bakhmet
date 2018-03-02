@@ -763,8 +763,7 @@ dump($Allc);
             $files = array_diff(scandir(public_path() . '/php/files/' . $Allc->id_good . '/'), array('..', '.', 'thumbnail'));
         }
 
-        dump($Attributes);
-        dump($Descrs);
+
 
         return view('onegood', [
             'Attributes' => $Attributes,
