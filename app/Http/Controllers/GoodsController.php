@@ -754,6 +754,9 @@ dump($Allc);
             ->where('id', '=', $Allc->id_good)
             ->get();
 
+        dump($Attributes);
+        dump($Descrs);
+
 
     }
 }
