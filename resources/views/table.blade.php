@@ -16,13 +16,13 @@
                         @if ($i==1)
 
                             <a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
-                    </td>
-                <td><a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">Описание</a>
+
+                <span style="float:right"><a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">Описание</a>
                         @elseif(!empty($tr[$i]))
                             {{$tr[$i]}}
                         @endif
 
-                    </td>
+                    </span>
                 @endif
             @endfor
             <td>
