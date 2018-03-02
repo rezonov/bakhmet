@@ -282,10 +282,7 @@ class GoodsController extends Controller
 
     public function ShowPublicCatalog($id, $start = 0)
     {
-        $newid = DB::table('catalog')
-            ->where('catalog.latin_name', 'LIKE', $id)
-            ->get();
-        dump($newid);
+
 
         $Seo = DB::table('catalog')
             ->join('catalogs__seo', 'catalogs__seo.id_catalog', '=', 'catalog.id')
@@ -300,7 +297,7 @@ class GoodsController extends Controller
             ->where('catalog.latin_name', '=', $id)
             ->select('goods.name as name', 'goods.id as id')
             ->get();
-        dump($Catalog);
+
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
             $finalAr[$Cat->id][] = $Cat->name;
