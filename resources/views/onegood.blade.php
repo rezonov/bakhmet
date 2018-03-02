@@ -10,6 +10,7 @@
     @foreach($Attributes as $A)
             <tr>
                 <td>{{$A->name}}</td>
+                <td>{{$A->value}}</td>
             </tr>
     @endforeach
     </table>
