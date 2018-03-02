@@ -14,7 +14,7 @@
                 @if($header[$i]['Sh'] != 'Off')
                     <td>
                         @if ($i==1)
-                            <a href="/{{$catalog}}/{{$Url[$tr[0]]}}.html">{{$tr[$i]}}</a>
+                            <a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">{{$tr[$i]}}</a>
                             <a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
                         @elseif(!empty($tr[$i]))
                             {{$tr[$i]}}
