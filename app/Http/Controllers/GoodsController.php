@@ -741,6 +741,7 @@ dump($Allc);
             ->join('goods as G', 'G.id', '=', 'GC.id_good')
             ->where('C.latin_name','=',$catalog)
             ->where('G.latin_name','=',$url)
+            ->groupBy('C.id')
             ->get();
         dump($Allc);
     }
