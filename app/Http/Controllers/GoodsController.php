@@ -698,7 +698,7 @@ class GoodsController extends Controller
             if($AC->parent != '0') {
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
-                    ->update(['latin_name' => $AC->latin_name."_".$AC.LN]);
+                    ->update(['latin_name' => $AC->latin_name."_".$AC->LN]);
             }
         }
     }
