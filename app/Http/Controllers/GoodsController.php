@@ -282,6 +282,13 @@ class GoodsController extends Controller
 
     }
 
+    public function Search($word) {
+        $Database = DB::table('goods')
+            -> where ('name', 'LIKE', '%'.$word.'%')
+            ->get();
+
+        dump($Database);
+    }
     public function ShowPublicCatalog($id, $start = 0)
     {
 
