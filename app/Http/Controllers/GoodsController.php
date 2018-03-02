@@ -754,9 +754,22 @@ dump($Allc);
             ->where('id', '=', $Allc->id_good)
             ->get();
 
+        $SEO = DB::table('goods__seo')
+           ->where('id','=', $Allc->id_good)
+            ->get();
+        if (file_exists(public_path() . '/php/files/' . $Allc->id_good . '/')) {
+
+            $files[$Allc->id_good] = array_diff(scandir(public_path() . '/php/files/' . $Allc->id_good . '/'), array('..', '.', 'thumbnail'));
+        }
+
         dump($Attributes);
         dump($Descrs);
 
-
+        return view('onegood', [
+            'Attributes' => $Attributes,
+            'Descrs' => $Descrs,
+            'SEO'   => $SEO,
+            'name'  => $Allc->name
+        ]);
     }
 }

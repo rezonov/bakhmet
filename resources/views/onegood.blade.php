@@ -4,7 +4,13 @@
 
 
 @section ('content')
+    <table class="table">
 
-    {!! $tables->content !!}
 
+    @foreach($Attributes as $A)
+            <tr>
+                <td>{{$A->name}}</td>
+            </tr>
+    @endforeach
+    </table>
 @stop
