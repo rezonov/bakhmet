@@ -60,6 +60,9 @@
                     @endforeach
                 </table>
             </div>
+
+        </div>
+        <div class="row">
             <div>
                 {!! $Descrs->text !!}
             </div>
