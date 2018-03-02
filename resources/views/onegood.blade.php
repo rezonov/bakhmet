@@ -7,7 +7,7 @@
     <div class="col-md-3">
 
         @if(!empty($Descrs->file))
-            <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
+            <div class="descrtd" id="descr{{$id}}" style="display: none;width:300px ">
                 <div style="float:left">
                     <img width="300" float="right" src="/img/{{ $Descrs->file }}"/>
                     @if(!empty($files[$tr[0]]))
@@ -15,7 +15,7 @@
 
                             @foreach ($files as $item)
                                 <div style="width: 250px;"><a href="#"><img width="250px"
-                                                                            src="/php/files/{{$tr[0]}}/{{$item}}"/></a>
+                                                                            src="/php/files/{{$id}}/{{$item}}"/></a>
                                 </div>
                             @endforeach
                         </div>
