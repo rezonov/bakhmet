@@ -291,7 +291,7 @@ class GoodsController extends Controller
             ->where('catalog.latin_name', '=', $id)
             ->toSQL();
         $files = array();
-
+        $Descs = array();
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
