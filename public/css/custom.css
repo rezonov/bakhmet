@@ -281,7 +281,7 @@ body {
     font-size:24px;
 }
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .phones{
         white-space: nowrap;
         background: #fff;
