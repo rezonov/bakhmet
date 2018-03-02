@@ -37,7 +37,7 @@
                     Slick();
                 </script>
 
-                {!! $descs[$tr[0]]['text'] !!}
+                {!! $Descrs->text !!}
 
             </div>
 
