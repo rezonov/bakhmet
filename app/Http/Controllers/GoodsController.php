@@ -692,7 +692,7 @@ class GoodsController extends Controller
         $Allc = DB::table('catalog as C')
             ->join('catalog as CG', 'CG.parent', '=', 'C.id')
             ->select('C.id', 'C.name', 'C.parent', 'C.latin_name', 'CG.latin_name as LN')
-            ->toSQL();
+            ->get();
 dump($Allc);
      /*   foreach ($Allc as $AC) {
             if($AC->parent != '0') {
