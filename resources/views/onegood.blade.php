@@ -45,7 +45,7 @@
 
         @endif
     </div>
-    <div class="col-md-9">
+    <div class="col-md-6">
     <table class="table">
 
 
