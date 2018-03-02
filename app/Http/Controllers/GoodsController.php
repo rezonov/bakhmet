@@ -748,6 +748,6 @@ dump($Allc);
            ->join('goods_attributes as GA', 'GA.attributes_id', '=', 'A.id')
            ->where('GA.id_good','=',$Allc->id_good)
            ->get();
-           dump($Attributes);
+
     }
 }
