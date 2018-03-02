@@ -288,9 +288,9 @@ class GoodsController extends Controller
         dump($newid);
 
         $Seo = DB::table('catalog')
-            ->join ('catalogs__seo', 'catalogs__seo.id_catalog','=','catalog.id')
-            ->where ('catalog.latin_name', '=', $id)
-        ->toSQL();
+            ->join('catalogs__seo', 'catalogs__seo.id_catalog', '=', 'catalog.id')
+            ->where('catalog.latin_name', '=', $id)
+            ->toSQL();
         $files = array();
 
         $Catalog = DB::table('catalog')
@@ -334,14 +334,14 @@ class GoodsController extends Controller
 
             foreach ($Attrs as $item) {
 
-                    $HeaderAr[$c]['name'] = $item->Gname;
-                    $HeaderAr[$c]['type'] = $item->type;
-                    $HeaderAr[$c]['id'] = $item->id;
-                    $HeaderAr[$c]['Sh'] = $item->Sh;
-                    $HeaderAr[$c]['Fl'] = $item->Fl;
-                    $ValueArr[$c][] = $item->value;
-                    $finalAr[$Cat->id][] = $item->value;
-                    $c++;
+                $HeaderAr[$c]['name'] = $item->Gname;
+                $HeaderAr[$c]['type'] = $item->type;
+                $HeaderAr[$c]['id'] = $item->id;
+                $HeaderAr[$c]['Sh'] = $item->Sh;
+                $HeaderAr[$c]['Fl'] = $item->Fl;
+                $ValueArr[$c][] = $item->value;
+                $finalAr[$Cat->id][] = $item->value;
+                $c++;
 
 
             }
@@ -357,14 +357,14 @@ class GoodsController extends Controller
                 $Descs[$Cat->id]['file'] = $dd->file;
             }
 
-            if(file_exists(public_path().'/php/files/'.$Cat->id.'/')) {
+            if (file_exists(public_path() . '/php/files/' . $Cat->id . '/')) {
 
-                $files[$Cat->id] = array_diff(scandir(public_path().'/php/files/'.$Cat->id.'/'), array('..', '.', 'thumbnail'));
+                $files[$Cat->id] = array_diff(scandir(public_path() . '/php/files/' . $Cat->id . '/'), array('..', '.', 'thumbnail'));
             }
 
         }
         //dump($files);
-        for ($i = 2; $i <= count($ValueArr)+1; $i++) {
+        for ($i = 2; $i <= count($ValueArr) + 1; $i++) {
             if (!empty(min($ValueArr[$i]))) {
                 $HeaderAr[$i]['min'] = min($ValueArr[$i]);
             } else {
@@ -382,7 +382,7 @@ class GoodsController extends Controller
             'header' => $HeaderAr,
             'data' => $finalAr,
             'descs' => $Descs,
-            'Seo'   =>$Seo,
+            'Seo' => $Seo,
             'files' => $files
 
         ]);
@@ -644,32 +644,33 @@ class GoodsController extends Controller
         //return Redirect::back();
     }
 
-    public function ChangeOrder(Request $request) {
-        if($request->act == 'plus') {
-        $sort = $request->cursort - 10;
-        } else
-        {
+    public function ChangeOrder(Request $request)
+    {
+        if ($request->act == 'plus') {
+            $sort = $request->cursort - 10;
+        } else {
             $sort = $request->cursort + 10;
         }
         DB::table('catalogs__attributes')
             ->where('id_catalog', "=", $request->cat)
-            ->where('id_attribute',"=", $request->sort)
+            ->where('id_attribute', "=", $request->sort)
             ->update(['sort' => $sort]);
 
         DB::table('catalogs__attributes')
             ->where('id_catalog', "=", $request->cat)
-            ->where('id_attribute',"=", $request->prev)
+            ->where('id_attribute', "=", $request->prev)
             ->update(['sort' => $request->cursort]);
         return response()->json($request);
     }
 
-    public function RasstSort() {
+    public function RasstSort()
+    {
         $Allt = DB::table('catalogs__attributes')
             ->groupBy('id_catalog')
             ->get();
 
 
-        foreach($Allt as $t) {
+        foreach ($Allt as $t) {
 
             $Allc = DB::table('catalogs__attributes')
                 ->where('id_catalog', "=", $t->id_catalog)
@@ -678,12 +679,10 @@ class GoodsController extends Controller
             dump($Allc);
             foreach ($Allc as $value) {
                 $c++;
-                $sort = $c*10;
+                $sort = $c * 10;
                 $Allt = DB::table('catalogs__attributes')
                     ->where('id', "=", $value->id)
                     ->update(['sort' => $sort]);
-
-
 
 
             }
@@ -691,12 +690,19 @@ class GoodsController extends Controller
 
     }
 
-    public function GetListUrl() {
+    public function GetListUrl()
+    {
         $Allc = DB::table('catalog as C')
             ->join('catalog as CG', 'CG.parent', '=', 'C.id')
-            ->select('C.name', 'C.parent', 'C.latin_name', 'CG.latin_name as LN')
-        ->get()
-        ;
-dump($Allc);
+            ->select('C.id', 'C.name', 'C.parent', 'C.latin_name', 'CG.latin_name as LN')
+            ->get();
+        dump($Allc);
+        foreach ($Allc as $AC) {
+            if($AC->parent != '0') {
+                DB::table('catalog')
+                    ->where('id', "=", $AC->id)
+                    ->update(['latin_name' => $AC->latin_name."_".$AC.LN]);
+            }
+        }
     }
 }
