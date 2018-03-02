@@ -10,5 +10,7 @@
         <tr>
             <td>{{$n->Name}}</td>
         </tr>
+            @endforeach
     </table>
+
 @stop
