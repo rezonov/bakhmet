@@ -348,6 +348,7 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['Sh'] = $item->Sh;
                 $HeaderAr[$c]['Fl'] = $item->Fl;
                 $ValueArr[$c][] = $item->value;
+                $Url[$c][] = $item->value;
                 $finalAr[$Cat->id][] = $item->value;
                 $c++;
 
@@ -392,6 +393,7 @@ class GoodsController extends Controller
             'descs' => $Descs,
             'Seo' => $Seo,
             'files' => $files,
+            'Url'   => $Url,
             'catalog' => $id
 
         ]);

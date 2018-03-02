@@ -12,7 +12,7 @@
 @section ('content')
 
     <script type="text/javascript" src="/js/slick/slick.min.js"></script>
-@include('table', ['table'=>$data, 'header' => $header, 'descr' => $descs])
+@include('table', ['table'=>$data, 'header' => $header, 'descr' => $descs, 'url' => $Url, 'header' => $header])
 
 @stop
 
