@@ -127,7 +127,7 @@
 </div>
 <div class="container-fluid" style="background: url('{{$background}}');">
     <div class="row">
-        <div class="col-md-3" style="width:250px;" >
+        <div class="col-md-3" >
             @widget('test')
             @yield('layers')
         </div>
