@@ -10,7 +10,7 @@
             <div class="descrtd" id="descr{{$id}}" style="display: none;width:300px ">
                 <div style="float:left">
                     <img width="300" float="right" src="/img/{{ $Descrs->file }}"/>
-                    @if(!empty($files[$tr[0]]))
+                    @if(!empty($files))
                         <div class="slider variable-width">
 
                             @foreach ($files as $item)
