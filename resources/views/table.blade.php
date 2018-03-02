@@ -34,7 +34,7 @@
                 @if(!empty($descr[$tr[0]]['text']))
                     <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                         <div style="float:left">
-                            <img width="300" float="right" src="{{ $descs[$tr[0]]['file'] }}"/>
+                            <img width="300" float="right" src="/img/{{ $descs[$tr[0]]['file'] }}"/>
                             @if(!empty($files[$tr[0]]))
                                 <div class="slider variable-width">
 
