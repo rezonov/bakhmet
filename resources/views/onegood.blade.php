@@ -39,7 +39,7 @@
                     Slick();
                 </script>
 
-                {!! $Descrs->text !!}
+
 
             </div>
 
@@ -58,6 +58,9 @@
             </tr>
     @endforeach
     </table>
+        </div>
+        <div>
+            {!! $Descrs->text !!}
         </div>
     </div>
 @stop
