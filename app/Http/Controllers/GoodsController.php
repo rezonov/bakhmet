@@ -724,7 +724,7 @@ dump($Allc);
             '/' => '_'
         );
         foreach($Allgoods as $AG) {
-            DB::table('catalog')
+            DB::table('goods')
                 ->where('id', "=", $AG->id)
                 ->update(['latin_name' => strtr($AG->latin_name, $translit)]);
         }
