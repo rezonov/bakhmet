@@ -285,6 +285,7 @@ body {
     .phones{
         white-space: nowrap;
         background: #fff;
+        margin-left:-50px;
     }
 }
 .phones {

@@ -131,8 +131,8 @@
             @widget('test')
             @yield('layers')
         </div>
-        <div class="col-md-1">&nbsp;</div>
-        <div class="col-md-8" style="background: #fff">
+
+        <div class="col-md-9" style="background: #fff">
 @yield('content')
 
         </div>
