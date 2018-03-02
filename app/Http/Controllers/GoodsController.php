@@ -292,7 +292,7 @@ class GoodsController extends Controller
             $Allc[] = DB::table('catalog as C')
                 ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
                 ->join('goods as G', 'G.id', '=', 'GC.id_good')
-
+                ->select('C.name', 'G.name')
                 ->where('G.id','=',$Db->id)
                 ->groupBy('C.id')
                 ->first();
