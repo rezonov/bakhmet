@@ -282,9 +282,9 @@ class GoodsController extends Controller
 
     }
 
-    public function Search($word) {
+    public function Search(Request $request) {
         $Database = DB::table('goods')
-            -> where ('name', 'LIKE', '%'.$word.'%')
+            -> where ('name', 'LIKE', '%'.$request->word.'%')
             ->get();
 
         dump($Database);

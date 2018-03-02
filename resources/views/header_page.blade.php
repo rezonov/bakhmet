@@ -115,7 +115,7 @@
                     <p style="color:#fff; font-size:18px; padding-top:10px; padding-left:20px;">Поиск в базе по <u>11
                                                                                                                    248</u>
                                                                                                 товарам</p>
-                    <p style="padding-left:10px;"><input type="text" class="form-control"/><input type="submit"
+                    <p style="padding-left:10px;"><input type="text" name="word" class="form-control"/><input type="submit"
                                                                                                   value="ПОИСК"
                                                                                                   class="btn btn-orange"
                                                                                                   style="width: 15%;
