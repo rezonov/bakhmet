@@ -19,15 +19,13 @@
                             При отправке сообщения произошла ошибка. Продублируйте его, пожалуйста, на почту администратора <span>info@tdbakhmet.ru</span>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 field">
+                            <div class="col-md-6 field">
                                 <input type="text" class="form-control" name="name" placeholder="* Введите ваше имя" required />
                             </div>
-                            <div class="col-md-4 field">
+                            <div class="col-md-6 field">
                                 <input type="email" class="form-control" name="email" placeholder="* Введите ваш email" required />
                             </div>
-                            <div class="col-md-4 field">
-                                <input type="text" class="form-control" name="subject" placeholder="* Введите тему сообщения" required />
-                            </div>
+
                             <div class="col-lg-12 margintop10 field">
                                 <textarea class="form-control" rows="12" name="message" class="input-block-level" placeholder="* Ваше сообщение..." required></textarea>
                                 <p>
