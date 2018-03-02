@@ -694,12 +694,12 @@ class GoodsController extends Controller
             ->select('C.id', 'C.name', 'CG.parent', 'C.latin_name', 'CG.latin_name as LN')
             ->get();
 dump($Allc);
-     /*   foreach ($Allc as $AC) {
+        foreach ($Allc as $AC) {
             if($AC->parent != '0') {
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
                     ->update(['latin_name' => $AC->latin_name."_".$AC->LN]);
             }
-        }*/
+        }
     }
 }
