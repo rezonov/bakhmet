@@ -1,8 +1,14 @@
 @extends ('header_page')
 
-@section('title', "YEAH")
 
+@section('title')
+    @if( (!empty($Seo->title)))
+        $Seo->title
+    @else
+        "ТД Бахмет"
+    @endif
 
+@stop
 @section ('content')
     <div class="row">
         <div class="col-md-5">
