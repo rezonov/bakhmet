@@ -284,10 +284,21 @@ class GoodsController extends Controller
 
     public function Search(Request $request) {
         $Database = DB::table('goods')
+
             -> where ('name', 'LIKE', '%'.$request->word.'%')
             ->get();
 
-        dump($Database);
+        foreach($Database as $Db) {
+            $Allc[] = DB::table('catalog as C')
+                ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
+                ->join('goods as G', 'G.id', '=', 'GC.id_good')
+
+                ->where('G.id','=',$Db->id)
+                ->groupBy('C.id')
+                ->first();
+        }
+        dump($Allc);
+        return view('searchpage');
     }
     public function ShowPublicCatalog($id, $start = 0)
     {
