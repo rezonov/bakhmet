@@ -306,6 +306,15 @@ class GoodsController extends Controller
             ['names' => $Allc]
             );
     }
+
+    public function ShowPublicCatalog($id) {
+        $Catalog = DB::table('goods_catalogs')
+            ->join('goods_attributes', 'goods_attributes.id_good', '=', 'goods_catalogs.id_good')
+            ->where('goods_catalogs.id_catalog','=',$id)
+            ->toSQL();
+
+        dump($Catalog);
+    }
     public function ShowPublicCatalog($id, $start = 0)
     {
 
