@@ -736,6 +736,7 @@ dump($Allc);
 
 
     public function GetOneGood($catalog, $url) {
+        $files = array();
         $Allc = DB::table('catalog as C')
             ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
             ->join('goods as G', 'G.id', '=', 'GC.id_good')
