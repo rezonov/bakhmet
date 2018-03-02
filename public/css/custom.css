@@ -287,6 +287,14 @@ body {
         background: #fff;
         margin-left:-50px;
     }
+
+    .search_wrapper {
+        margin-left:-50px;
+    }
+}
+
+.search_wrapper {
+    background: #3386ab; width:669px; height:100px; position:relative; top:-50px; border:solid 1px #666666; padding:10px;
 }
 .phones {
     color:#2f83a9;

@@ -107,7 +107,7 @@
 
             </div>
             <div class="col-sm-7">
-                <div style="background: #3386ab; width:669px; height:100px; position:relative; top:-50px; border:solid 1px #666666; padding:10px">
+                <div class="search_wrapper">
                     <p style="color:#fff; font-size:18px; padding-top:10px; padding-left:20px;">Поиск в базе по <u>11
                                                                                                                    248</u>
                                                                                                 товарам</p>
