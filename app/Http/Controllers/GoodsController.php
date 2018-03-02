@@ -294,8 +294,8 @@ class GoodsController extends Controller
             ->groupBy('goods.id')
             ->where('catalog.latin_name', '=', $id)
             ->select('goods.name as name', 'goods.id as id')
-            ->get();
-
+            ->toSQL();
+        dump($Catalog);
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
             $finalAr[$Cat->id][] = $Cat->name;
