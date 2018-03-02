@@ -753,7 +753,7 @@ dump($Allc);
         $Descrs = DB::table('descriptions')
             ->select('text', 'file')
             ->where('id', '=', $Allc->id_good)
-            ->get();
+            ->first();
 
         $SEO = DB::table('goods__seo')
            ->where('id','=', $Allc->id_good)
