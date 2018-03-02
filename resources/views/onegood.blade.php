@@ -6,10 +6,10 @@
 @section ('content')
     <div class="col-md-3">
 
-        @if(!empty($Descrs['file']))
+        @if(!empty($Descrs->file))
             <div class="descrtd" id="descr{{$tr[0]}}" style="display: none;width:300px ">
                 <div style="float:left">
-                    <img width="300" float="right" src="/img/{{ $Descrs['file'] }}"/>
+                    <img width="300" float="right" src="/img/{{ $Descrs->file }}"/>
                     @if(!empty($files[$tr[0]]))
                         <div class="slider variable-width">
 
