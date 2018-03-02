@@ -138,7 +138,7 @@ class GoodsController extends Controller
             'Э' => 'E\'', 'Ю' => 'YU', 'Я' => 'YA',
 
         );
-        $word = strtr($word, array_flip($translit));
+        $word = strtr($word, $translit);
         return $word;
     }
 
