@@ -15,7 +15,7 @@
 
 Auth::routes();
 Route::get('/', 'PagesController@ShowIndex' );
-Route::get('/{catalog}/{url}.html', 'GoodsController@GetOneGood' );
+Route::get('good/{catalog}/{url}.html', 'GoodsController@GetOneGood' );
 Route::get('/catalog/{id}.html', 'GoodsController@ShowPublicCatalog');
 Route::post('/actions/json', 'GoodsController@JsonCatalog');
 /*
