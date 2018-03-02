@@ -719,7 +719,6 @@ dump($Allc);
 
     public function GetGoodsUrl() {
         $Allgoods = DB::table('goods')
-            ->select('goods.name')
             ->get();
         $translit = array(
             '/' => '_'
