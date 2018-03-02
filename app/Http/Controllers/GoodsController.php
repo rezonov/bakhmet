@@ -691,14 +691,14 @@ class GoodsController extends Controller
     {
         $Allc = DB::table('catalog as C')
             ->join('catalog as CG', 'CG.parent', '=', 'C.id')
-            ->select('C.id', 'C.name', 'CG.parent', 'C.latin_name', 'CG.latin_name as LN')
+            ->select('CG.id', 'C.name as Cname', 'CG.name as CGName', 'CG.parent', 'C.latin_name', 'CG.latin_name as LN')
             ->get();
 dump($Allc);
         foreach ($Allc as $AC) {
             if($AC->parent != '0') {
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
-                    ->update(['latin_name' => $AC->latin_name."_".$AC->LN]);
+                    ->update(['latin_name' => $this->translit($AC->Cname)."_".$this->translit($AC->CGName)]);
             }
         }
     }
