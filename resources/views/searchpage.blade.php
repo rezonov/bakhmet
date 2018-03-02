@@ -1,16 +1,9 @@
 @extends ('header_page')
 
+@section('title', "Результаты поиска")
 
-@section('title')
-    @if( (!empty($Seo->title)))
-        $Seo->title
-    @else
-        "ТД Бахмет"
-    @endif
 
+@section ('content')
+
+    123
 @stop
-
-
-@section ('content)
-
-    @stop
