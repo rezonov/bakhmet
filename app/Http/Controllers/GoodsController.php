@@ -330,7 +330,9 @@ class GoodsController extends Controller
                 ->join('goods', 'goods_attributes.id_good', '=', 'goods.id')
                 ->join('catalogs__attributes', 'catalogs__attributes.id_attribute', '=', 'attributes.id')
                 ->select('attributes.name as name', 'attributes.id as id',
-                    'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl', 'catalogs__attributes.sort as Sort')
+                    'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl', 'catalogs__attributes.sort as Sort',
+                    'goods.latin_name'
+                    )
                 ->where('goods.id', '=', $Cat->id)
                 ->orderBy('catalogs__attributes.sort')
                 ->groupBy('goods_attributes.id')
@@ -389,7 +391,8 @@ class GoodsController extends Controller
             'data' => $finalAr,
             'descs' => $Descs,
             'Seo' => $Seo,
-            'files' => $files
+            'files' => $files,
+            'catalog' => $id
 
         ]);
 

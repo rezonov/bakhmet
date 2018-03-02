@@ -14,6 +14,7 @@
                 @if($header[$i]['Sh'] != 'Off')
                     <td>
                         @if ($i==1)
+                            <a href="/{{$catalog}}/"
                             <a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
                         @elseif(!empty($tr[$i]))
                             {{$tr[$i]}}
