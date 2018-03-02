@@ -21,7 +21,7 @@ Route::post('/actions/json', 'GoodsController@JsonCatalog');
  * Административная часть
  */
 Route::get('/{name}.html', 'PagesController@ShowPage' );
-
+Route::get('/{catalog}/{url}.html', 'GoodsController@GetOneGood' );
 Route::post('/sendmail', 'ClientsController@Record');
 Route::get('/admin', function () {
     return view('admin/dashboard');

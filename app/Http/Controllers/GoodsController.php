@@ -733,4 +733,17 @@ dump($Allc);
                 ->update(['latin_name' => strtr($AG->latin_name, $translit)]);
         }
     }
+
+    public function GetOneGood($catalog, $url) {
+        $Allgoods = DB::table('goods')
+            ->where();
+        $translit = array(
+            '/' => '_'
+        );
+        foreach($Allgoods as $AG) {
+            DB::table('goods')
+                ->where('id', "=", $AG->id)
+                ->update(['latin_name' => strtr($AG->latin_name, $translit)]);
+        }
+    }
 }
