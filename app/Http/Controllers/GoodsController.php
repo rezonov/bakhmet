@@ -307,7 +307,7 @@ class GoodsController extends Controller
             );
     }
 
-    public function ShowPublicCatalog($id) {
+    public function ShowPublicCatalog2($id) {
         $Catalog = DB::table('goods_catalogs')
             ->join('goods_attributes', 'goods_attributes.id_good', '=', 'goods_catalogs.id_good')
             ->where('goods_catalogs.id_catalog','=',$id)
@@ -315,7 +315,7 @@ class GoodsController extends Controller
 
         dump($Catalog);
     }
-    public function ShowPublicCatalog2($id, $start = 0)
+    public function ShowPublicCatalog($id, $start = 0)
     {
 
 
