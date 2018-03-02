@@ -5,7 +5,7 @@
 
 @section ('content')
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-5">
 
             @if(!empty($Descrs->file))
                 <div class="descrtd" id="descr{{$id}}">
@@ -46,7 +46,7 @@
 
             @endif
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="table-responsive">
 
                 <table class="table">
