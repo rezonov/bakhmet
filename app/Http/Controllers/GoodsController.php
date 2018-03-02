@@ -744,7 +744,10 @@ dump($Allc);
             ->groupBy('C.id')
             ->first();
 
-        dump($Allc);
-
+       $Attributes = DB::table('attributes as A')
+           ->join('goods_attributes as GA', 'GA.id_good', '=', 'A.id')
+           ->where('GA.id','=',$Allc->id_good)
+           ->get();
+           dump($Attributes);
     }
 }
