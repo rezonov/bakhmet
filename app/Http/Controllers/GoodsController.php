@@ -691,7 +691,7 @@ class GoodsController extends Controller
     {
         $Allc = DB::table('catalog as C')
             ->join('catalog as CG', 'CG.parent', '=', 'C.id')
-            ->select('C.id', 'C.name', 'C.parent', 'C.latin_name', 'CG.latin_name as LN')
+            ->select('C.id', 'C.name', 'CG.parent', 'C.latin_name', 'CG.latin_name as LN')
             ->get();
 dump($Allc);
      /*   foreach ($Allc as $AC) {
