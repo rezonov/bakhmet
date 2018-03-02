@@ -769,7 +769,8 @@ dump($Allc);
             'Attributes' => $Attributes,
             'Descrs' => $Descrs,
             'SEO'   => $SEO,
-            'name'  => $Allc->name
+            'name'  => $Allc->name,
+            'files' => $files
         ]);
     }
 }
