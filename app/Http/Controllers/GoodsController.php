@@ -771,7 +771,8 @@ dump($Allc);
             'Descrs' => $Descrs,
             'SEO'   => $SEO,
             'name'  => $Allc->name,
-            'files' => $files
+            'files' => $files,
+            'id'    => $Allc->id_good
         ]);
     }
 }
