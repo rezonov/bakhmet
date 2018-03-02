@@ -18,12 +18,12 @@
                         <div id="senderror">
                             При отправке сообщения произошла ошибка. Продублируйте его, пожалуйста, на почту администратора <span>info@tdbakhmet.ru</span>
                         </div>
-                        <div class="row">
+                        <div class="row margintop10">
                             <div class="col-md-12 field">
                                 <input type="text" class="form-control" name="name" placeholder="* Введите ваше имя" required />
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row margintop10">
                             <div class="col-md-12 field">
                                 <input type="email" class="form-control" name="email" placeholder="* Введите ваш email" required />
                             </div>
