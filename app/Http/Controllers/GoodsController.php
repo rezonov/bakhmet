@@ -301,7 +301,7 @@ class GoodsController extends Controller
                 ->groupBy('C.id')
                 ->first();
         }
-        dump($Allc);
+
         return view('searchpage',
             ['names' => $Allc]
             );
