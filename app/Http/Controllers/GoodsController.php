@@ -745,8 +745,8 @@ dump($Allc);
             ->first();
 
        $Attributes = DB::table('attributes as A')
-           ->join('goods_attributes as GA', 'GA.id_good', '=', 'A.id')
-           ->where('GA.id','=',$Allc->id_good)
+           ->join('goods_attributes as GA', 'GA.id_attributes', '=', 'A.id')
+           ->where('GA.id_good','=',$Allc->id_good)
            ->get();
            dump($Attributes);
     }
