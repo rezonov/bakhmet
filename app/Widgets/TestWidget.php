@@ -71,7 +71,7 @@ class TestWidget implements ContractWidget{
 
                     foreach ($Allc as $Cat) {
                         $Cat->level = '2';
-                        $punkt_start .= '<a href="/catalog/' . $Cat->id . '/0">' . $Cat->name . '</a>';
+                        $punkt_start .= '<a href="/catalog/' . $Cat->latin_name . '.html">' . $Cat->name . '</a>';
 
                         $finalCat[] = $Cat;
                     }
