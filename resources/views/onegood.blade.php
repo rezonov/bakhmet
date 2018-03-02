@@ -20,6 +20,7 @@
                             @endforeach
                         </div>
                 </div>
+            </div>
                 @endif
                 <script type="text/javascript">
                     function Slick() {
