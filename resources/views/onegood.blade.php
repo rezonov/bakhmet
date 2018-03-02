@@ -60,7 +60,9 @@
                     @endforeach
                 </table>
             </div>
-
+            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
+                ЗАКАЗАТЬ
+            </button>
         </div>
         <div class="row">
             <div class="col-md-12">
