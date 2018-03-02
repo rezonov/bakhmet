@@ -63,4 +63,5 @@ Route::post('/admin/settings/save/', ['uses' => 'SettingsController@SaveSet'])->
 Route::post('/admin/catalogs/change/', ['uses' => 'GoodsController@ChangeOrder']);
 Route::get('/admin/rasstsort', 'GoodsController@RasstSort')->middleware('auth');
 Route::get('/admin/catalogs/names', 'GoodsController@GetListUrl')->middleware('auth');
+Route::get('/admin/catalogs/goodsurls', 'GoodsController@GetGoodsUrl')->middleware('auth');
 Route::post('/search/', 'GoodsController@Search');

@@ -716,4 +716,18 @@ dump($Allc);
             }
         }
     }
+
+    public function GetGoodsUrl() {
+        $Allgoods = DB::table('goods')
+            ->select('goods.name')
+            ->get();
+        $translit = array(
+            '/' => '_'
+        );
+        foreach($Allgoods as $AG) {
+            DB::table('catalog')
+                ->where('id', "=", $AG->id)
+                ->update(['latin_name' => strtr($AG->latin_name, $translit)]);
+        }
+    }
 }
