@@ -7,7 +7,7 @@
     <div class="col-md-3">
 
         @if(!empty($Descrs->file))
-            <div class="descrtd" id="descr{{$id}}" style="display: none;width:300px ">
+            <div class="descrtd" id="descr{{$id}}">
                 <div style="float:left">
                     <img width="300" float="right" src="/img/{{ $Descrs->file }}"/>
                     @if(!empty($files))
