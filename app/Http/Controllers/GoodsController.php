@@ -315,7 +315,7 @@ class GoodsController extends Controller
 
         dump($Catalog);
     }
-    public function ShowPublicCatalog($id, $start = 0)
+    public function ShowPublicCatalog2($id, $start = 0)
     {
 
 
