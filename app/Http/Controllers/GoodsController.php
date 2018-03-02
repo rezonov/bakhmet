@@ -740,6 +740,7 @@ dump($Allc);
             ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
             ->join('goods as G', 'G.id', '=', 'GC.id_good')
             ->where('C.latin_name','=',$catalog)
+            ->where('G.latin_name','=',$url)
             ->get();
         dump($Allc);
     }
