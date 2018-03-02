@@ -284,7 +284,7 @@ class GoodsController extends Controller
     {
         $newid = DB::table('catalog')
             ->where('catalog.latin_name', 'LIKE', $id)
-            -get();
+            ->get();
         dump($newid);
 
         $Seo = DB::table('catalog')
