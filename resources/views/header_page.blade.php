@@ -122,7 +122,7 @@
     float: right;
     top: -35px;
     position: relative;"></p>
-                    {!! Form::close!!}
+                    {!! Form::close() !!}
                 </div>
             </div>
 
