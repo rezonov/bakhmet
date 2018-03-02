@@ -107,6 +107,10 @@
 
             </div>
             <div class="col-sm-7">
+                {!! Form::open([
+                         'action' => 'GoodsController@Search',
+                         'method' => 'post'
+                         ]) !!}
                 <div class="search_wrapper">
                     <p style="color:#fff; font-size:18px; padding-top:10px; padding-left:20px;">Поиск в базе по <u>11
                                                                                                                    248</u>
@@ -118,6 +122,7 @@
     float: right;
     top: -35px;
     position: relative;"></p>
+                    {!! Form::close!!}
                 </div>
             </div>
 
