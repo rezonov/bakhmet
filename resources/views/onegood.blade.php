@@ -91,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                {!! @if(!empty($Descrs->text)) $Descrs->text !!}
+                @if(!empty($Descrs->text))  {!! $Descrs->text !!}
             </div>
         </div>
     </div>
