@@ -749,5 +749,7 @@ dump($Allc);
            ->where('GA.id_good','=',$Allc->id_good)
            ->get();
 
+       dump($Attributes);
+
     }
 }
