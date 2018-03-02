@@ -13,7 +13,7 @@
         @foreach($names as $n)
         <tr>
             <td><a href="/good/{{$n->Clat}}/{{$n->Glat}}.html">{{$n->Gname}}</a></td>
-            <td><a href="/catalog/{{$n->Clat}}">{{$n->Name}}</a></td>
+            <td><a href="/catalog/{{$n->Clat}}.html">{{$n->Name}}</a></td>
 
         </tr>
             @endforeach
