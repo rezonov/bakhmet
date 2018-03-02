@@ -5,5 +5,10 @@
 
 @section ('content')
 
-    123
+    <table class="table">
+        @foreach($)
+        <tr>
+            <td></td>
+        </tr>
+    </table>
 @stop

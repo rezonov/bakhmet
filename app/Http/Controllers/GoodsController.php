@@ -302,7 +302,9 @@ class GoodsController extends Controller
                 ->first();
         }
         dump($Allc);
-        return view('searchpage');
+        return view('searchpage',
+            ['names' => $Allc]
+            );
     }
     public function ShowPublicCatalog($id, $start = 0)
     {
