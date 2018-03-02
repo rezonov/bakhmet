@@ -20,10 +20,11 @@
                                     </div>
                                 @endforeach
                             </div>
+                            @endif
                     </div>
                 </div>
 
-                    @endif
+
                     <script type="text/javascript">
                         function Slick() {
                             $('.variable-width').not('.slick-initialized').slick({
