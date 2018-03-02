@@ -370,3 +370,7 @@ body {
 .slick-slide:nth-child(odd) {
     background: #e84a69;
 }
+
+margintop10 {
+    margin-top:10px;
+}
