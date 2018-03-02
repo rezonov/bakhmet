@@ -282,19 +282,24 @@ class GoodsController extends Controller
 
     public function ShowPublicCatalog($id, $start = 0)
     {
+        $newid = DB::table('catalog')
+            ->where('catalog.latin_name', 'LIKE', $id)
+            -get();
+        dump($newid);
 
         $Seo = DB::table('catalog')
             ->join ('catalogs__seo', 'catalogs__seo.id_catalog','=','catalog.id')
             ->where ('catalog.latin_name', '=', $id)
         ->toSQL();
         $files = array();
+
         $Catalog = DB::table('catalog')
             ->join('goods_catalogs', 'goods_catalogs.id_catalog', '=', 'catalog.id')
             ->join('goods', 'goods_catalogs.id_good', '=', 'goods.id')
             ->groupBy('goods.id')
             ->where('catalog.latin_name', '=', $id)
             ->select('goods.name as name', 'goods.id as id')
-            ->toSQL();
+            ->get();
         dump($Catalog);
         foreach ($Catalog as $Cat) {
             $finalAr[$Cat->id][] = $Cat->id;
