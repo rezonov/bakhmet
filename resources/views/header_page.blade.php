@@ -5,6 +5,8 @@
     <title>@yield('title', 'Торговый дом Бахмет')</title>
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 
+    <meta name="description" content=">@yield('keywords', 'Торговый дом Бахмет')" />
+    <meta name="keywords" content=">@yield('description', 'Торговый дом Бахмет')" />
 
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
