@@ -38,9 +38,9 @@
         function filterTable($table, $col, $min, $max) {
                 var $Cols = [];
                 @foreach($attr as $tr)
-
-                    $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
-
+                        @if ($tr['Fl'] != "Off" )
+                            $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
+                        @endif
                 @endforeach
 
             console.log($Cols);
@@ -48,7 +48,7 @@
             $rows.each(function (rowIndex) {
 
 
-                if($(this).css('display') != 'none') {
+
                     var valid = true;
                     var result = $(this).find('td').eq($col).html();
                     if ((result > $min) && (result < $max)) {
@@ -56,7 +56,7 @@
 
                     } else
                         valid = false;
-                }
+
                 if (valid == false) {
                     $(this).css('display', 'none');
                 } else {
