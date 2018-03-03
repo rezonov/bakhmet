@@ -49,7 +49,7 @@
                 @endforeach
                 var $Tols = [];
 
-            console.log($Cols);
+            console.log($Cols[3]);
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
 
