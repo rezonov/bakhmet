@@ -395,7 +395,7 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['id'] = $item->id;
                 $HeaderAr[$c]['Sh'] = $item->Sh;
                 $HeaderAr[$c]['Fl'] = $item->Fl;
-                if(in_array($item->value, $array)){
+                if(!in_array($item->value, $array)){
                 $ValueArr[$c][] = $item->value;
                     $finalAr[$Cat->id][] = $item->value;
                 } else {
