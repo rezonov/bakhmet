@@ -400,7 +400,7 @@ class GoodsController extends Controller
                     $finalAr[$Cat->id][] = $item->value;
                 } else {
                     $ValueArr[$c][] = '';
-                    $finalAr[$Cat->id][] = $item->value;
+                    $finalAr[$Cat->id][] = '';
                 }
                 $Url[$Cat->id] = $item->latin_name;
 
