@@ -339,7 +339,7 @@ class GoodsController extends Controller
 
     public function ShowPublicCatalog($id, $start = 0)
     {
-
+        $array = array('без двигателя', 'звоните');
 
         $Seo = DB::table('catalog')
             ->join('catalogs__seo', 'catalogs__seo.id_catalog', '=', 'catalog.id')
@@ -395,7 +395,7 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['id'] = $item->id;
                 $HeaderAr[$c]['Sh'] = $item->Sh;
                 $HeaderAr[$c]['Fl'] = $item->Fl;
-                if(($item->value != 'звоните') or ($item->value != 'без двигателя')){
+                if(in_array($item->value, $array)){
                 $ValueArr[$c][] = $item->value;
                     $finalAr[$Cat->id][] = $item->value;
                 } else {
