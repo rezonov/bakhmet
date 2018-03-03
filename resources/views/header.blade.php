@@ -26,8 +26,9 @@
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
 
-                var valid = true;
+
                 if($(this).css('display') != 'none') {
+                    var valid = true;
                 var result = $(this).find('td').eq($col).html();
                 if ((result > $min) && (result < $max)) {
                     valid = true;
