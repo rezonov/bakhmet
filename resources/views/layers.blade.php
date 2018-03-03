@@ -38,9 +38,9 @@
         function filterTable($table, $col, $min, $max) {
                 var $Cols = [];
                 @foreach($attr as $tr)
-                        @if ($tr['Fl'] != "Off")
+
                     $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
-                    @endif
+
                 @endforeach
 
             console.log($Cols);
