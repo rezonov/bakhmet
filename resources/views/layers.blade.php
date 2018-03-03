@@ -51,7 +51,7 @@
                     var result = $(this).find('td').eq($col).html();
                     if ((result > $min) && (result < $max)) {
                         valid = true;
-                        console.log($min + ">" + result + "<" + $max);
+
                     } else
                         valid = false;
                 }
