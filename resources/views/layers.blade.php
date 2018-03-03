@@ -59,12 +59,15 @@
 
 
                     var valid = true;
+                    $Cols.each(function($col)) {
                     var result = $(this).find('td').eq($col).html();
                     if ((result > $min) && (result < $max)) {
                         valid = true;
 
                     } else
                         valid = false;
+                    }
+
 
                 if (valid == false) {
                     $(this).css('display', 'none');
