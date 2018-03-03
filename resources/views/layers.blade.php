@@ -35,9 +35,9 @@
 
                 </div>
     <script>
-        <?php $c=0;?>
-        function filterTable($table, $col, $min, $max) {
 
+        function filterTable($table, $col, $min, $max) {
+                <?php $c=0;?>
                 var $Cols = [];
                 @foreach($attr as $tr)
                 <?php  $c = $c + 1;?>
