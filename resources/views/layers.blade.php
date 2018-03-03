@@ -42,7 +42,12 @@
                     $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
                     @endif
                 @endforeach
-
+                var $Tols = [];
+                @foreach ($attr as $tr)
+                        @if($tr["sh"]!="Off")
+                        $Tols[{{$tr['id']}}]
+                    @endif
+                            @endforeach
             console.log($Cols);
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
