@@ -397,9 +397,13 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['Fl'] = $item->Fl;
                 if(($item->value != 'звоните') or ($item->value != 'без двигателя')){
                 $ValueArr[$c][] = $item->value;
-                } else $ValueArr[$c][] = '';
+                    $finalAr[$Cat->id][] = $item->value;
+                } else {
+                    $ValueArr[$c][] = '';
+                    $finalAr[$Cat->id][] = $item->value;
+                }
                 $Url[$Cat->id] = $item->latin_name;
-                $finalAr[$Cat->id][] = $item->value;
+
                 $c++;
 
 
