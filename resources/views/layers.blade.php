@@ -37,9 +37,10 @@
     <script>
         <?php $c=0;?>
         function filterTable($table, $col, $min, $max) {
-                <?php  $c = $c + 1;?>
+
                 var $Cols = [];
                 @foreach($attr as $tr)
+                <?php  $c = $c + 1;?>
                         @if ($tr['Fl'] != "Off")
                             $Cols[{{$c}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
                         @endif
