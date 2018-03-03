@@ -36,12 +36,14 @@
                 </div>
     <script>
         function filterTable($table, $col, $min, $max) {
+                <?php  $c = $c + 1;?>
                 var $Cols = [];
                 @foreach($attr as $tr)
                         @if ($tr['Fl'] != "Off")
-                    $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
-                    @endif
+                            $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
+                        @endif
                 @endforeach
+
                 var $Tols = [];
 
             console.log($Cols);
