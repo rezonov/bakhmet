@@ -36,11 +36,11 @@
                 </div>
     <script>
         function filterTable($table, $col, $min, $max) {
-
+                var $Cols = [];
             @foreach ($attr as $tr)
-
+            var $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
                 @endforeach
-            var $Cols = $( "#amount-3" ).val().split(' - ');
+
             console.log($Cols);
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
