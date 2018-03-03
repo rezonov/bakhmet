@@ -59,7 +59,7 @@
                 console.log($Cols);
 
                     var valid = true;
-                    $Cols.each(function(col) {
+                    $Cols.forEach(function(col) {
                     var result = $(this).find('td').eq(col).html();
                     if ((result > $min) && (result < $max)) {
                         valid = true;
