@@ -395,7 +395,7 @@ class GoodsController extends Controller
                 $HeaderAr[$c]['id'] = $item->id;
                 $HeaderAr[$c]['Sh'] = $item->Sh;
                 $HeaderAr[$c]['Fl'] = $item->Fl;
-                if(($item->value != 'звоните') or ($item->value <> 'без двигателя')){
+                if(($item->value != 'звоните') or ($item->value != 'без двигателя')){
                 $ValueArr[$c][] = $item->value;
                 } else $ValueArr[$c][] = '';
                 $Url[$Cat->id] = $item->latin_name;
