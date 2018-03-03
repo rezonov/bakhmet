@@ -56,7 +56,7 @@
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
 
-                console.log($Cols[3]);
+                console.log($rows);
 
                     var valid = true;
                     $Cols.each(function(col) {
