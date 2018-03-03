@@ -77,3 +77,33 @@
 
 
 
+<script>
+    $(function () {
+        $('#allcatalog').DataTable({
+            language: {
+                processing: "Traitement en cours...",
+                search: "Поиск",
+                lengthMenu: "Отображать по _MENU_ строк",
+                info: "Показаны с _START_ по _END_ из _TOTAL_ позиций",
+                infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+                infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "В начало",
+                    previous: "Предыдущий",
+                    next: "Следующий",
+                    last: "В конец"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        })
+
+    })
+
+</script>
