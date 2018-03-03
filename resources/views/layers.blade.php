@@ -59,8 +59,8 @@
 
 
                     var valid = true;
-                    $Cols.each(function($col) {
-                    var result = $(this).find('td').eq($col).html();
+                    $Cols.each(function(col) {
+                    var result = $(this).find('td').eq(col).html();
                     if ((result > $min) && (result < $max)) {
                         valid = true;
 
