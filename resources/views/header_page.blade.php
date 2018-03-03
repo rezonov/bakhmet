@@ -50,10 +50,10 @@
                     <div class="col-sm-12">
                         <ul class="nav navbar-nav">
                             <li><a href="#">О нас</a></li>
-                            <li><a href="dostavka.html">Доставка</a></li>
-                            <li><a href="garantii.html">Гарантии</a></li>
-                            <li><a href="contacts.html">Контакты</a></li>
-                            <li><a href="vakansii.html">Вакансии</a></li>
+                            <li><a href="/dostavka.html">Доставка</a></li>
+                            <li><a href="/garantii.html">Гарантии</a></li>
+                            <li><a href="/contacts.html">Контакты</a></li>
+                            <li><a href="/vakansii.html">Вакансии</a></li>
                         </ul>
                     </div>
                 </nav>

@@ -311,9 +311,29 @@ class GoodsController extends Controller
         $Catalog = DB::table('goods_catalogs')
             ->join('goods_attributes', 'goods_attributes.id_good', '=', 'goods_catalogs.id_good')
             ->where('goods_catalogs.id_catalog','=',$id)
-            ->toSQL();
+            ->groupBy(['goods_attributes.id_good','goods_attributes.attributes_id'])
+            ->get();
+        $Header = DB::table('catalogs__attributes')
+            ->join('attributes', 'attributes.id', '=', 'catalogs__attributes.id_attribute')
+            ->where('id_catalog','=', $id)
+            ->orderby('catalogs__attributes.sort')
+             ->get();
 
-        dump($Catalog);
+        $head = array();
+        $FinalAr = array();
+        foreach($Catalog as $item) {
+            $FinalAr[$item->id_good][$item->attributes_id] = $item->value;
+        }
+
+        foreach($Header as $h) {
+            $head[$h->id] = $h;
+        }
+        dump($FinalAr);
+       return view('catalog/index', [
+           'header'=>$head,
+           'data' => $FinalAr
+       ]);
+
     }
     public function ShowPublicCatalog($id, $start = 0)
     {
@@ -748,15 +768,19 @@ class GoodsController extends Controller
     }
 
     public function GetGoodsUrl() {
-        $Allgoods = DB::table('goods')
+        $Allgoods = DB::table('descriptions')
             ->get();
         $translit = array(
             '/' => '_'
         );
         foreach($Allgoods as $AG) {
-            DB::table('goods')
-                ->where('id', "=", $AG->id)
-                ->update(['latin_name' => strtr($AG->latin_name, $translit)]);
+            $data = array (
+                "attributes_id" => 202,
+                "id_good" => $AG->id,
+                "value" => $AG->text
+
+            );
+            DB::table('goods_attributes')->insert($data);
         }
     }
 
