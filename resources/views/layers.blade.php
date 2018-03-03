@@ -44,7 +44,7 @@
                 @endforeach
                 var $Tols = [];
                 @foreach ($attr as $tr)
-                        @if($tr["sh"]!="Off")
+                        @if($tr['sh']!="Off")
                         $Tols[{{$tr['id']}}]
                     @endif
                             @endforeach
