@@ -52,11 +52,11 @@
                 @endforeach
                 var $Tols = [];
 
-            console.log($Cols);
+
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
 
-
+                console.log($Cols[col]);
 
                     var valid = true;
                     $Cols.each(function(col) {
