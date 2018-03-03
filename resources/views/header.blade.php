@@ -25,6 +25,7 @@
 
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
+                if($(this).css('display') != 'none') {
                 var valid = true;
 
                 var result = $(this).find('td').eq($col).html();
@@ -39,7 +40,7 @@
                 } else {
                     $(this).css('display', '');
                 }
-
+                }
 
             });
             console.log('---------');
