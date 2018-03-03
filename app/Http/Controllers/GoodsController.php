@@ -282,13 +282,13 @@ class GoodsController extends Controller
 
     }
 
-    public function Search(Request $request) {
+    public function Search(Request $request)
+    {
         $Database = DB::table('goods')
-
-            -> where ('name', 'LIKE', '%'.$request->word.'%')
+            ->where('name', 'LIKE', '%' . $request->word . '%')
             ->get();
         $Allc = array();
-        foreach($Database as $Db) {
+        foreach ($Database as $Db) {
             $Allc[] = DB::table('catalog as C')
                 ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
                 ->join('goods as G', 'G.id', '=', 'GC.id_good')
@@ -297,44 +297,46 @@ class GoodsController extends Controller
                     'G.name as Gname',
                     'G.latin_name as Glat'
                 )
-                ->where('G.id','=',$Db->id)
+                ->where('G.id', '=', $Db->id)
                 ->groupBy('C.id')
                 ->first();
         }
 
         return view('searchpage',
             ['names' => $Allc]
-            );
+        );
     }
 
-    public function ShowPublicCatalog2($id) {
+    public function ShowPublicCatalog2($id)
+    {
         $Catalog = DB::table('goods_catalogs')
             ->join('goods_attributes', 'goods_attributes.id_good', '=', 'goods_catalogs.id_good')
-            ->where('goods_catalogs.id_catalog','=',$id)
-            ->groupBy(['goods_attributes.id_good','goods_attributes.attributes_id'])
+            ->where('goods_catalogs.id_catalog', '=', $id)
+            ->groupBy(['goods_attributes.id_good', 'goods_attributes.attributes_id'])
             ->get();
         $Header = DB::table('catalogs__attributes')
             ->join('attributes', 'attributes.id', '=', 'catalogs__attributes.id_attribute')
-            ->where('id_catalog','=', $id)
+            ->where('id_catalog', '=', $id)
             ->orderby('catalogs__attributes.sort')
-             ->get();
+            ->get();
 
         $head = array();
         $FinalAr = array();
-        foreach($Catalog as $item) {
+        foreach ($Catalog as $item) {
             $FinalAr[$item->id_good][$item->attributes_id] = $item->value;
         }
 
-        foreach($Header as $h) {
+        foreach ($Header as $h) {
             $head[$h->id] = $h;
         }
         dump($FinalAr);
-       return view('catalog/index', [
-           'header'=>$head,
-           'data' => $FinalAr
-       ]);
+        return view('catalog/index', [
+            'header' => $head,
+            'data' => $FinalAr
+        ]);
 
     }
+
     public function ShowPublicCatalog($id, $start = 0)
     {
 
@@ -378,7 +380,7 @@ class GoodsController extends Controller
                 ->select('attributes.name as name', 'attributes.id as id',
                     'goods_attributes.value as value', 'attributes.name as Gname', 'attributes.type as type', 'catalogs__attributes.sh as Sh', 'catalogs__attributes.fl as Fl', 'catalogs__attributes.sort as Sort',
                     'goods.latin_name'
-                    )
+                )
                 ->where('goods.id', '=', $Cat->id)
                 ->orderBy('catalogs__attributes.sort')
                 ->groupBy('goods_attributes.id')
@@ -420,12 +422,14 @@ class GoodsController extends Controller
         }
         //dump($files);
         for ($i = 2; $i <= count($ValueArr) + 1; $i++) {
-            if (!empty(min($ValueArr[$i]))) {
-                $HeaderAr[$i]['min'] = min($ValueArr[$i]);
-            } else {
-                $HeaderAr[$i]['min'] = 0;
+            if ($ValueArr[$i] != 'звоните' and $ValueArr[$i] != 'без двигателя') {
+                if (!empty(min($ValueArr[$i]))) {
+                    $HeaderAr[$i]['min'] = min($ValueArr[$i]);
+                } else {
+                    $HeaderAr[$i]['min'] = 0;
+                }
+                $HeaderAr[$i]['max'] = max($ValueArr[$i]);
             }
-            $HeaderAr[$i]['max'] = max($ValueArr[$i]);
         }
 
 
@@ -439,7 +443,7 @@ class GoodsController extends Controller
             'descs' => $Descs,
             'Seo' => $Seo,
             'files' => $files,
-            'Url'   => $Url,
+            'Url' => $Url,
             'catalog' => $id
 
         ]);
@@ -755,10 +759,10 @@ class GoodsController extends Controller
             ->get();
 
         foreach ($Allc as $AC) {
-            if($AC->parent != '0') {
+            if ($AC->parent != '0') {
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
-                    ->update(['latin_name' => $this->translit($AC->Cname)."_".$this->translit($AC->CGName)]);
+                    ->update(['latin_name' => $this->translit($AC->Cname) . "_" . $this->translit($AC->CGName)]);
             } else {
                 DB::table('catalog')
                     ->where('id', "=", $AC->id)
@@ -767,14 +771,15 @@ class GoodsController extends Controller
         }
     }
 
-    public function GetGoodsUrl() {
+    public function GetGoodsUrl()
+    {
         $Allgoods = DB::table('descriptions')
             ->get();
         $translit = array(
             '/' => '_'
         );
-        foreach($Allgoods as $AG) {
-            $data = array (
+        foreach ($Allgoods as $AG) {
+            $data = array(
                 "attributes_id" => 202,
                 "id_good" => $AG->id,
                 "value" => $AG->text
@@ -785,20 +790,21 @@ class GoodsController extends Controller
     }
 
 
-    public function GetOneGood($catalog, $url) {
+    public function GetOneGood($catalog, $url)
+    {
         $files = array();
         $Allc = DB::table('catalog as C')
             ->join('goods_catalogs as GC', 'GC.id_catalog', '=', 'C.id')
             ->join('goods as G', 'G.id', '=', 'GC.id_good')
-            ->where('C.latin_name','=',$catalog)
-            ->where('G.latin_name','=',$url)
+            ->where('C.latin_name', '=', $catalog)
+            ->where('G.latin_name', '=', $url)
             ->groupBy('C.id')
             ->first();
 
-       $Attributes = DB::table('attributes as A')
-           ->join('goods_attributes as GA', 'GA.attributes_id', '=', 'A.id')
-           ->where('GA.id_good','=',$Allc->id_good)
-           ->get();
+        $Attributes = DB::table('attributes as A')
+            ->join('goods_attributes as GA', 'GA.attributes_id', '=', 'A.id')
+            ->where('GA.id_good', '=', $Allc->id_good)
+            ->get();
 
         $Descrs = DB::table('descriptions')
             ->select('text', 'file')
@@ -806,7 +812,7 @@ class GoodsController extends Controller
             ->first();
 
         $SEO = DB::table('goods__seo')
-           ->where('id','=', $Allc->id_good)
+            ->where('id', '=', $Allc->id_good)
             ->get();
         if (file_exists(public_path() . '/php/files/' . $Allc->id_good . '/')) {
 
@@ -814,14 +820,13 @@ class GoodsController extends Controller
         }
 
 
-
         return view('onegood', [
             'Attributes' => $Attributes,
             'Descrs' => $Descrs,
-            'SEO'   => $SEO,
-            'name'  => $Allc->name,
+            'SEO' => $SEO,
+            'name' => $Allc->name,
             'files' => $files,
-            'id'    => $Allc->id_good
+            'id' => $Allc->id_good
         ]);
     }
 }
