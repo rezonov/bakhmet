@@ -349,29 +349,7 @@
 
     </div>
     <script>
-        function filterTable($table, $col, $min, $max) {
-
-            var $rows = $('#allcatalog').find('.valuerow');
-            $rows.each(function (rowIndex) {
-                var valid = true;
-
-                var result = $(this).find('td').eq($col).html();
-                if ((result > $min) && (result < $max)) {
-                    valid = true;
-                    console.log($min + ">" + result + "<" + $max);
-                } else
-                    valid = false;
-
-                if (valid == false) {
-                    $(this).css('display', 'none');
-                } else {
-                    $(this).css('display', '');
-                }
-
-
-            });
-            console.log('---------');
-        }
+        
         $(function () {
             $("#container_image").PictureCut({
                 InputOfImageDirectory: "image",
