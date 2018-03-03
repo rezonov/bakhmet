@@ -40,13 +40,16 @@
                 var $Cols = [];
                 @foreach($attr as $tr)
                         @if ($tr['Fl'] != "Off")
-                            $Cols[{{$tr['id']}}] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
+                            $Cols[$c] = $( "#amount-{{$tr['id']}}" ).val().split(' - ');
                         @endif
+
                 @endforeach
 
+                @foreach ($attr as $tr)
+                @endforeach
                 var $Tols = [];
 
-            console.log($Cols);
+            console.log($Cols[2][0]);
             var $rows = $('#allcatalog').find('.valuerow');
             $rows.each(function (rowIndex) {
 
