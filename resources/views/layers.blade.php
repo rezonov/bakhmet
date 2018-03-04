@@ -56,10 +56,11 @@
         var $rows = $('#allcatalog').find('.valuerow');
         $rows.each(function (rowIndex) {
 
-            console.log($Cols);
+
 
             var valid = true;
             $Cols.forEach(function (col) {
+                console.log($Cols[col]);
                 var result = $(this).find('td').eq(col).html();
                 if ((result > $Cols[col][0]) && (result < $Cols[col][1])) {
                     valid = true;
