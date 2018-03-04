@@ -55,13 +55,13 @@
         var $rows = $('#allcatalog').find('.valuerow');
         $rows.each(function (rowIndex) {
 
-
+            var $row = $(this);
 
             var valid = true;
             $Cols.forEach(function (col) {
                 console.log($col);
 
-                var result = $('#allcatalog').find('td').eq($col).html();
+                var result = $row.find('td').eq($col).html();
                 console.log($Cols[$col][0] + ">" + result + " > " +$Cols[$col][1]);
                 if ((result > $Cols[$col][0]) && (result < $Cols[$col][1])) {
                     valid = true;
