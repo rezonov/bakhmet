@@ -58,7 +58,7 @@
             var $row = $(this);
 
             var valid = true;
-            $Cols.forEach(function ($col) {
+            $Cols.forEach(function (col) {
                 console.log($col);
 
                 var result = $row.find('td').eq($col).html();
