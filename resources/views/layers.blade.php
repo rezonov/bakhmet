@@ -48,8 +48,7 @@
 
                 @endforeach
 
-                @foreach ($attr as $tr)
-                @endforeach
+
         var $Tols = [];
 
 
