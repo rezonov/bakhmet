@@ -9,6 +9,7 @@ class ClientsController extends Controller
     //
     public function record(Request $request)
     {
+        dump($request);
         $Users = new Clients();
         $Users->name = $request->name;
         $Users->email = $request->email;
