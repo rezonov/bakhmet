@@ -3,7 +3,7 @@
 
     @foreach($attr as $tr)
         <?php  $c = $c + 1;?>
-        @if ($tr['Fl'] != "Off")
+        @if ($tr['Fl'] != "Off" and $tr['Sh'] != "Off")
             <p>
                 <label for="amount">{{$tr['name']}}</label>
                 <input type="text" id="amount-{{$tr['id']}}" style="border:0; color:#f6931f; font-weight:bold;"/>
