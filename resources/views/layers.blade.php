@@ -63,7 +63,7 @@
                 console.log(i + '------');
                 var result = $row.find('td').eq(i).html();
 
-                console.log($Cols[i][0] + ">" + result + $Cols[i][1]);
+                console.log($Cols[i+1][0] + ">" + result + $Cols[i+1][1]);
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
                     valid = true;
 
