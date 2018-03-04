@@ -58,9 +58,9 @@
             var $row = $(this);
 
             var valid = true;
-            $Cols.forEach(function (col) {
-                console.log($(this));
-                console.log('------');
+            $Cols.forEach(function (col, i) {
+
+                console.log(i + '------');
                 var result = $row.find('td').eq($col).html();
                 console.log($Cols[$col][0] + ">" + result + " > " +$Cols[$col][1]);
                 console.log('------');
