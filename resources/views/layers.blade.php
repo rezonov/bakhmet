@@ -41,7 +41,7 @@
         var $Cols = [];
         @foreach($attr as $tr)
         <?php  $c = $c + 1;?>
-                @if ($tr['Fl'] != "Off" )
+                @if ($tr['Fl'] != "Off" and $tr['Sh'] != "Off" )
 
                     $Cols[{{$c}}] = $("#amount-{{$tr['id']}}").val().split(' - ');
                 @endif
