@@ -60,7 +60,7 @@
             var valid = true;
             $Cols.forEach(function (col) {
                 console.log(col);
-
+                console.log('------');
                 var result = $row.find('td').eq($col).html();
                 console.log($Cols[$col][0] + ">" + result + " > " +$Cols[$col][1]);
                 console.log('------');
