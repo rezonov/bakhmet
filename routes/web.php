@@ -23,7 +23,7 @@ Route::post('/actions/json', 'GoodsController@JsonCatalog');
  */
 Route::get('/{name}.html', 'PagesController@ShowPage' );
 
-Route::post('/sendmail', 'ClientsController@Record');
+Route::post('/sendmail', ['uses' => 'ClientsController@Record']);
 Route::get('/admin', function () {
     return view('admin/dashboard');
 })->middleware('auth');
