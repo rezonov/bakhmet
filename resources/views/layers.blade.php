@@ -62,7 +62,7 @@
                 console.log($col);
 
                 var result = $(this).find('td').eq($col).html();
-                console.log($Cols[$col][0] + ">" + console.log($Cols[$col][1]));
+                console.log($Cols[$col][0] + ">" + result + " > " +$Cols[$col][1]);
                 if ((result > $Cols[$col][0]) && (result < $Cols[$col][1])) {
                     valid = true;
 
