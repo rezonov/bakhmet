@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ClientsController extends Controller
 {
     //
-    public function record(Request $request)
+    public function Record(Request $request)
     {
         dump($request);
         $Users = new Clients();
