@@ -61,8 +61,8 @@
             $Cols.forEach(function (col) {
                 console.log($col);
                 console.log($Cols[$col]);
-                var result = $(this).find('td').eq(col).html();
-                if ((result > $Cols[col][0]) && (result < $Cols[col][1])) {
+                var result = $(this).find('td').eq($col).html();
+                if ((result > $Cols[$col][0]) && (result < $Cols[$col][1])) {
                     valid = true;
 
                 } else
