@@ -61,7 +61,7 @@
             $Cols.forEach(function (col, i) {
 
                 console.log(i + '------');
-                var result = $row.find('td').eq(i+1).html();
+                var result = $row.find('td').eq(i-1).html();
 
                 console.log($Cols[i][0] + ">" + result + $Cols[i][1]);
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
