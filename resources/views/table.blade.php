@@ -12,7 +12,7 @@
 
             @for($i=0;$i<count($header);$i++)
                 @if($header[$i]['Sh'] != 'Off' )
-                    <td data-row="{{$tr[$i]}}">
+                    <td data-row="{{$tr['id']}}">
                         @if ($i==1)
 
                             <a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'block') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
