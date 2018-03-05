@@ -60,7 +60,7 @@
                 var valid = true;
 
 
-                    console.log(ind + $(this).text() + Cols[ind][0]);
+                    console.log(ind + $(this).text() + $Cols[ind][0]);
 
 
 
