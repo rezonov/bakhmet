@@ -66,7 +66,7 @@
                 if(ind[i] >= parseFloat($Cols[i][0]) && ind[i] <= parseFloat($Cols[i][1] +0.1)) {
 
                     valid = true;
-                    console.log(i + ": " + ind[i] + ">=" + $Cols[i][0] + " && " + ind[i] + "<=" + $Cols[i][1] + " = " + (ind[i] >= $Cols[i][0] && ind[i] <= $Cols[i][1]));
+                    console.log(i + ": " + ind[i] + ">=" + $Cols[i][0] + " && " + ind[i] + "<=" + $Cols[i][1] + " = " + (ind[i] >= parseFloat($Cols[i][0]) && ind[i] <= parseFloat($Cols[i][1] +0.1)));
 
                 } else {
                     valid = false;
