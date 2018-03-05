@@ -15,7 +15,7 @@
 
                         @if ($i==1)
 
-                        <td data-row="{{$header[$i]['id']}}"><a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'contents') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
+                        <td data-row="{{$header[$i]['id']}}"><a onClick="if($('#descr{{$tr[0]}}').css('display') == 'none') { $('#descr{{$tr[0]}}').css('display', 'initial') } else { $('#descr{{$tr[0]}}').css('display', 'none') }">{{$tr[$i]}}</a>
                                 <span style="float:right"><a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">Описание</a></span></td>
                         @elseif(!empty($tr[$i]))
                         <td data-row="{{$header[$i]['id']}}">{{trim($tr[$i])}}</td>
