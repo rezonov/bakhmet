@@ -63,7 +63,7 @@
                 if(i > 0) {
                 console.log(i + '------');
 
-                var result = $row.find('td').attr('data.html();
+                var result = $row.find('td').attr('data').html();
 
              //   console.log($Cols[i][0] + ">" + result);
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
