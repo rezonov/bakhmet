@@ -62,7 +62,7 @@
             var valid = true;
             $Cols.forEach(function (item, i) {
 
-
+                if(valid == true) {
                 if(ind[i] >= parseFloat($Cols[i][0]) && ind[i] <= parseFloat($Cols[i][1] +0.1)) {
 
                     valid = true;
@@ -74,7 +74,7 @@
                 }
 
 
-               ;
+                };
 
             });
 
