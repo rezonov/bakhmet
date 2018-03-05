@@ -19,7 +19,7 @@
 
                                 <span style="float:right"><a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">Описание</a></span>
                         @elseif(!empty($tr[$i]))
-                            {{$tr[$i]}}
+                            {{trim($tr[$i])}}
                         @endif
 
 

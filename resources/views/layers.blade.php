@@ -55,13 +55,17 @@
         var $rows = $('#allcatalog').find('.valuerow');
         $rows.each(function (rowIndex) {
             var ind = [];
-            $("td",this).each(function(){
-                 ind[$(this).attr('data-row')] = $(this).text();
+            $("td",this).each(function() {
+                ind[$(this).attr('data-row')] = $(this).text();
+            });
 
+            $Cols.each(function (item, i) {
+
+            })
                 var valid = true;
 
 
-                    console.log(ind + $(this).text() + $Cols[ind][0]);
+                  //  console.log(ind + $(this).text() + $Cols[ind][0]);
 
 
 
