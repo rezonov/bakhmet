@@ -58,9 +58,9 @@
             $("td", this).each(function () {
                 ind[$(this).attr('data-row')] = $(this).text();
             });
-
+            var valid = true;
             $Cols.forEach(function (item, i) {
-                var valid = true;
+
                 console.log(i + ":" + $Cols[i][0] + ">" + ind[i] + " >");
                 if ((ind[i] > $Cols[i][0]) && (ind[i] < $Cols[i][1])) {
                     valid = true;
