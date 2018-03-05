@@ -19,6 +19,8 @@
                                 <span style="float:right"><a href="/good/{{$catalog}}/{{$Url[$tr[0]]}}.html">Описание</a></span></td>
                         @elseif(!empty($tr[$i]))
                         <td data-row="{{$header[$i]['id']}}">{{trim($tr[$i])}}</td>
+                            @else
+                        <td data-row="{{$header[$i]['id']}}"></td>
                         @endif
 
 
