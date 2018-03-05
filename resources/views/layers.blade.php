@@ -62,12 +62,14 @@
             var valid = true;
             $Cols.forEach(function (item, i) {
 
-                console.log(i + ":" + $Cols[i][0] + ">" + ind[i] + " >");
+
                 if ((ind[i] > $Cols[i][0]) && (ind[i] < $Cols[i][1])) {
                     valid = true;
 
                 } else
                     valid = false;
+
+                console.log(i + ":" + $Cols[i][0] + ">" + ind[i] + " >" + $Cols[i][1]);
             })
 
 
