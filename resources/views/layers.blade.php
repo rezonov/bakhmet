@@ -61,10 +61,10 @@
             $Cols.forEach(function (col, i) {
 
                 if(i > 0) {
-           //     console.log(i + '------');
+                console.log(i + '------');
                 var result = $row.find('td').eq(i-1).html();
 
-                console.log($Cols[i][0] + ">" + result);
+             //   console.log($Cols[i][0] + ">" + result);
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
                     valid = true;
 
