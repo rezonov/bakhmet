@@ -64,6 +64,7 @@
                 console.log(valid);
                 if(valid == true) {
                 if ((ind[i] >= $Cols[i][0]) && (ind[i] <= $Cols[i][1])) {
+                    console.log(i + ":" + $Cols[i][0] + "<" + ind[i] + " >" + $Cols[i][1] + " = " + valid);
                     valid = true;
 
                 } else {
@@ -71,7 +72,7 @@
 
                 }
 
-                console.log(i + ":" + $Cols[i][0] + "<" + ind[i] + " >" + $Cols[i][1] + " = " + (ind[i] >= $Cols[i][0]) && (ind[i] <= $Cols[i][1]));
+
                 }
             });
 
