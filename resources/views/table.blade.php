@@ -33,7 +33,7 @@
                 </button>
             </td>
         </tr>
-        <tr id="descr{{$tr[0]}}">
+        <tr id="descr{{$tr[0]}}" style="display: none">
             <td colspan="{{count($tr)}}">
 
                 @if(!empty($descr[$tr[0]]['text']))
