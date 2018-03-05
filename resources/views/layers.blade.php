@@ -61,7 +61,7 @@
             });
             var valid = true;
             $Cols.forEach(function (item, i) {
-
+                console.log(valid);
                 if(valid == true) {
                 if ((ind[i] >= $Cols[i][0]) && (ind[i] <= $Cols[i][1])) {
                     valid = true;
