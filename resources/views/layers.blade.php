@@ -56,13 +56,13 @@
         $rows.each(function (rowIndex) {
 
             var $row = $(this);
-            console.log($Cols[i][0] + ">" + result + $Cols[i][1]);
+
             var valid = true;
             $Cols.forEach(function (col, i) {
 
                 if(i > 0) {
                 console.log(i + '------');
-                var result = $row.find('td').eq(0).html();
+                var result = $row.find('td').eq(i-1).html();
 
 
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
