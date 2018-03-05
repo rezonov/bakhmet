@@ -65,7 +65,7 @@
                     $("td",this).each(function(){
                         console.log(this);
                     });
-                var result = $row.find('td').attr('data').html();
+                var result = $row.find('td').eq(i).html();
 
              //   console.log($Cols[i][0] + ">" + result);
                 if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
