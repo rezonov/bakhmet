@@ -43,7 +43,7 @@
         <?php  $c = $c + 1;?>
                 @if ($tr['Fl'] != "Off" and $tr['Sh'] != "Off" )
 
-                    $Cols[{{$c}}] = $("#amount-{{$tr['id']}}").val().split(' - ');
+                    $Cols[{{$tr['id']}}] = $("#amount-{{$tr['id']}}").val().split(' - ');
                 @endif
 
                 @endforeach
