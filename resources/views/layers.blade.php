@@ -60,16 +60,16 @@
                 var valid = true;
 
 
-                    console.log(ind + $(this));
+                    console.log(ind + $(this).text());
 
 
 
                     //   console.log($Cols[i][0] + ">" + result);
-                    if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
+               /*     if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
                         valid = true;
 
                     } else
-                        valid = false;
+                        valid = false;*/
             });
             var $row = $(this);
 
