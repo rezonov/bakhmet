@@ -62,7 +62,9 @@
 
                 if(i > 0) {
                 console.log(i + '------');
-
+                    $("td",this).each(function(){
+                        console.log(this);
+                    });
                 var result = $row.find('td').attr('data').html();
 
              //   console.log($Cols[i][0] + ">" + result);
