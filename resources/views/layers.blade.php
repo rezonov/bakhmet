@@ -73,7 +73,7 @@
 
                 }
 
-                console.log(i + ": " + ind[i] + ">=" + $Cols[i][0] + " && " + ind[i] + "<=" + $Cols[i][1] + " = " + valid);
+                console.log(i + ": " + ind[i] + ">=" + $Cols[i][0] + " && " + ind[i] + "<=" + $Cols[i][1] + " = " + (ind[i] >= $Cols[i][0] && ind[i] <= $Cols[i][1]));
                ;
 
             });
