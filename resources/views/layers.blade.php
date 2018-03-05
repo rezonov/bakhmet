@@ -59,7 +59,7 @@
                 ind[$(this).attr('data-row')] = $(this).text();
             });
 
-            $Cols.each(function (item, i) {
+            $Cols.forEach(function (item, i) {
 
             })
                 var valid = true;
