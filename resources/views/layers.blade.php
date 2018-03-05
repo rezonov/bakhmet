@@ -60,7 +60,7 @@
             });
 
             $Cols.forEach(function (item, i) {
-                console.log(ind[i] + " >" +$Cols[i][0]);
+                console.log(i + ":" + ind[i] + " >" +$Cols[i][0]);
                 if ((ind[i] > $Cols[i][0]) && (ind[i] < $Cols[i][1])) {
                     valid = true;
 
