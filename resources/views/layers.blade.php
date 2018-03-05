@@ -54,7 +54,9 @@
 
         var $rows = $('#allcatalog').find('.valuerow');
         $rows.each(function (rowIndex) {
-
+            $("td",this).each(function(){
+                console.log(this);
+            });
             var $row = $(this);
 
             var valid = true;
@@ -62,9 +64,7 @@
 
                 if(i > 0) {
                 console.log(i + '------');
-                    $("td",this).each(function(){
-                        console.log(this);
-                    });
+
                 var result = $row.find('td').eq(i).html();
 
              //   console.log($Cols[i][0] + ">" + result);
