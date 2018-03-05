@@ -43,7 +43,7 @@
         <?php  $c = $c + 1;?>
                 @if ($tr['Fl'] != "Off" and $tr['Sh'] != "Off" )
 
-                    $Cols[{{$tr['id']}}] = $("#amount-{{$tr['id']}}").val().split(' - ');
+            $Cols[{{$tr['id']}}] = $("#amount-{{$tr['id']}}").val().split(' - ');
                 @endif
 
                 @endforeach
@@ -55,31 +55,18 @@
         var $rows = $('#allcatalog').find('.valuerow');
         $rows.each(function (rowIndex) {
             var ind = [];
-            $("td",this).each(function() {
+            $("td", this).each(function () {
                 ind[$(this).attr('data-row')] = $(this).text();
             });
 
             $Cols.forEach(function (item, i) {
+                if ((ind[i] > $Cols[i][0]) && (ind[i] < $Cols[i][1])) {
+                    valid = true;
 
+                } else
+                    valid = false;
             })
-                var valid = true;
-
-
-                  //  console.log(ind + $(this).text() + $Cols[ind][0]);
-
-
-
-                    //   console.log($Cols[i][0] + ">" + result);
-               /*     if ((result > $Cols[i][0]) && (result < $Cols[i][1])) {
-                        valid = true;
-
-                    } else
-                        valid = false;*/
-            });
-            var $row = $(this);
-
-
-
+            var valid = true;
 
             if (valid == false) {
                 $(this).css('display', 'none');
@@ -87,8 +74,13 @@
                 $(this).css('display', '');
             }
 
+        });
 
-        };
-        console.log('---------');
+
+
+
+
+    };
+    console.log('---------');
 
 </script>
