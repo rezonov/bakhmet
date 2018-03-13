@@ -91,7 +91,7 @@
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
                 ЗАКАЗАТЬ
             </button>
-            <button type="button" class="btn btn-green" >
+            <button type="button" class="btn btn-green" class="inbasket">
                 В КОРЗИНУ
             </button>
         </div>
@@ -101,4 +101,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('.inbasket').click( function() {
+           alert("here");
+        });
+    </script>
 @stop
