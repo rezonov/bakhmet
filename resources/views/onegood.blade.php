@@ -91,7 +91,7 @@
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
                 ЗАКАЗАТЬ
             </button>
-            <button type="button" class="btn btn-green inbasket" data="{{$id}}">
+            <button type="button" class="btn btn-red inbasket" data="{{$id}}">
                 В КОРЗИНУ
             </button>
         </div>
