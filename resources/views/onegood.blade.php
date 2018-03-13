@@ -91,6 +91,9 @@
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal">
                 ЗАКАЗАТЬ
             </button>
+            <button type="button" class="btn btn-green" >
+                В КОРЗИНУ
+            </button>
         </div>
         <div class="row">
             <div class="col-md-12">
