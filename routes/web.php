@@ -40,6 +40,7 @@ Route::get('/admin/clients/show/{id}', 'ClientsController@ShowClient')->middlewa
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
 Route::post('/admin/catalogs/edit/', ['uses' => 'GoodsController@SaveEditCatalog']);
 Route::get('/дщпшт', 'HomeController@index')->name('home');
+Route::get('/admin/rename', 'GoodsController@RenameText')->middleware('auth');
 Route::get('/admin/catalogs', 'GoodsController@AllCatalogs')->middleware('auth');
 Route::get('/admin/catalog/{id}', 'GoodsController@ShowCatalog')->middleware('auth');;
 Route::get('/admin/catalog/edit/{id}', 'GoodsController@EditCatalogs')->middleware('auth');;
