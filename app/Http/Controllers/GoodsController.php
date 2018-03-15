@@ -841,7 +841,7 @@ class GoodsController extends Controller
             ->select('id', 'text')
             ->get();
         foreach($Texts as $text) {
-            DB::table('catalog')
+            DB::table('descriptions')
                 ->where('id', "=", $text->id)
                 ->update(['text' => preg_replace("/<a href=\".+?\">(.+?)<\/a>/usmi", "$1", $text->text)]);
         }
