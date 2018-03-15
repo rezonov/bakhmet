@@ -835,4 +835,15 @@ class GoodsController extends Controller
             'id' => $Allc->id_good
         ]);
     }
+
+    public function RenameText() {
+        $Texts = DB::table('descriptions')
+            ->select('id', 'text')
+            ->get();
+        foreach($Texts as $text) {
+            DB::table('catalog')
+                ->where('id', "=", $text->id)
+                ->update(['text' => preg_replace("/<a href=\".+?\">(.+?)<\/a>/usmi", "$1", $text->text)]);
+        }
+    }
 }
