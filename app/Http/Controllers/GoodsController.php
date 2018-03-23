@@ -847,7 +847,7 @@ class GoodsController extends Controller
         }
     }
 
-    public function AddCart() {
+    public function AddCart(Request $request) {
         Cart::add('293ad', 'Product 1', 1, 9.99);
         return 'ok';
     }
