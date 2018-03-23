@@ -36,7 +36,7 @@ Route::get('/categories', function (){
 
 Route::get('/admin/clients', 'ClientsController@Show')->middleware('auth');
 Route::get('/admin/clients/show/{id}', 'ClientsController@ShowClient')->middleware('auth');
-Route::post('/cart/add', ['uses' => 'GoodsController@AddCart'])->middleware('auth');
+Route::post('/cart/add', ['uses' => 'GoodsController@AddCart']);
 Route::post('/admin/goods/save/', ['uses' => 'GoodsController@SaveAttr']);
 Route::post('/admin/catalogs/edit/', ['uses' => 'GoodsController@SaveEditCatalog']);
 Route::get('/дщпшт', 'HomeController@index')->name('home');
