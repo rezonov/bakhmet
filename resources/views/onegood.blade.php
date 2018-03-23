@@ -97,7 +97,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                    {{!! Session::getId() }}
+                    {!! Session::getId(); !!}
                 @if(!empty($Descrs->text))  {!! $Descrs->text !!} @endif
             </div>
         </div>
