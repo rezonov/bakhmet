@@ -846,4 +846,9 @@ class GoodsController extends Controller
                 ->update(['text' => preg_replace("/<a href=\".+?\">(.+?)<\/a>/usmi", "$1", $text->text)]);
         }
     }
+
+    public function AddCart() {
+        Cart::add('293ad', 'Product 1', 1, 9.99);
+        return 'ok';
+    }
 }
