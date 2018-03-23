@@ -172,6 +172,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         Klisl\Widgets\WidgetServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
 
     ],
 
@@ -222,7 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class
 
 
 
