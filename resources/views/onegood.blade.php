@@ -97,6 +97,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                    {{!! Session::getId() }}
                 @if(!empty($Descrs->text))  {!! $Descrs->text !!} @endif
             </div>
         </div>
@@ -105,6 +106,14 @@
     <script>
         $('.inbasket').click( function() {
            alert($(this).attr('data'));
+            $.ajax({
+                type: 'POST',
+                url: '/cart/add',
+                data: $('#contactform').serialize(),
+                success: function(result){
+                    console.log(result);
+                }
+            });
         });
     </script>
 @stop
