@@ -849,6 +849,6 @@ class GoodsController extends Controller
 
     public function AddCart() {
         Cart::add('192ao12', 'Product 1', 1, 9.99);
-
+        echo Cart::total();
     }
 }
