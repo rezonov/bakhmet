@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Gloudemans\Shoppingcart\Facades\Cart;
 class GoodsController extends Controller
 {
     //
@@ -848,7 +848,7 @@ class GoodsController extends Controller
     }
 
     public function AddCart() {
-        Cart::add('293ad', 'Product 1', 1, 9.99);
-        return 'ok';
+        Cart::add('192ao12', 'Product 1', 1, 9.99);
+
     }
 }
